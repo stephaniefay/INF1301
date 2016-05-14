@@ -1,0 +1,381 @@
+#if ! defined( GRAFO_ )
+#define GRAFO_
+/***************************************************************************
+*
+*  $MCD Módulo de definição: GRF  Grafo genérico
+*
+*  Arquivo gerado:              GRAFO.H
+*  Letras identificadoras:      GRF
+*
+*  Projeto: INF 1301 Trabalho 4
+*  Gestor:  Grupo Stephanie Fay e Pedro Paulo
+*  Autores: Stephanie Fay, Pedro Paulo
+*
+*  $HA Histórico de evolução:
+*     Versão  Autor    Data         Observações
+*     1       sf    10/out/2013   Primeira versão
+*     2       sf    12/out/2013   Correção de comentários e do protótipo
+*                                   da função GRF_obterCorr
+*     3       pp    25/nov/2013   Adicao dos DEBUGs do código
+*
+*  $ED Descrição do módulo
+*     Implementa grafo genérico que possui arestas, vertices e uma cabeça de grafo.
+*     Podem existir N vertices criados.
+*     Podem existir N arestas relacionando os vertices.
+*     Os grafos possuem uma cabeça encapsulando o seu estado.
+*
+*     Cada elemento do grafo pode armazenar o que desejar.
+*     Cada elemento do grafo referencia o valor que contém.
+*
+*     Cada vértice é uma lista de um só elemento.
+*        Esta lista utiliza o modulo LIS ( ver documentação do Módulo)
+*
+*     O controle da destruição do valor de um elemento a ser excluído
+*        é realizado por uma função fornecida pelo usuário.
+*
+*     A função de liberação dos valores contidos nos elementos deve
+*        assegurar a liberação de todos os espaços referênciados pelo
+*        valor contido em um elemento.
+*
+*     O usuario pode referenciar a informacao armazenada nos vertices da
+*        maneira que desejar a partir da função de comparação passada
+*        por ele.
+*
+***************************************************************************/
+ 
+
+/***** Declarações exportadas pelo módulo *****/
+
+/* Tipo referência para um grafo */
+
+typedef struct GRF_tagGrafo * GRF_tppGrafo ;
+
+/***********************************************************************
+*
+*  $TC Tipo de dados: LIS Condições de retorno
+*
+*
+*  $ED Descrição do tipo
+*     Condições de retorno das funções da lista
+*
+***********************************************************************/
+
+typedef enum {
+
+         GRF_CondRetOK = 0 ,
+               /* Concluiu corretamente */
+
+         GRF_CondRetNaoAchou = 1 ,
+               /* Não encontrou o valor procurado */
+
+         GRF_CondRetFaltouMemoria = 2 ,
+               /* Faltou memória ao tentar criar um elemento de lista */
+   
+         GRF_CondRetGrafoNaoExiste = 3 ,
+               /* Grafo passado por parametro nao existe */
+
+         GRF_CondRetVerticeCorrNaoExiste = 4 ,
+               /* Vertice corrente nao existe */
+
+         GRF_CondRetArestaNaoExiste = 5 ,
+               /* Nao existe aresta entre o vertice corrente e o passado por parametro */
+
+         GRF_CondRetArestaJaExiste = 6 ,
+               /* Ja existe aresta entre o vertice corrente e o passado por parametro */
+
+         GRF_CondRetParamInvalido = 7 ,
+               /* Um ou mais parametros passados para funcao sao invalidos */
+
+      #ifdef _DEBUG
+         GRF_CondRetErroEstrutura = 8 ,
+               /* Indica erro na estrutura do grafo */
+      #endif
+
+   } GRF_tpCondRet ;
+   
+/***********************************************************************
+*
+*  $TC Tipo de dados: GRF Modos de deturpar
+*
+*
+***********************************************************************/
+
+#ifdef _DEBUG
+
+   typedef enum {
+
+         DeturpaEliminaCorr          =  1 ,
+               /* Elimina o elemento corrente da lista */
+
+         DeturpaVerticeNulo          =  2 ,
+               /* Atribui NULL ao elemento da lista Vértice que armazena o vértice corrente */
+
+         DeturpaArestaNulo      =  3 ,
+               /* Atribui NULL ao primeiro elemento da lista Arestas do vértice corrente */
+
+         DeturpaArestaQualquerNulo          =  4 ,
+               /* Atribui NULL a um elemento N da lista Arestas do vértice corrente */
+
+         DeturpaVerticeCorrenteLixo      =  5 ,
+               /* Atribui lixo ao ponteiro para o vértice corrente armazenado na cabeça do grafo */
+
+         DeturparListaVertices            =  6 ,
+               /* Atribui NULL ao ponteiro da lista Vértices. */
+               
+         DeturparTipoEspaco               = 7,
+               /* Tipo do espaço de cabeça != */
+               
+         DeturparCabecaDesalocada         = 8,
+               /* Passar a cabeça desalocada */
+
+   } GRF_tpModosDeturpacao ;
+
+#endif
+
+/***********************************************************************
+*
+*  $FC Função: GRF  &Criar Grafo
+*
+*  $ED Descrição da função
+*     Cria um grafo genérico.
+*     Ao criar o grafo a funcao cria uma cabeca da lista de vertices e inicializa
+*     o ponteiro do vertice corrente com NULL, indicando que ele ainda nao foi definido.
+*
+*  $EP Parâmetros
+*
+*     parmGrafo     - Ponteiro do tipo cabeça de grafo que será inicializado.
+*
+*     pExcluirValor  - ponteiro para a função que processa a
+*                      exclusão de um elemento da lista vertices criada pelo grafo.
+*
+*     pCompareValor - ponteiro para uma função que compara os elementos armazenados
+*                     pelos grafos com os identificadores passados por parametro
+*
+*  $FV Valor retornado
+*     GRF_CondRetFaltouMemoria - faltou memoria ao alocar a cabeca do grafo ou
+*                                a cabeca da lista de vertices
+*     GRF_CondRetOK            - foi alocada a cabeca do grafo e a cabeca da lista
+*                                de vertices corretamente. Assim como o encapsulamento
+*                                das funcoes passadas por parametro.
+*
+***********************************************************************/
+
+GRF_tpCondRet GRF_criarGrafo ( GRF_tppGrafo * parmGrafo ,  
+                               void   ( * ExcluirValor ) ( void * pDado ) ,
+                               int ( * ComparaValor ) ( void * pValorCorr , void * pValorBuscado ) ) ;
+
+/***********************************************************************
+*
+*  $FC Função: GRF  &Ir Vértice
+*
+*  $ED Descrição da função
+*		
+*       Modifica o ponteiro de vertice corrente para o vertice cujo identificador
+*       foi passado por parametro. Esse ponteiro so eh modificado caso vertice
+*       o vertice corrente tenha uma aresta com o vertice requisitado.
+*
+*  $EP Parâmetros
+*
+*     parmGrafo     - Ponteiro do tipo cabeça de grafo.
+*
+*     parmVertice   - Ponteiro para um identificador de vertice
+*
+*  $FV Valor retornado
+*     GRF_CondRetGrafoNaoExiste       - grafo passado por parametro nao eh valido
+*     GRF_CondRetParamInvalido        - identificador do vertice passado por parametro nao eh valido
+*     GRF_CondRetVerticeCorrNaoExiste - vertice corrente nao existe
+*     GRF_CondRetArestaNaoExiste      - aresta para vertice solicitado nao existe
+*     GRF_CondRetOK                   - ponteiro corrente agora aponta para vertice
+*                                       cujo identificador foi passado por parametro
+*
+***********************************************************************/
+
+GRF_tpCondRet GRF_irVertice ( GRF_tppGrafo parmGrafo , void * parmVertice ) ;
+
+/***********************************************************************
+*
+*  $FC Função: GRF  &Cria Vértice
+*
+*  $ED Descrição da função
+*		
+*     Cria um vertice com o dado valor no final da lista vertices.
+*
+*  $EP Parâmetros
+*
+*     parmGrafo     - Ponteiro do tipo cabeça de grafo.
+*
+*     parmValor   - Ponteiro para um identificador de vertice
+*
+*  $FV Valor retornado
+*     GRF_CondRetGrafoNaoExiste       - grafo passado por parametro nao eh valido
+*     GRF_CondRetParamInvalido        - identificador do vertice passado por parametro nao eh valido
+*     GRF_CondRetVerticeCorrNaoExiste - vertice corrente nao existe
+*     GRF_CondRetFaltouMemoria        - nao foi possivel alocar memoria para as estruturas
+*     GRF_CondRetOK                   - vertice foi criado com sucesso
+*
+***********************************************************************/
+
+GRF_tpCondRet GRF_criarVertice ( GRF_tppGrafo parmGrafo , void * parmValor ) ;
+
+/***********************************************************************
+*
+*  $FC Função: GRF  &Destruir Vértice Corrente
+*
+*  $ED Descrição da função
+*		
+*       Destroi o vertice que está sendo apontado pela cabeça de grafo.
+*		Faz as devidas ligações na lista vértices para manter a consistência da mesma.
+*       Vertice corrente passa a ser o primeiro vertice criado.
+*
+*  $EP Parâmetros
+*
+*     parmGrafo     - Ponteiro do tipo cabeça de grafo.
+*
+***********************************************************************/
+
+void GRF_destruirVerticeCorr ( GRF_tppGrafo parmGrafo ) ;
+
+/***********************************************************************
+*
+*  $FC Função: GRF  &Destruir Aresta
+*
+*  $ED Descrição da função
+*		
+*       Destroi a aresta que aponta o vértice corrente ao vértice dado.
+*
+*  $EP Parâmetros
+*
+*     parmGrafo     - Ponteiro do tipo cabeça de grafo.
+*
+*     parmVertice   - Ponteiro para um identificador de vertice
+*
+***********************************************************************/
+
+void GRF_destruirAresta ( GRF_tppGrafo parmGrafo, void * parmVertice ) ;
+
+/***********************************************************************
+*
+*  $FC Função: GRF  &Criar Aresta
+*
+*  $ED Descrição da função
+*		
+*       Cria a aresta que aponta o vértice corrente ao vértice dado.
+*
+*  $EP Parâmetros
+*
+*     parmGrafo     - Ponteiro do tipo cabeça de grafo.
+*
+*     parmVertice   - Ponteiro para um identificador de vertice
+*
+*  $FV Valor retornado
+*     GRF_CondRetGrafoNaoExiste       - grafo passado por parametro nao eh valido
+*     GRF_CondRetParamInvalido        - identificador do vertice passado por parametro nao eh valido
+*     GRF_CondRetVerticeCorrNaoExiste - vertice corrente nao existe
+*     GRF_CondRetFaltouMemoria        - nao foi possivel alocar memoria para as estruturas
+*     GRF_CondRetNaoAchou             - vertice buscado nao foi encontrado
+*     GRF_CondRetOK                   - aresta foi criado com sucesso
+*
+***********************************************************************/
+
+GRF_tpCondRet GRF_criarAresta ( GRF_tppGrafo parmGrafo , void * parmVertice ) ;
+
+/***********************************************************************
+*
+*  $FC Função: GRF  &Destruir Grafo
+*
+*  $ED Descrição da função
+*		
+*       Destroi o grafo dado e libera a memoria ocupada por todas
+*       as suas estruturas.
+*
+*  $EP Parâmetros
+*
+*     parmGrafo     - Ponteiro para um identificador de vertice
+*
+***********************************************************************/
+
+void GRF_destruirGrafo ( GRF_tppGrafo parmGrafo ) ;
+
+/***********************************************************************
+*
+*  $FC Função: GRF  &Obter Vertice Corrente
+*
+*  $ED Descrição da função
+*		
+*       Retorna a informação guardada no vertice corrente
+*
+*  $EP Parâmetros
+*
+*     parmGrafo     - Ponteiro do tipo cabeça de grafo.
+*
+*     ppValor       - Ponteiro para variavel do tipo ponteiro generica
+*
+*  $FV Valor retornado
+*     GRF_CondRetGrafoNaoExiste       - grafo passado por parametro nao eh valido
+*     GRF_CondRetParamInvalido        - ponteiro para variavel que armazenara a informacao
+*                                       retornada eh invalido
+*     GRF_CondRetVerticeCorrNaoExiste - vertice corrente nao existe
+*     GRF_CondRetOK                   - valor obtido com sucesso
+*
+***********************************************************************/
+
+GRF_tpCondRet GRF_obterCorr ( GRF_tppGrafo parmGrafo , void ** ppValor ) ;
+
+/***********************************************************************
+*
+*  $FC Função: GRF  &Verificar um Grafo
+*
+*  $ED Descrição da função
+*     Função da interface de teste.
+*     Verifica completamente um determinada grafo.
+*     Também marca todos os espaços por ela ocupados.
+*
+*  $EP Parâmetros
+*
+*     pGrafoParm    - Ponteiro do tipo cabeça de grafo.
+*
+*  $FV Valor retornado
+*     GRF_CondRetErroEstrutura       - estrutura do grafo passado contem erro
+*     GRF_CondRetOK                   - valor obtido com sucesso
+*
+***********************************************************************/
+
+#ifdef _DEBUG
+
+   GRF_tpCondRet GRF_VerificarGrafo( GRF_tppGrafo pGrafoParm ) ;
+
+#endif
+
+/***********************************************************************
+*
+*  $FC Função: GRF  &Deturpar grafo
+*
+*  $ED Descrição da função
+*     Função da interface de teste.
+*     Corrompe elementos específicos da estrutura da grafo.
+*     Essa função destina-se a preparar os cenários de teste dos
+*     casos de teste utilizados ao testar os verificadores estruturais
+*     do grafo.
+*     Esta função não tem proteção contra erros de uso, consequentemente
+*     poderá levar o programa a ser cancelado pelo sistema operacional.
+*
+*  $EP Parâmetros
+*     $P pGrafoParm  - grafo a ser deturpada
+*     $P ModoDeturpar - identifica como deve ser feita a deturpação
+*                       GRF_tpModosDeturpacao identifica os modos de
+*                       deturpação conhecidos
+*
+***********************************************************************/
+
+#ifdef _DEBUG
+ void GRF_Deturpar( void * pGrafoParm ,
+                      GRF_tpModosDeturpacao ModoDeturpar );
+                      
+#endif
+
+#undef GRAFO_EXT
+
+/********** Fim do módulo de definição: GRF  Grafo genérico **********/
+
+#else
+#endif

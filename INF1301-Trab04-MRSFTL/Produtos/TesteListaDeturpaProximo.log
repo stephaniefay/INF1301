@@ -1,0 +1,111 @@
+
+!!! Inicio dos testes
+!!!      Construto sob teste: ..\Produtos\TRAB4-1.exe
+!!!      Script de teste:     ..\Scripts\TesteListaDeturpaProximo-Voa.script
+
+!!!    0  Linha:     1  // Script:    TesteListaDeturpaProximo-Voa.script 
+!!!    0  Linha:     2  // Autor:     Marcos Rubio, Stephanie Fay e Thiago Lages de Alencar 
+!!!    0  Linha:     3  // Data:      01/jul/2013 
+!!!    0  Linha:     4  // Propósito: Testar lista genérica duplamente encadeada auto-verificavel 
+!!!    0  Linha:     5  // utilizando deturpacao e possivelmente causando programa a voar 
+!!!    0  Linha:     6  // 
+    8  == Inicializar valores
+   41  == Iniciar Contador
+cc>    1  Linha:    44   Não abriu o arquivo "Contador.def"
+>>>    2  Linha:    44  Número de erros de leitura errado. Deveria ser: 0  É: 1
+   46  ==Verifica a memoria antes das alocacoes
+!!!    2  Linha:    47  //Nao deve ter nenhum espaco alocado 
+   50  == Criar a lista 0
+cc>    3  Linha:    51    Linha:   140  Contador "LIS_CriarLista" não existe.
+cc>    4  Linha:    52    Linha:   220  Contador "LIS_InserirElementoAntes" não existe.
+cc>    5  Linha:    53    Linha:   220  Contador "LIS_InserirElementoAntes" não existe.
+cc>    6  Linha:    54    Linha:   220  Contador "LIS_InserirElementoAntes" não existe.
+cc>    7  Linha:    55    Linha:   220  Contador "LIS_InserirElementoAntes" não existe.
+!!!    7  Linha:    57  // Este erro podera fazer o programa voar 
+cc>    8  Linha:    58    Linha:  1076  Contador "LIS_DeturparLista" não existe.
+cc>    9  Linha:    58    Linha:   904  Contador "LIS_DeturparProximoInvalido" não existe.
+cc>   10  Linha:    59    Linha:   654  Contador "LIS_VerificaLista" não existe.
+cc>   11  Linha:    59    Linha:   407  Contador "LIS_IrInicioLista" não existe.
+cc>   12  Linha:    59    Linha:   424  Contador "LIS_IrFinalLista" não existe.
+cc>   13  Linha:    59    Linha:   407  Contador "LIS_IrInicioLista" não existe.
+cc>   14  Linha:    59    Linha:   571  Contador "LIS_VerificaElem" não existe.
+cc>   15  Linha:    59    Linha:   407  Contador "LIS_IrInicioLista" não existe.
+>>>   16  Linha:    59  Encadeamento do No inconsistente. Deveria ser: 78787878  É: 0020C03A
+   61  ==Verifica a memoria depois da liberacao
+!!!   16  Linha:    62  //Devera ter espacos ainda alocados 
+
+!!!  Espaco de dados, id:     8  pValor: 0020C03A  hexa: 3A C0 20 00  E' origem lista  Id suc:     7
+     Id tipo valor: 2  Tamanho: 12  Ativo  Linha onde alocou: 813  Arquivo: 1301-trab04-aajm\fontes\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  F2 1E 22 00 00 00 00 00 00 20 37 01               ò."...... 7.
+
+
+!!!  Espaco de dados, id:     7  pValor: 00221EF2  hexa: F2 1E 22 00  Id ant:     8  Id suc:     6
+     Tipo indefinido  Tamanho: 4  Ativo  Linha onde alocou: 224  Arquivo: 01-trab04-aajm\fontes\testlis.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  77 77 77 00                                       www.
+
+
+!!!  Espaco de dados, id:     6  pValor: 00221DEA  hexa: EA 1D 22 00  Id ant:     7  Id suc:     5
+     Id tipo valor: 2  Tamanho: 12  Ativo  Linha onde alocou: 813  Arquivo: 1301-trab04-aajm\fontes\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  E2 1C 22 00 3A C0 20 00 DA 1B 22 00               â.".:À .Ú.".
+
+
+!!!  Espaco de dados, id:     5  pValor: 00221CE2  hexa: E2 1C 22 00  Id ant:     6  Id suc:     4
+     Tipo indefinido  Tamanho: 5  Ativo  Linha onde alocou: 224  Arquivo: 01-trab04-aajm\fontes\testlis.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  78 70 74 6F 00                                    xpto.
+
+
+!!!  Espaco de dados, id:     4  pValor: 00221BDA  hexa: DA 1B 22 00  Id ant:     5  Id suc:     3
+     Id tipo valor: 2  Tamanho: 12  Ativo  Linha onde alocou: 813  Arquivo: 1301-trab04-aajm\fontes\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  D2 1A 22 00 EA 1D 22 00 CA 19 22 00               Ò.".ê.".Ê.".
+
+
+!!!  Espaco de dados, id:     3  pValor: 00221AD2  hexa: D2 1A 22 00  Id ant:     4  Id suc:     2
+     Tipo indefinido  Tamanho: 7  Ativo  Linha onde alocou: 224  Arquivo: 01-trab04-aajm\fontes\testlis.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  6A 75 6B 69 6C 6F 00                              jukilo.
+
+
+!!!  Espaco de dados, id:     2  pValor: 002219CA  hexa: CA 19 22 00  Id ant:     3  Id suc:     1
+     Id tipo valor: 2  Tamanho: 12  Ativo  Linha onde alocou: 813  Arquivo: 1301-trab04-aajm\fontes\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  C2 18 22 00 DA 1B 22 00 00 00 00 00               Â.".Ú.".....
+
+
+!!!  Espaco de dados, id:     1  pValor: 002218C2  hexa: C2 18 22 00  Id ant:     2  Id suc:     0
+     Tipo indefinido  Tamanho: 7  Ativo  Linha onde alocou: 224  Arquivo: 01-trab04-aajm\fontes\testlis.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  66 65 66 72 66 74 00                              fefrft.
+
+
+!!!  Espaco de dados, id:     0  pValor: 0020BFAA  hexa: AA BF 20 00  Id ant:     1  E' final lista
+     Id tipo valor: 1  Tamanho: 20  Ativo  Linha onde alocou: 143  Arquivo: 1301-trab04-aajm\fontes\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  3A C0 20 00 CA 19 22 00 3A C0 20 00 04 00 00 00   :À .Ê.".:À .....
+    010  40 40 36 01                                       @@6.
+
+   65  == Terminar testes
+!!!   16  Linha:    69  // fim 
+
+!!! Número de linhas lidas:          69
+!!! Número de casos de teste:         6
+!!! Número comandos corretos:        38
+!!! Número de falhas encontradas:    16
+
+!!! Foram encontrados problemas
+
+
+!!! Numero de espacos ainda alocados: 9

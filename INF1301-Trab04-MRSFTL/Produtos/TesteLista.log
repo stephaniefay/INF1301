@@ -1,0 +1,135 @@
+
+!!! Inicio dos testes
+!!!      Construto sob teste: ..\Produtos\TRAB4-1.exe
+!!!      Script de teste:     ..\Scripts\TesteLista.script
+
+!!!    0  Linha:     1  // Script:    TesteLista.script 
+!!!    0  Linha:     2  // Autor:     Marcos Rubio, Stephanie Fay e Thiago Lages de Alencar 
+!!!    0  Linha:     3  // Data:      01/jul/2013 
+!!!    0  Linha:     4  // Propósito: Testar o módulo lista genérica duplamente encadeada e forçar erros. 
+!!!    0  Linha:     5  // 
+    7  == Inicializar valores
+   32  == Iniciar Contador
+cc>    1  Linha:    35   Não abriu o arquivo "Contador.def"
+>>>    2  Linha:    35  Número de erros de leitura errado. Deveria ser: 0  É: 1
+   37  == Criar a lista 0
+cc>    3  Linha:    38    Linha:   140  Contador "LIS_CriarLista" não existe.
+   40  == Verificar ObterValor relativo a lista vazia
+cc>    4  Linha:    41    Linha:   385  Contador "LIS_ObterValor" não existe.
+   43  == Inserir elemento em lista vazia
+cc>    5  Linha:    44    Linha:   220  Contador "LIS_InserirElementoAntes" não existe.
+cc>    6  Linha:    45    Linha:   385  Contador "LIS_ObterValor" não existe.
+   47  == Inserir elemento após primeiro
+cc>    7  Linha:    48    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>    8  Linha:    49    Linha:   385  Contador "LIS_ObterValor" não existe.
+   51  == Inserir elemento antes do último
+cc>    9  Linha:    52    Linha:   220  Contador "LIS_InserirElementoAntes" não existe.
+cc>   10  Linha:    53    Linha:   385  Contador "LIS_ObterValor" não existe.
+   55  == Excluir elemento do meio
+cc>   11  Linha:    56    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   12  Linha:    57    Linha:   338  Contador "LIS_ExcluirElemento" não existe.
+   59  == Excluir elemento do início
+cc>   13  Linha:    60    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   14  Linha:    61    Linha:   338  Contador "LIS_ExcluirElemento" não existe.
+   63  == Excluir elemento final, único
+cc>   15  Linha:    64    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   16  Linha:    65    Linha:   338  Contador "LIS_ExcluirElemento" não existe.
+   67  == Ver se a lista ficou vazia
+cc>   17  Linha:    68    Linha:   385  Contador "LIS_ObterValor" não existe.
+   70  == Destruir a lista
+cc>   18  Linha:    71    Linha:   170  Contador "LIS_DestruirLista" não existe.
+cc>   19  Linha:    71    Linha:   192  Contador "LIS_EsvaziarLista" não existe.
+   73  == Criar uma lista com dois elementos
+cc>   20  Linha:    74    Linha:   140  Contador "LIS_CriarLista" não existe.
+cc>   21  Linha:    75    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>   22  Linha:    76    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+   78  == Esvaziar a lista e ver se ficou vazia
+cc>   23  Linha:    79    Linha:   192  Contador "LIS_EsvaziarLista" não existe.
+cc>   24  Linha:    80    Linha:   385  Contador "LIS_ObterValor" não existe.
+   82  == Destruir a lista
+cc>   25  Linha:    83    Linha:   170  Contador "LIS_DestruirLista" não existe.
+cc>   26  Linha:    83    Linha:   192  Contador "LIS_EsvaziarLista" não existe.
+   85  == Criar uma lista com quatro elementos
+cc>   27  Linha:    86    Linha:   140  Contador "LIS_CriarLista" não existe.
+cc>   28  Linha:    87    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>   29  Linha:    88    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>   30  Linha:    89    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>   31  Linha:    90    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+   92  == Verificar a lista de trás para diante
+cc>   32  Linha:    93    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   33  Linha:    94    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   34  Linha:    95    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   35  Linha:    96    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   36  Linha:    97    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   37  Linha:    98    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   38  Linha:    99    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   39  Linha:   100    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+  102  == Verificar a lista de frente para trás
+cc>   40  Linha:   103    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   41  Linha:   104    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   42  Linha:   105    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   43  Linha:   106    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   44  Linha:   107    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   45  Linha:   108    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   46  Linha:   109    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   47  Linha:   110    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+  112  == Verificar a lista andando demais de trás para diante
+cc>   48  Linha:   113    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   49  Linha:   114    Linha:   385  Contador "LIS_ObterValor" não existe.
+  116  == Verificar a lista andando demais de frente para trás
+cc>   50  Linha:   117    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   51  Linha:   118    Linha:   385  Contador "LIS_ObterValor" não existe.
+  120  == Destruir a lista
+cc>   52  Linha:   121    Linha:   170  Contador "LIS_DestruirLista" não existe.
+cc>   53  Linha:   121    Linha:   192  Contador "LIS_EsvaziarLista" não existe.
+  123  == Criar uma lista 3
+cc>   54  Linha:   124    Linha:   140  Contador "LIS_CriarLista" não existe.
+  126  == Avançar numa lista vazia
+cc>   55  Linha:   127    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+>>>   56  Linha:   127  Condicao de retorno errada ao avancar Deveria ser: 0  É: 1
+<<<   55  Linha:   128  Falha esperada foi recuperada. 
+cc>   56  Linha:   129    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+  131  == Inserir Elementos na lista
+cc>   57  Linha:   132    Linha:   220  Contador "LIS_InserirElementoAntes" não existe.
+cc>   58  Linha:   133    Linha:   220  Contador "LIS_InserirElementoAntes" não existe.
+cc>   59  Linha:   134    Linha:   220  Contador "LIS_InserirElementoAntes" não existe.
+cc>   60  Linha:   135    Linha:   220  Contador "LIS_InserirElementoAntes" não existe.
+  138  == Criar uma lista 4
+cc>   61  Linha:   139    Linha:   140  Contador "LIS_CriarLista" não existe.
+  140  == Inserir quatro elementos nas listas 3 e 4 de forma inversa
+cc>   62  Linha:   141    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>   63  Linha:   142    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>   64  Linha:   143    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>   65  Linha:   144    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+  146  == Obter Valores para verificar  insercao em ambos os sentidos
+cc>   66  Linha:   147    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   67  Linha:   148    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   68  Linha:   150    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   69  Linha:   151    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   70  Linha:   153    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   71  Linha:   154    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   72  Linha:   156    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   73  Linha:   157    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   74  Linha:   159    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   75  Linha:   160    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   76  Linha:   162    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   77  Linha:   163    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   78  Linha:   165    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   79  Linha:   166    Linha:   385  Contador "LIS_ObterValor" não existe.
+  168  == Destruir listas
+cc>   80  Linha:   169    Linha:   170  Contador "LIS_DestruirLista" não existe.
+cc>   81  Linha:   169    Linha:   192  Contador "LIS_EsvaziarLista" não existe.
+cc>   82  Linha:   170    Linha:   170  Contador "LIS_DestruirLista" não existe.
+cc>   83  Linha:   170    Linha:   192  Contador "LIS_EsvaziarLista" não existe.
+  174  == Terminar testes
+!!!   83  Linha:   178  // fim 
+
+!!! Número de linhas lidas:         179
+!!! Número de casos de teste:        29
+!!! Número comandos corretos:        98
+!!! Número de falhas encontradas:    83
+
+!!! Foram encontrados problemas
+
+
+!!! Numero de espacos ainda alocados: 0

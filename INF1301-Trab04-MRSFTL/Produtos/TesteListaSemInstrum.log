@@ -1,0 +1,131 @@
+
+!!! Inicio dos testes
+!!!      Construto sob teste: ..\Produtos\TRAB4-2.exe
+!!!      Script de teste:     ..\Scripts\TesteListaSemInstrum.script
+
+!!!    0  Linha:     1  // Script:    TesteListaSemInstrumentacao.script 
+!!!    0  Linha:     2  // Autor:     Marcos Rubio, Stephanie Fay e Thiago Lages de Alencar 
+!!!    0  Linha:     3  // Data:      01/jul/2013 
+!!!    0  Linha:     4  // Propósito: Testar o módulo lista genérica duplamente encadeada e forçar erros. 
+!!!    0  Linha:     5  // 
+    7  == Inicializar valores
+   28  == Criar a lista 0
+cc>    1  Linha:    29   Contadores ainda não foram inicializados.
+   31  == Verificar ObterValor relativo a lista vazia
+cc>    2  Linha:    32   Contadores ainda não foram inicializados.
+   34  == Inserir elemento em lista vazia
+cc>    3  Linha:    35   Contadores ainda não foram inicializados.
+cc>    4  Linha:    36   Contadores ainda não foram inicializados.
+   38  == Inserir elemento após primeiro
+cc>    5  Linha:    39   Contadores ainda não foram inicializados.
+cc>    6  Linha:    40   Contadores ainda não foram inicializados.
+   42  == Inserir elemento antes do último
+cc>    7  Linha:    43   Contadores ainda não foram inicializados.
+cc>    8  Linha:    44   Contadores ainda não foram inicializados.
+   46  == Excluir elemento do meio
+cc>    9  Linha:    47   Contadores ainda não foram inicializados.
+cc>   10  Linha:    48   Contadores ainda não foram inicializados.
+   50  == Excluir elemento do início
+cc>   11  Linha:    51   Contadores ainda não foram inicializados.
+cc>   12  Linha:    52   Contadores ainda não foram inicializados.
+   54  == Excluir elemento final, único
+cc>   13  Linha:    55   Contadores ainda não foram inicializados.
+cc>   14  Linha:    56   Contadores ainda não foram inicializados.
+   58  == Ver se a lista ficou vazia
+cc>   15  Linha:    59   Contadores ainda não foram inicializados.
+   61  == Destruir a lista
+cc>   16  Linha:    62   Contadores ainda não foram inicializados.
+cc>   17  Linha:    62   Contadores ainda não foram inicializados.
+   64  == Criar uma lista com dois elementos
+cc>   18  Linha:    65   Contadores ainda não foram inicializados.
+cc>   19  Linha:    66   Contadores ainda não foram inicializados.
+cc>   20  Linha:    67   Contadores ainda não foram inicializados.
+   69  == Esvaziar a lista e ver se ficou vazia
+cc>   21  Linha:    70   Contadores ainda não foram inicializados.
+cc>   22  Linha:    71   Contadores ainda não foram inicializados.
+   73  == Destruir a lista
+cc>   23  Linha:    74   Contadores ainda não foram inicializados.
+cc>   24  Linha:    74   Contadores ainda não foram inicializados.
+   76  == Criar uma lista com quatro elementos
+cc>   25  Linha:    77   Contadores ainda não foram inicializados.
+cc>   26  Linha:    78   Contadores ainda não foram inicializados.
+cc>   27  Linha:    79   Contadores ainda não foram inicializados.
+cc>   28  Linha:    80   Contadores ainda não foram inicializados.
+cc>   29  Linha:    81   Contadores ainda não foram inicializados.
+   83  == Verificar a lista de trás para diante
+cc>   30  Linha:    84   Contadores ainda não foram inicializados.
+cc>   31  Linha:    85   Contadores ainda não foram inicializados.
+cc>   32  Linha:    86   Contadores ainda não foram inicializados.
+cc>   33  Linha:    87   Contadores ainda não foram inicializados.
+cc>   34  Linha:    88   Contadores ainda não foram inicializados.
+cc>   35  Linha:    89   Contadores ainda não foram inicializados.
+cc>   36  Linha:    90   Contadores ainda não foram inicializados.
+cc>   37  Linha:    91   Contadores ainda não foram inicializados.
+   93  == Verificar a lista de frente para trás
+cc>   38  Linha:    94   Contadores ainda não foram inicializados.
+cc>   39  Linha:    95   Contadores ainda não foram inicializados.
+cc>   40  Linha:    96   Contadores ainda não foram inicializados.
+cc>   41  Linha:    97   Contadores ainda não foram inicializados.
+cc>   42  Linha:    98   Contadores ainda não foram inicializados.
+cc>   43  Linha:    99   Contadores ainda não foram inicializados.
+cc>   44  Linha:   100   Contadores ainda não foram inicializados.
+cc>   45  Linha:   101   Contadores ainda não foram inicializados.
+  103  == Verificar a lista andando demais de trás para diante
+cc>   46  Linha:   104   Contadores ainda não foram inicializados.
+cc>   47  Linha:   105   Contadores ainda não foram inicializados.
+  107  == Verificar a lista andando demais de frente para trás
+cc>   48  Linha:   108   Contadores ainda não foram inicializados.
+cc>   49  Linha:   109   Contadores ainda não foram inicializados.
+  111  == Destruir a lista
+cc>   50  Linha:   112   Contadores ainda não foram inicializados.
+cc>   51  Linha:   112   Contadores ainda não foram inicializados.
+  114  == Criar uma lista 3
+cc>   52  Linha:   115   Contadores ainda não foram inicializados.
+  117  == Avançar numa lista vazia
+cc>   53  Linha:   118   Contadores ainda não foram inicializados.
+>>>   54  Linha:   118  Condicao de retorno errada ao avancar Deveria ser: 0  É: 1
+<<<   53  Linha:   119  Falha esperada foi recuperada. 
+cc>   54  Linha:   120   Contadores ainda não foram inicializados.
+  122  == Inserir Elementos na lista
+cc>   55  Linha:   123   Contadores ainda não foram inicializados.
+cc>   56  Linha:   124   Contadores ainda não foram inicializados.
+cc>   57  Linha:   125   Contadores ainda não foram inicializados.
+cc>   58  Linha:   126   Contadores ainda não foram inicializados.
+  129  == Criar uma lista 4
+cc>   59  Linha:   130   Contadores ainda não foram inicializados.
+  131  == Inserir quatro elementos nas listas 3 e 4 de forma inversa
+cc>   60  Linha:   132   Contadores ainda não foram inicializados.
+cc>   61  Linha:   133   Contadores ainda não foram inicializados.
+cc>   62  Linha:   134   Contadores ainda não foram inicializados.
+cc>   63  Linha:   135   Contadores ainda não foram inicializados.
+  137  == Obter Valores para verificar  insercao em ambos os sentidos
+cc>   64  Linha:   138   Contadores ainda não foram inicializados.
+cc>   65  Linha:   139   Contadores ainda não foram inicializados.
+cc>   66  Linha:   141   Contadores ainda não foram inicializados.
+cc>   67  Linha:   142   Contadores ainda não foram inicializados.
+cc>   68  Linha:   144   Contadores ainda não foram inicializados.
+cc>   69  Linha:   145   Contadores ainda não foram inicializados.
+cc>   70  Linha:   147   Contadores ainda não foram inicializados.
+cc>   71  Linha:   148   Contadores ainda não foram inicializados.
+cc>   72  Linha:   150   Contadores ainda não foram inicializados.
+cc>   73  Linha:   151   Contadores ainda não foram inicializados.
+cc>   74  Linha:   153   Contadores ainda não foram inicializados.
+cc>   75  Linha:   154   Contadores ainda não foram inicializados.
+cc>   76  Linha:   156   Contadores ainda não foram inicializados.
+cc>   77  Linha:   157   Contadores ainda não foram inicializados.
+  159  == Destruir listas
+cc>   78  Linha:   160   Contadores ainda não foram inicializados.
+cc>   79  Linha:   160   Contadores ainda não foram inicializados.
+cc>   80  Linha:   161   Contadores ainda não foram inicializados.
+cc>   81  Linha:   161   Contadores ainda não foram inicializados.
+!!!   81  Linha:   163  // fim 
+
+!!! Número de linhas lidas:         163
+!!! Número de casos de teste:        27
+!!! Número comandos corretos:        91
+!!! Número de falhas encontradas:    81
+
+!!! Foram encontrados problemas
+
+
+!!! Numero de espacos ainda alocados: 0

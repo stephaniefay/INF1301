@@ -1,0 +1,113 @@
+// Script:    TesteGrafo.script
+// Autor:     sf - Stehanie Fay
+//	      pp - Pedro Paulo
+// Data:      18/out/2013
+// Propósito: Script para testar a construção de grafos.
+//
+
+
+== Inicializar valores
+=declararparm  gra0     int 0
+=declararparm  gra1     int 1
+=declararparm  gra2     int 2
+=declararparm  gra3     int 3
+=declararparm  gra4     int 4
+
+=declararparm  NomeA    string   "Stephanie"
+=declararparm  NomeB    string   "Pedro"
+=declararparm  NomeC    string   "Thiago"
+=declararparm  NomeD    string   "Rubio"
+=declararparm  TipoA    string   "antecessor"
+=declararparm  TipoS    string   "sucessor"
+
+=declararparm  OK          int 0
+=declararparm  NaoAchou    int 1 
+=declararparm  Memoria     int 2
+=declararparm  NaoGrafo    int 3
+=declararparm  NaoVertice  int 4
+=declararparm  NaoAresta   int 5
+=declararparm  IsAresta    int 6
+=declararparm  ParmInval   int 7
+
+// Inicio dos testes
+
+==Criar o grafo 0
+=criargrafo    gra0
+
+== Verificar ObterValor relativo ao grafo vazio
+=obtervalor    gra0  NomeA    NaoGrafo
+
+== Criar vertices no grafo e obter seus valores
+=criarvertice  gra0  NomeA    1       OK
+=obtervalor    gra0  NomeA    OK
+=criarvertice  gra0  NomeB    2       OK
+=obtervalor    gra0  NomeB    OK
+=criarvertice  gra0  NomeC    3       OK
+=obtervalor    gra0  NomeC    OK
+
+== Criar aresta no grafo
+=criararesta   gra0   1   TipoA   OK
+
+== Percorrer grafo
+=irvertice     gra0  1    OK
+=irvertice     gra0  2    OK
+=irvertice     gra0  3    OK
+
+== Criar novo vertice e ligar a outro ja existente
+=criarvertice  gra0  NomeD    4     OK
+=obtervalor    gra0  NomeD          OK
+=criararesta   gra0  3       TipoS  OK
+=irvertice     gra0  4              OK
+
+== Deletar aresta, criar outra relacao e passear no grafo
+=destruiraresta   gra0  1    3          OK
+=irvertice        gra0  2               OK
+=criararesta      gra0  4       TipoA   OK
+=irvertice        gra0  4       	OK
+=criararesta      gra0  3       TipoS	OK
+=irvertice        gra0  3       	OK
+=irvertice        gra0  4       	OK
+
+== Deletar vertice
+=destruirvertice  gra0  OK
+
+== Deleta o primeiro vertice inserido no grafo
+=irvertice     gra0      1    OK
+=destruirvertice  gra0  OK
+
+== Destroi o grafo
+=destruirgrafo gra0
+=obtervalor    gra0  NomeA    NaoGrafo
+
+== Cria 5 grafos
+=criargrafo    gra0
+=criargrafo    gra1
+=criargrafo    gra2
+=criargrafo    gra3
+=criargrafo    gra4
+
+== Criar um vertice em cada grafo
+=criarvertice  gra0  NomeA    1      OK
+=criarvertice  gra1  NomeB    1      OK
+=criarvertice  gra2  NomeC    1      OK
+=criarvertice  gra3  NomeD    1      OK
+=criarvertice  gra4  NomeA    1      OK
+
+
+== Checando se os vertices foram criados corretamente
+=obtervalor   gra0  NomeA    OK
+=obtervalor   gra1  NomeB    OK
+=obtervalor   gra2  NomeC    OK
+=obtervalor   gra3  NomeD    OK
+=obtervalor   gra4  NomeA    OK
+
+
+== Destruindo todos os grafos
+=destruirgrafo gra0
+=destruirgrafo gra1
+=destruirgrafo gra2
+=destruirgrafo gra3
+=destruirgrafo gra4
+
+
+//fim

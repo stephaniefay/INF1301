@@ -1,0 +1,1 @@
+..\Produtos\DEBUG\Trab04-1.exe /s..\Scripts\TesteGrafo.script /l..\Documentacao\logGrafoDEBUG.txt

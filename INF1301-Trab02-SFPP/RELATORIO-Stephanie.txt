@@ -1,0 +1,23 @@
+Aluno: 	   Stephanie Magalhães Fay
+Matrícula: 1121598
+
+Data: 10/out/2013  - Horário de Trabalho:  15h-20h
+Ações:
+	-Estudo dos Módulos
+	-Inicio do desenvolvimento do projeto
+	-Pesquisas para amplo entendimento
+	-Inicio da codificação do módulo Vertice
+
+Data: 11/out/2013  - Horário de Trabalho:  15h-17h
+Ações:
+	-Finalização do módulo Vertice
+	-Criação do TSTVER.c
+	-Inicio da organização do Script de teste
+Data: 17/out/2013  - Horário de Trabalho:  15h-17h
+Ações:
+	-Inicio do Desenvolvimento do Módulo Grafo
+Data: 18/out/2013  - Horário de Trabalho:  15h-01h
+Ações:
+	-Finalização do Módulo Grafo
+	-Arrumação de alguns scripts
+	-Teste geral do módulo Grafo

@@ -1,0 +1,1 @@
+..\Produto\TRAB2-3.exe /s..\Script\TesteGrafo.script /l..\Documentacao\logGrafo.txt

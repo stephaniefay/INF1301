@@ -1,0 +1,46 @@
+// Script:    Testeverfo.script
+// Autor:     sf - Stehanie Fay
+//	      pp - Pedro Paulo
+// Data:      18/out/2013
+// Propósito: Script para testar a construção de vertices.
+//
+
+
+== Inicializar valores
+=declararparm  ver0     int 0
+=declararparm  ver1     int 1
+=declararparm  ver2     int 2
+=declararparm  ver3     int 3
+=declararparm  ver4     int 4
+
+=declararparm  NomeA    string   "Stephanie"
+=declararparm  NomeB    string   "Pedro"
+=declararparm  NomeC    string   "Thiago"
+=declararparm  NomeD    string   "Rubio"
+
+
+=declararparm  OK          int 0
+=declararparm  NaoAchou    int 1 
+=declararparm  Memoria     int 2
+=declararparm  NaoExiste   int 3
+=declararparm  ParmInval   int 4
+
+// Inicio dos testes
+
+==Criar o vertices
+=criarvertice    ver0   2   OK
+=criarvertice    ver1   4   OK
+=criarvertice    ver2   6   OK
+=criarvertice    ver3   8   OK
+=criarvertice    ver4   10  OK
+
+
+==Destruir Vertices
+=destroivertice  ver0
+=destroivertice  ver1
+=destroivertice  ver2
+=destroivertice  ver3
+=destroivertice  ver4
+
+
+//fim

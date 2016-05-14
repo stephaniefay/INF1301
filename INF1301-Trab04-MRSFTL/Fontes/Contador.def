@@ -1,0 +1,25 @@
+// Definição dos Contadores
+
+LIS_CriarLista
+LIS_DestruirLista
+LIS_EsvaziarLista
+LIS_InserirElementoAntes
+LIS_InserirElementoApos
+LIS_ExcluirElemento
+LIS_ObterValor
+LIS_IrInicioLista
+LIS_IrFinalLista
+LIS_AvancarElementoCorrente
+LIS_VerificaElem
+LIS_VerificaLista
+LIS_DeturparLista
+LIS_DeturparEliminaCorrenteLista
+LIS_DeturparElemProximo
+LIS_DeturparElemAnterior
+LIS_DeturparProximoInvalido
+LIS_DeturparAnteriorInvalido
+LIS_DeturparValorElem
+LIS_DeturparEstruturaCorrente
+LIS_DeturparElemCorrente
+LIS_DeturparRefCorrente
+LIS_DeturparInicioLista

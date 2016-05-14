@@ -1,0 +1,309 @@
+
+!!! Inicio dos testes
+!!!      Construto sob teste: ..\Produtos\TRAB4-1.exe
+!!!      Script de teste:     ..\Scripts\TesteListaDeturpa.script
+
+!!!    0  Linha:     1  // Script:    TesteListaDeturpa.script 
+!!!    0  Linha:     2  // Autor:     Marcos Rubio, Stephanie Fay e Thiago Lages de Alencar 
+!!!    0  Linha:     3  // Data:      01/jul/2013 
+!!!    0  Linha:     4  // Propósito: Testar lista genérica duplamente encadeada auto-verificavel utilizando deturpacao 
+!!!    0  Linha:     5  // 
+    7  == Inicializar valores
+   50  == Iniciar Contador
+cc>    1  Linha:    53   Não abriu o arquivo "Contador.def"
+>>>    2  Linha:    53  Número de erros de leitura errado. Deveria ser: 0  É: 1
+   56  ==Verifica a memoria antes das alocacoes
+!!!    2  Linha:    57  //Nao deve ter nenhum espaco alocado 
+   60  == Criar a lista 0
+cc>    3  Linha:    61    Linha:   140  Contador "LIS_CriarLista" não existe.
+   63  == Verificar ObterValor relativo a lista vazia
+cc>    4  Linha:    64    Linha:   385  Contador "LIS_ObterValor" não existe.
+   66  == Inserir elemento em lista vazia
+cc>    5  Linha:    67    Linha:   220  Contador "LIS_InserirElementoAntes" não existe.
+cc>    6  Linha:    68    Linha:   385  Contador "LIS_ObterValor" não existe.
+   70  == Inserir elemento após primeiro
+cc>    7  Linha:    71    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>    8  Linha:    72    Linha:   385  Contador "LIS_ObterValor" não existe.
+   74  == Inserir elemento antes do último
+cc>    9  Linha:    75    Linha:   220  Contador "LIS_InserirElementoAntes" não existe.
+cc>   10  Linha:    76    Linha:   385  Contador "LIS_ObterValor" não existe.
+   78  == Excluir elemento do meio
+cc>   11  Linha:    79    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   12  Linha:    80    Linha:   338  Contador "LIS_ExcluirElemento" não existe.
+   82  == Excluir elemento do início
+cc>   13  Linha:    83    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   14  Linha:    84    Linha:   338  Contador "LIS_ExcluirElemento" não existe.
+   86  == Excluir elemento final, único
+cc>   15  Linha:    87    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   16  Linha:    88    Linha:   338  Contador "LIS_ExcluirElemento" não existe.
+   90  == Ver se a lista ficou vazia
+cc>   17  Linha:    91    Linha:   385  Contador "LIS_ObterValor" não existe.
+   93  == Destruir lista
+cc>   18  Linha:    94    Linha:   170  Contador "LIS_DestruirLista" não existe.
+cc>   19  Linha:    94    Linha:   192  Contador "LIS_EsvaziarLista" não existe.
+   97  == Criar uma lista com dois elementos
+cc>   20  Linha:    98    Linha:   140  Contador "LIS_CriarLista" não existe.
+cc>   21  Linha:    99    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>   22  Linha:   100    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+  102  == Esvaziar a lista e ver se ficou vazia
+cc>   23  Linha:   103    Linha:   192  Contador "LIS_EsvaziarLista" não existe.
+cc>   24  Linha:   104    Linha:   385  Contador "LIS_ObterValor" não existe.
+  106  == Destruir a lista
+cc>   25  Linha:   107    Linha:   170  Contador "LIS_DestruirLista" não existe.
+cc>   26  Linha:   107    Linha:   192  Contador "LIS_EsvaziarLista" não existe.
+  109  == Criar uma lista com quatro elementos
+cc>   27  Linha:   110    Linha:   140  Contador "LIS_CriarLista" não existe.
+cc>   28  Linha:   111    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>   29  Linha:   112    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>   30  Linha:   113    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>   31  Linha:   114    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+  116  == Procurar Valores na lista
+cc>   32  Linha:   117    Linha:   407  Contador "LIS_IrInicioLista" não existe.
+cc>   33  Linha:   118    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   34  Linha:   119    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   35  Linha:   120    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   36  Linha:   121    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   37  Linha:   122    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   38  Linha:   123    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   39  Linha:   124    Linha:   385  Contador "LIS_ObterValor" não existe.
+  127  == Verificar a lista de trás para diante
+cc>   40  Linha:   128    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   41  Linha:   129    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   42  Linha:   130    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   43  Linha:   131    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   44  Linha:   132    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   45  Linha:   133    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   46  Linha:   134    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   47  Linha:   135    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+  137  == Verificar a lista de frente para trás
+cc>   48  Linha:   138    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   49  Linha:   139    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   50  Linha:   140    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   51  Linha:   141    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   52  Linha:   142    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   53  Linha:   143    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   54  Linha:   144    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   55  Linha:   145    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+  147  == Verificar a lista andando demais de trás para diante
+cc>   56  Linha:   148    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   57  Linha:   149    Linha:   385  Contador "LIS_ObterValor" não existe.
+  151  == Verificar a lista andando demais de frente para trás
+cc>   58  Linha:   152    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   59  Linha:   153    Linha:   385  Contador "LIS_ObterValor" não existe.
+  156  == Destruir a lista
+cc>   60  Linha:   157    Linha:   170  Contador "LIS_DestruirLista" não existe.
+cc>   61  Linha:   157    Linha:   192  Contador "LIS_EsvaziarLista" não existe.
+  159  == Criar uma lista 3
+cc>   62  Linha:   160    Linha:   140  Contador "LIS_CriarLista" não existe.
+  162  == Avançar numa lista vazia
+cc>   63  Linha:   163    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+>>>   64  Linha:   163  Condicao de retorno errada ao avancar Deveria ser: 0  É: 1
+<<<   63  Linha:   164  Falha esperada foi recuperada. 
+cc>   64  Linha:   165    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+  167  == Inserir Elementos na lista
+cc>   65  Linha:   168    Linha:   220  Contador "LIS_InserirElementoAntes" não existe.
+cc>   66  Linha:   169    Linha:   220  Contador "LIS_InserirElementoAntes" não existe.
+cc>   67  Linha:   170    Linha:   220  Contador "LIS_InserirElementoAntes" não existe.
+cc>   68  Linha:   171    Linha:   220  Contador "LIS_InserirElementoAntes" não existe.
+  174  == Criar uma lista 4
+cc>   69  Linha:   175    Linha:   140  Contador "LIS_CriarLista" não existe.
+  176  == Inserir quatro elementos nas listas 3 e 4 de forma inversa
+cc>   70  Linha:   177    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>   71  Linha:   178    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>   72  Linha:   179    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>   73  Linha:   180    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+  182  == Obter Valores para verificar  insercao em ambos os sentidos
+cc>   74  Linha:   183    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   75  Linha:   184    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   76  Linha:   186    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   77  Linha:   187    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   78  Linha:   189    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   79  Linha:   190    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   80  Linha:   192    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   81  Linha:   193    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   82  Linha:   195    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   83  Linha:   196    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   84  Linha:   198    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   85  Linha:   199    Linha:   446  Contador "LIS_AvancarElementoCorrente" não existe.
+cc>   86  Linha:   201    Linha:   385  Contador "LIS_ObterValor" não existe.
+cc>   87  Linha:   202    Linha:   385  Contador "LIS_ObterValor" não existe.
+  205  == Destruir listas
+cc>   88  Linha:   206    Linha:   170  Contador "LIS_DestruirLista" não existe.
+cc>   89  Linha:   206    Linha:   192  Contador "LIS_EsvaziarLista" não existe.
+cc>   90  Linha:   207    Linha:   170  Contador "LIS_DestruirLista" não existe.
+cc>   91  Linha:   207    Linha:   192  Contador "LIS_EsvaziarLista" não existe.
+  210  ==Verifica a memoria antes das alocacoes
+!!!   91  Linha:   211  //Nao deve ter nenhum espaco alocado 
+  214  == Inicio de testes do trabalho 4
+>>>   92  Linha:   216  O caso de teste anterior está vazio. 
+  216  == Criar a lista 5
+cc>   93  Linha:   217    Linha:   140  Contador "LIS_CriarLista" não existe.
+  219  == Inserir elemento em lista vazia
+cc>   94  Linha:   220    Linha:   220  Contador "LIS_InserirElementoAntes" não existe.
+  222  == Inserir elemento após primeiro
+cc>   95  Linha:   223    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+  225  == Inserir elemento antes do último
+cc>   96  Linha:   226    Linha:   220  Contador "LIS_InserirElementoAntes" não existe.
+  228  == Definir conteudo do corrente como NULL
+cc>   97  Linha:   229    Linha:  1076  Contador "LIS_DeturparLista" não existe.
+cc>   98  Linha:   229    Linha:   947  Contador "LIS_DeturparValorElem" não existe.
+cc>   99  Linha:   230    Linha:   385  Contador "LIS_ObterValor" não existe.
+  232  == Definir origem da lista 0 como null
+cc>  100  Linha:   233    Linha:  1076  Contador "LIS_DeturparLista" não existe.
+cc>  101  Linha:   233    Linha:  1053  Contador "LIS_DeturparInicioLista" não existe.
+  236  == Verifica estrutura da lista 0
+!!!  101  Linha:   237  //devera conter erros de estrutura 
+cc>  102  Linha:   238    Linha:   654  Contador "LIS_VerificaLista" não existe.
+>>>  103  Linha:   238  Erro de ponteiros na estrutura lista. 
+  240  == Destruir Lista 5
+!!!  103  Linha:   241  //Havera memoria alocada no final do teste 
+cc>  104  Linha:   242    Linha:   170  Contador "LIS_DestruirLista" não existe.
+cc>  105  Linha:   242    Linha:   192  Contador "LIS_EsvaziarLista" não existe.
+  246  == Criar lista para setar 2 elementos como null e testar memoria
+cc>  106  Linha:   247    Linha:   140  Contador "LIS_CriarLista" não existe.
+cc>  107  Linha:   249    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>  108  Linha:   250    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>  109  Linha:   252    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>  110  Linha:   253    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>  111  Linha:   254    Linha:   654  Contador "LIS_VerificaLista" não existe.
+cc>  112  Linha:   254    Linha:   407  Contador "LIS_IrInicioLista" não existe.
+cc>  113  Linha:   254    Linha:   424  Contador "LIS_IrFinalLista" não existe.
+cc>  114  Linha:   254    Linha:   407  Contador "LIS_IrInicioLista" não existe.
+cc>  115  Linha:   254    Linha:   571  Contador "LIS_VerificaElem" não existe.
+cc>  116  Linha:   254    Linha:   407  Contador "LIS_IrInicioLista" não existe.
+cc>  117  Linha:   254    Linha:   571  Contador "LIS_VerificaElem" não existe.
+cc>  118  Linha:   254    Linha:   407  Contador "LIS_IrInicioLista" não existe.
+cc>  119  Linha:   254    Linha:   571  Contador "LIS_VerificaElem" não existe.
+cc>  120  Linha:   254    Linha:   407  Contador "LIS_IrInicioLista" não existe.
+cc>  121  Linha:   254    Linha:   571  Contador "LIS_VerificaElem" não existe.
+cc>  122  Linha:   254    Linha:   407  Contador "LIS_IrInicioLista" não existe.
+cc>  123  Linha:   257    Linha:   192  Contador "LIS_EsvaziarLista" não existe.
+cc>  124  Linha:   258    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>  125  Linha:   259    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>  126  Linha:   260    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+  262  == Inserir elemento antes do último
+cc>  127  Linha:   263    Linha:   220  Contador "LIS_InserirElementoAntes" não existe.
+  265  == Deturpar referencia ao proximo
+cc>  128  Linha:   266    Linha:  1076  Contador "LIS_DeturparLista" não existe.
+cc>  129  Linha:   266    Linha:   861  Contador "LIS_DeturparElemProximo" não existe.
+  268  == Deturpar referencia ao anterior
+cc>  130  Linha:   269    Linha:  1076  Contador "LIS_DeturparLista" não existe.
+cc>  131  Linha:   269    Linha:   882  Contador "LIS_DeturparElemAnterior" não existe.
+  271  == Deturpar Referencia ao corrente
+cc>  132  Linha:   272    Linha:  1076  Contador "LIS_DeturparLista" não existe.
+cc>  133  Linha:   272    Linha:  1031  Contador "LIS_DeturparRefCorrente" não existe.
+  274  == Ir para inicio da lista 6
+cc>  134  Linha:   275    Linha:   407  Contador "LIS_IrInicioLista" não existe.
+  277  == Excluir o nó corrente sem free
+!!!  134  Linha:   278  //memoria alocada no final do teste e inconsistencia 
+cc>  135  Linha:   279    Linha:  1076  Contador "LIS_DeturparLista" não existe.
+cc>  136  Linha:   279    Linha:  1199  Contador "LIS_DeturparEliminaCorrenteLista" não existe.
+  282  == Verifica estrutura da lista 6
+cc>  137  Linha:   283    Linha:   654  Contador "LIS_VerificaLista" não existe.
+cc>  138  Linha:   283    Linha:   407  Contador "LIS_IrInicioLista" não existe.
+cc>  139  Linha:   283    Linha:   424  Contador "LIS_IrFinalLista" não existe.
+cc>  140  Linha:   283    Linha:   407  Contador "LIS_IrInicioLista" não existe.
+cc>  141  Linha:   283    Linha:   571  Contador "LIS_VerificaElem" não existe.
+cc>  142  Linha:   283    Linha:   407  Contador "LIS_IrInicioLista" não existe.
+>>>  143  Linha:   283  Encadeamento do No inconsistente. Deveria ser: 00000000  É: 002C2602
+cc>  144  Linha:   285    Linha:   170  Contador "LIS_DestruirLista" não existe.
+cc>  145  Linha:   285    Linha:   192  Contador "LIS_EsvaziarLista" não existe.
+  287  == Criar lista 7 para desencadear um elemento corrente
+!!!  145  Linha:   288  //resultar em mais memoria alocada no final do teste e inconsistencia 
+cc>  146  Linha:   289    Linha:   140  Contador "LIS_CriarLista" não existe.
+cc>  147  Linha:   290    Linha:   220  Contador "LIS_InserirElementoAntes" não existe.
+cc>  148  Linha:   291    Linha:   274  Contador "LIS_InserirElementoApos" não existe.
+cc>  149  Linha:   292    Linha:   220  Contador "LIS_InserirElementoAntes" não existe.
+cc>  150  Linha:   293    Linha:  1076  Contador "LIS_DeturparLista" não existe.
+cc>  151  Linha:   293    Linha:   971  Contador "LIS_DeturparElemCorrente" não existe.
+cc>  152  Linha:   294    Linha:   170  Contador "LIS_DestruirLista" não existe.
+cc>  153  Linha:   294    Linha:   192  Contador "LIS_EsvaziarLista" não existe.
+
+!!!  Espaco de dados, id:    69  pValor: 002C2D72  hexa: 72 2D 2C 00  E' origem lista  Id suc:    68
+     Id tipo valor: 2  Tamanho: 12  Ativo  Linha onde alocou: 813  Arquivo: 1301-trab04-aajm\fontes\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  9A D4 19 00 02 26 2C 00 62 2C 2C 00               šÔ...&,.b,,.
+
+
+!!!  Espaco de dados, id:    68  pValor: 0019D49A  hexa: 9A D4 19 00  Id ant:    69  Id suc:    60
+     Tipo indefinido  Tamanho: 5  Ativo  Linha onde alocou: 224  Arquivo: 01-trab04-aajm\fontes\testlis.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  78 70 74 6F 00                                    xpto.
+
+
+!!!  Espaco de dados, id:    60  pValor: 002C2A42  hexa: 42 2A 2C 00  Id ant:    68  Id suc:    59
+     Id tipo valor: 2  Tamanho: 12  Ativo  Linha onde alocou: 813  Arquivo: 1301-trab04-aajm\fontes\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  1A D2 19 00 52 2B 2C 00 00 00 00 00               .Ò..R+,.....
+
+
+!!!  Espaco de dados, id:    59  pValor: 0019D21A  hexa: 1A D2 19 00  Id ant:    60  Id suc:    56
+     Tipo indefinido  Tamanho: 5  Ativo  Linha onde alocou: 259  Arquivo: 01-trab04-aajm\fontes\testlis.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  78 70 74 6F 00                                    xpto.
+
+
+!!!  Espaco de dados, id:    56  pValor: 002C2822  hexa: 22 28 2C 00  Id ant:    59  Id suc:    45
+     Id tipo valor: 2  Tamanho: 12  Ativo  Linha onde alocou: 813  Arquivo: 1301-trab04-aajm\fontes\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  1A D0 19 00 00 00 00 00 02 26 2C 00               .Ð.......&,.
+
+
+!!!  Espaco de dados, id:    45  pValor: 002C24F2  hexa: F2 24 2C 00  Id ant:    56  Id suc:    44
+     Id tipo valor: 2  Tamanho: 12  Ativo  Linha onde alocou: 813  Arquivo: 1301-trab04-aajm\fontes\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  00 00 00 00 D2 22 2C 00 B2 20 2C 00               ....Ò",.² ,.
+
+
+!!!  Espaco de dados, id:    44  pValor: 0019C91A  hexa: 1A C9 19 00  Id ant:    45  Id suc:    43
+     Tipo indefinido  Tamanho: 5  Ativo  Linha onde alocou: 224  Arquivo: 01-trab04-aajm\fontes\testlis.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  78 70 74 6F 00                                    xpto.
+
+
+!!!  Espaco de dados, id:    43  pValor: 002C20B2  hexa: B2 20 2C 00  Id ant:    44  Id suc:    42
+     Id tipo valor: 2  Tamanho: 12  Ativo  Linha onde alocou: 813  Arquivo: 1301-trab04-aajm\fontes\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  1A CA 19 00 F2 24 2C 00 00 00 00 00               .Ê..ò$,.....
+
+
+!!!  Espaco de dados, id:    42  pValor: 0019CA1A  hexa: 1A CA 19 00  Id ant:    43  Id suc:    41
+     Tipo indefinido  Tamanho: 7  Ativo  Linha onde alocou: 259  Arquivo: 01-trab04-aajm\fontes\testlis.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  6A 75 6B 69 6C 6F 00                              jukilo.
+
+
+!!!  Espaco de dados, id:    41  pValor: 002C22D2  hexa: D2 22 2C 00  Id ant:    42  Id suc:    40
+     Id tipo valor: 2  Tamanho: 12  Ativo  Linha onde alocou: 813  Arquivo: 1301-trab04-aajm\fontes\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  1A CC 19 00 00 00 00 00 F2 24 2C 00               .Ì......ò$,.
+
+
+!!!  Espaco de dados, id:    40  pValor: 0019CC1A  hexa: 1A CC 19 00  Id ant:    41  E' final lista
+     Tipo indefinido  Tamanho: 7  Ativo  Linha onde alocou: 224  Arquivo: 01-trab04-aajm\fontes\testlis.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  66 65 66 72 66 74 00                              fefrft.
+
+  299  == Terminar testes
+!!!  153  Linha:   304  //fim 
+
+!!! Número de linhas lidas:         304
+!!! Número de casos de teste:        50
+!!! Número comandos corretos:       158
+!!! Número de falhas encontradas:   153
+
+!!! Foram encontrados problemas
+
+
+!!! Numero de espacos ainda alocados: 11

@@ -1,0 +1,1 @@
+..\Produto\TRAB2-1.exe /s..\Script\TesteLista.script /l..\Documentacao\logLista.txt

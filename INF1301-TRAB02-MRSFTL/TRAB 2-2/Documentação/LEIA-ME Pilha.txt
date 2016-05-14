@@ -1,0 +1,6 @@
+
+PILHA.exe
+	
+	Descrição:
+	Gerado usando PILHA.c e PILHA.h, o qual o proposito
+	é criar e manipular pilhas genricas.

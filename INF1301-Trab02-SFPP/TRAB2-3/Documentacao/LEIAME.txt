@@ -1,0 +1,4 @@
+O trabalho 2-3 faz referência ao Módulo Grafo, que utiliza-se do módulo
+Lista e módulo Vertice, para a execução deste, duplo clique sobre o .bat
+contido na pasta ..\TRAB2-2\Batches\Testa_Trab2-2.bat e este gerará um
+.log para leitura na pasta ..\TRAB2-1\Documentacao\logVertice.log

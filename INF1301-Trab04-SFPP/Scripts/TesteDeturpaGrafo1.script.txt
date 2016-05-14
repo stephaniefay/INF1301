@@ -1,0 +1,138 @@
+// Script:    TesteGrafo.script
+// Autor:     Stephanie Fay, Pedro Paulo
+// Data:      29/nov/2013
+// Propósito: Script para testar a construção de grafos de estruturas.
+//
+
+== Iniciar contadores de passagem
+=inicializarcontadores  "."
+=lercontadores          "Grafo"
+=iniciarcontagem
+
+
+== Inicializar Grafos
+=declararparm  grf0     int 0
+=declararparm  grf1     int 1
+=declararparm  grf2     int 2
+=declararparm  grf3     int 3
+=declararparm  grf4     int 4
+=declararparm  grf5     int 5
+=declararparm  grf6     int 6
+=declararparm  grf7     int 7
+
+
+== Declarar as condicoes de retorno
+=declararparm  OK          int 0
+=declararparm  NaoAchou    int 1 
+=declararparm  Memoria     int 2
+=declararparm  NaoGrafo    int 3
+=declararparm  NaoExiste   int 4
+=declararparm  NaoAresta   int 5
+=declararparm  IsAresta    int 6
+=declararparm  ParmInval   int 7
+
+
+== Inicializar valores
+=declararparm  NomeA    string   "Homer"
+=declararparm  NomeB    string   "Marge"
+=declararparm  NomeC    string   "Bart"
+=declararparm  NomeD    string   "Mr. Burns"
+=declararparm  EndA     string   "Rua Marquês de São Vicente, 225, Gávea"
+=declararparm  EndB     string   "Rua do Zé, 123, Springfield"
+=declararparm  TelA     string   "12345678"
+=declararparm  TelB     string   "87654321"
+
+== Criar grafos
+=grfcriargrafo    grf0
+=grfcriargrafo    grf1
+=grfcriargrafo    grf2
+=grfcriargrafo    grf3
+=grfcriargrafo    grf4
+=grfcriargrafo    grf5
+=grfcriargrafo    grf6
+=grfcriargrafo    grf7
+
+== Criar vértices no grafo e obter seus valores
+=grfcriarvertice  grf0  NomeA    EndA     TelA     OK
+=grfcriarvertice  grf0  NomeB    EndB     TelB     OK
+=grfcriarvertice  grf0  NomeC    EndA     TelA     OK
+=grfcriarvertice  grf1  NomeA    EndA     TelA     OK
+=grfcriarvertice  grf1  NomeB    EndB     TelB     OK
+=grfcriarvertice  grf2  NomeC    EndA     TelA     OK
+=grfcriarvertice  grf2  NomeA    EndA     TelA     OK
+=grfcriarvertice  grf3  NomeB    EndB     TelB     OK
+=grfcriarvertice  grf3  NomeC    EndA     TelA     OK
+=grfcriarvertice  grf5  NomeB    EndB     TelB     OK
+=grfcriarvertice  grf5  NomeB    EndB     TelB     OK
+=grfcriarvertice  grf5  NomeB    EndB     TelB     OK
+=grfcriarvertice  grf6  NomeC    EndB     TelB     OK
+=grfcriarvertice  grf7  NomeD    EndB     TelB     OK
+=grfcriarvertice  grf7  NomeD    EndB     TelB     OK
+=grfcriarvertice  grf7  NomeD    EndB     TelB     OK
+
+
+// Início dos testes
+
+== Elimina o elemento corrente da lista
+
+=grfdeturpar         grf0  1
+=grfverificargrafo   grf0  8
+=recuperar
+
+== Destruir o grafo
+=grfdestruirgrafo          grf0
+
+
+
+== Atribui NULL ao elemento da lista Vértice que armazena o vértice corrente
+
+=grfdeturpar               grf1   2
+=grfverificargrafo         grf1   8
+=recuperar
+=AceitaFalhasAcumuladas    2
+
+== Destruir o grafo
+=grfdestruirgrafo          grf1
+
+== Atribui NULL ao primeiro elemento da lista Arestas do vértice corrente
+
+=grfdeturpar            grf2  3
+=grfverificargrafo      grf2  8
+
+=AceitaFalhasAcumuladas       1
+
+== Destruir o grafo
+=grfdestruirgrafo          grf2
+
+
+==  Atribui NULL a um elemento N da lista Arestas do vértice corrente
+
+=grfdeturpar            grf3   4
+=grfverificargrafo      grf3   8     
+
+
+== Destruir a grafo
+=grfdestruirgrafo       grf3         
+=grfverificarmemoria
+
+== Atribui lixo ao ponteiro para o vértice corrente armazenado na cabeça do grafo
+
+=grfdeturpar            grf4  5
+=grfverificargrafo      grf4  8      
+=recuperar
+
+== Destruir a grafo
+=grfdestruirgrafo       grf4
+=grfverificarmemoria           
+
+== Atribui NULL ao ponteiro da lista Vértices
+
+=grfdeturpar            grf5  6
+=grfverificargrafo      grf5  8  
+=recuperar    
+=AceitaFalhasAcumuladas       1
+
+
+== Destruir a grafo
+=grfdestruirgrafo       grf5  // Voa por que o código tenta usar free() em uma lista que tem como ponteiro NULL.
+=grfverificarmemoria      

@@ -1,0 +1,163 @@
+// Script:    TesteListaSemInstrumentacao.script
+// Autor:     Marcos Rubio, Stephanie Fay e Thiago Lages de Alencar
+// Data:      01/jul/2013
+// Propósito: Testar o módulo lista genérica duplamente encadeada e forçar erros.
+//
+
+== Inicializar valores
+=declararparm   lista0  int 0
+=declararparm   lista1  int 1
+=declararparm   lista2  int 2
+=declararparm   lista3  int 3
+=declararparm   lista4  int 4
+
+=declararparm   str0    string  "fefrft"
+=declararparm   str1    string  "jukilo"
+=declararparm   str2    string  "xpto"
+=declararparm   str3    string  "www"
+
+=declararparm   OK             int  0
+=declararparm   ListaVazia     int  1
+=declararparm   FimLista       int  2
+=declararparm   NaoAchou       int  3
+=declararparm   FaltouMemoria  int  4
+
+=declararparm   pNULL          int  0
+=declararparm   pNaoNULL       int  1
+
+== Criar a lista 0
+=criarlista      lista0 
+
+== Verificar ObterValor relativo a lista vazia
+=obtervalorelem  lista0   "???"     pNULL
+
+== Inserir elemento em lista vazia
+=inselemantes    lista0   str0   OK
+=obtervalorelem  lista0   str0   pNaoNULL
+
+== Inserir elemento após primeiro
+=inselemapos     lista0   str1   OK
+=obtervalorelem  lista0   str1   pNaoNULL
+
+== Inserir elemento antes do último
+=inselemantes    lista0   str2   OK
+=obtervalorelem  lista0   str2   pNaoNULL
+
+== Excluir elemento do meio
+=obtervalorelem  lista0   str2   pNaoNULL
+=excluirelem     lista0             OK
+
+== Excluir elemento do início
+=obtervalorelem  lista0   str0   pNaoNULL
+=excluirelem     lista0             OK
+
+== Excluir elemento final, único 
+=obtervalorelem  lista0   str1   pNaoNULL
+=excluirelem     lista0             OK
+
+== Ver se a lista ficou vazia
+=obtervalorelem  lista0   "???"     pNULL
+
+== Destruir a lista
+=destruirlista   lista0
+
+== Criar uma lista com dois elementos
+=criarlista      lista1 
+=inselemapos     lista1   str0   OK
+=inselemapos     lista1   str1   OK
+
+== Esvaziar a lista e ver se ficou vazia
+=esvaziarlista   lista1
+=obtervalorelem  lista1   "???"     pNULL
+
+== Destruir a lista
+=destruirlista   lista1
+
+== Criar uma lista com quatro elementos
+=criarlista      lista2 
+=inselemapos     lista2   str0   OK
+=inselemapos     lista2   str1   OK
+=inselemapos     lista2   str2   OK
+=inselemapos     lista2   str3   OK
+
+== Verificar a lista de trás para diante
+=obtervalorelem  lista2   str3   pNaoNULL
+=avancarelem     lista2   -1     OK
+=obtervalorelem  lista2   str2   pNaoNULL
+=avancarelem     lista2   -1     OK
+=obtervalorelem  lista2   str1   pNaoNULL
+=avancarelem     lista2   -1     OK
+=obtervalorelem  lista2   str0   pNaoNULL
+=avancarelem     lista2   -1     FimLista
+
+== Verificar a lista de frente para trás
+=obtervalorelem  lista2   str0   pNaoNULL
+=avancarelem     lista2   1      OK
+=obtervalorelem  lista2   str1   pNaoNULL
+=avancarelem     lista2   1      OK
+=obtervalorelem  lista2   str2   pNaoNULL
+=avancarelem     lista2   1      OK
+=obtervalorelem  lista2   str3   pNaoNULL
+=avancarelem     lista2   1      FimLista
+
+== Verificar a lista andando demais de trás para diante
+=avancarelem     lista2   -10     FimLista
+=obtervalorelem  lista2   str0   pNaoNULL
+
+== Verificar a lista andando demais de frente para trás
+=avancarelem     lista2   10     FimLista
+=obtervalorelem  lista2   str3   pNaoNULL
+
+== Destruir a lista
+=destruirlista   lista2
+
+== Criar uma lista 3
+=criarlista lista3
+
+== Avançar numa lista vazia
+=avancarelem lista3 1 OK
+=recuperar
+=avancarelem lista3 3 ListaVazia
+
+== Inserir Elementos na lista
+=inselemantes    lista3	  str0   OK
+=inselemantes    lista3	  str1   OK
+=inselemantes    lista3	  str2   OK
+=inselemantes    lista3	  str3   OK
+
+
+== Criar uma lista 4
+=criarlista      lista4
+== Inserir quatro elementos nas listas 3 e 4 de forma inversa
+=inselemapos    lista4	 str0   OK
+=inselemapos    lista4   str1   OK
+=inselemapos    lista4   str2   OK
+=inselemapos    lista4   str3   OK
+
+== Obter Valores para verificar  insercao em ambos os sentidos
+=obtervalorelem  lista4   str3   pNaoNULL
+=obtervalorelem  lista3   str3   pNaoNULL
+
+=avancarelem     lista3   1      OK
+=avancarelem     lista4   -1     OK
+
+=obtervalorelem  lista4   str2   pNaoNULL
+=obtervalorelem  lista3   str2   pNaoNULL
+
+=avancarelem     lista3   1      OK
+=avancarelem     lista4   -1     OK
+
+=obtervalorelem  lista4   str1   pNaoNULL
+=obtervalorelem  lista3   str1   pNaoNULL
+
+=avancarelem     lista3   1      OK
+=avancarelem     lista4   -1     OK
+
+=obtervalorelem  lista4   str0   pNaoNULL
+=obtervalorelem  lista3   str0   pNaoNULL
+
+== Destruir listas
+=destruirlista   lista3
+=destruirlista   lista4
+
+// fim

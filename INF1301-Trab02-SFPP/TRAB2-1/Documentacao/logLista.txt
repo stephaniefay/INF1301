@@ -1,0 +1,42 @@
+
+!!! Inicio dos testes
+!!!      Construto sob teste: ..\Produto\TRAB2-1.exe
+!!!      Script de teste:     ..\Script\TesteLista.script
+
+!!!    0  Linha:     1  // Script:    TesteLista.script 
+!!!    0  Linha:     2  // Autor:     Stephanie Fay 
+!!!    0  Linha:     3  //            Pedro Paulo 
+!!!    0  Linha:     4  // Data:      18/10/2013 
+!!!    0  Linha:     5  // Propósito: Testar o módulo lista genérica duplamente encadeada 
+!!!    0  Linha:     6  // 
+    8  == Inicializar valores
+   29  == Criar a lista 0
+   32  == Verificar ObterValor relativo a lista vazia
+   35  == Inserir elemento em lista vazia
+   39  == Inserir elemento após primeiro
+   43  == Inserir elemento antes do último
+   47  == Excluir elemento do meio
+   51  == Excluir elemento do início
+   55  == Excluir elemento final, único
+   59  == Ver se a lista ficou vazia
+   62  == Destruir a lista
+   65  == Criar uma lista com dois elementos
+   70  == Esvaziar a lista e ver se ficou vazia
+   74  == Destruir a lista
+   77  == Criar uma lista com seis elementos
+   86  == Verificar a lista de trás para diante
+  100  == Verificar a lista de frente para trás
+  114  == Verificar a lista andando demais de trás para diante
+  117  == Verificar a lista andando demais de frente para trás
+  120  == Destruir a lista
+!!!    0  Linha:   123  // fim 
+
+!!! Número de linhas lidas:         123
+!!! Número de casos de teste:        20
+!!! Número comandos corretos:        72
+!!! Número de falhas encontradas:     0
+
+!!! Não foram encontrados problemas
+
+
+!!! Numero de espacos ainda alocados: 0

@@ -1,0 +1,76 @@
+Datas:
+	09/05/13
+	10/05/13
+	13/05/13
+	14/05/13
+
+--------------------------------------------------------
+
+Horas Trabalhadas: 
+
+	09/05/13
+		-Início: 18:00h
+		-Fim: 22:00h
+
+Tipo de Tarefa: 
+		
+	Estudar
+	Especificar os módulos
+	Projetar
+	Codificar módulo
+
+	Criar PILHA.c e PILHA.h
+
+-----------------------------------------------------------
+
+Horas Trabalhadas: 
+
+	10/05/13
+		-Início: 17:00h
+		-Fim: 22:00h
+
+Tipo de Tarefa: 
+	
+	Especificar as funções
+	Projetar
+	Codificar módulo
+
+	Otimizar PILHA.c e PILHA.h
+	Criar MATRIZ.c e MATRIZ.h
+
+------------------------------------------------------------
+
+Horas Trabalhadas: 
+	13/05/13
+		-Início: 17:30h
+	14/05/13
+		-Fim: 03:00h
+
+Tipo de Tarefa: 
+	
+	Especificar os módulos
+	Projetar
+	Codificar módulo
+
+	Otimizar LISTA.c e LISTA.h
+	Otimizar PILHA.c e PILHA.h (Transformar em generica)
+	Otimizar MATRIZ.c e MATRIZ.h
+
+
+----------------------------------------------------------
+
+Horas Trabalhadas:
+	14/05/13
+		-Início: 18:00
+	14/05/03
+		-Fim: 00:00h
+
+Tipo de Tarefa :
+	Revisar código do módulo
+	Redigir script de teste
+	Revisar script de teste
+	Realizar os testes
+	Estudar
+
+
+----------------------------------------------------------

@@ -1,0 +1,26 @@
+Aluno    : Stephanie Fay
+ID       : sf
+Matrícula: 1121598
+
+Data             : 25/out/2013
+Horas Trabalhadas: 06h
+
+Tarefas Realizadas:
+	estudar
+	especificar os módulos
+	revisar projetos
+	codificar módulo
+	revisar código do módulo
+	realizar os testes
+	diagnosticar e corrigir os problemas encontrados
+
+Data             : 29/out/2013
+Horas Trabalhadas: 04h
+
+Tarefas Realizadas:
+	redigir script de teste
+	revisar script de teste
+	realizar os testes
+	diagnosticar e corrigir os problemas encontrados
+	finalização do projeto
+	inicio e finalização da documentação

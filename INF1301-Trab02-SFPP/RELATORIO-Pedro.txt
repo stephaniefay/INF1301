@@ -1,0 +1,24 @@
+Aluno: 	   Pedro Paulo da Silva
+Matrícula: 1121629
+
+Data: 10/out/2013  - Horário de Trabalho:  15h-20h
+Ações:
+	-Estudo dos Módulos
+	-Inicio do desenvolvimento do projeto
+	-Pesquisas para amplo entendimento
+	-Inicio da correção do módulo Lista
+
+Data: 11/out/2013  - Horário de Trabalho:  15h-17h
+Ações:
+	-Finalização do módulo Lista
+	-Organização do Script de teste Lista
+
+Data: 17/out/2013  - Horário de Trabalho:  15h-19h
+Ações:
+	-Inicio do Desenvolvimento do módulo Grafo
+
+Data: 18/out/2013  - Horário de Trabalho:  15h-01h
+Ações:
+	-Inicio do desenvolvimento dos scripts faltantes
+	-Inicio da documentação necessária para o projeto
+	-Arrumação dos comentários nos códigos feitos

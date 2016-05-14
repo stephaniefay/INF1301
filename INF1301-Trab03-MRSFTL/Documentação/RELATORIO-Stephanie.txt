@@ -1,0 +1,70 @@
+Datas:
+	04/06/13
+	06/06/13
+	10/06/13
+
+--------------------------------------------------------
+
+Horas Trabalhadas: 
+
+	04/06/13
+		-Início: 18:00h
+		-Fim: 22:00h
+
+Tipo de Tarefa: 
+		
+	Projetar módulos
+	Codificar módulos
+
+	Criar TESTMTZ.C
+
+-----------------------------------------------------------
+
+Horas Trabalhadas: 
+
+	06/05/13
+		-Início: 17:00h
+		-Fim: 22:00h
+
+Tipo de Tarefa: 
+	
+	Otimizar MATRIZ.C e MATRIZ.H
+	Desenvolver script Matriz
+	Desenvolver Manual de jogo
+
+
+------------------------------------------------------------
+
+Horas Trabalhadas: 
+	10/06/13
+		-Início: 20:00h
+	11/06/13
+		-Fim: 03:00h
+
+Tipo de Tarefa: 
+	
+	Desenvolver scritp de teste manual
+
+	Otimizar MATRIZ.c e MATRIZ.h
+	Criar MENU.C
+	Otimizar MENU.C
+
+
+----------------------------------------------------------
+
+Horas Trabalhadas:
+	11/06/13
+		-Início: 18:00
+	12/06/13
+		-Fim: 3:00
+
+Tipo de Tarefa :
+	
+	Finalizar MENU.C
+	Finalizar arquitetura completa do programa
+	Testar o programa
+	Vencer o jogo desenvolvido
+	
+
+
+----------------------------------------------------------

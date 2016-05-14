@@ -1,0 +1,1140 @@
+﻿/***************************************************************************
+*  $MCI Módulo de implementação: GRF  Grafo
+*
+*  Arquivo gerado:              GRAFO.c
+*  Letras identificadoras:      GRF
+*
+*  Projeto: INF 1301 Trabalho 4
+*  Gestor:  DI/PUC-Rio
+*  Autores: sf - Stephanie Fay
+			pp - Pedro Paulo
+*
+*  $HA Histórico de evolução:
+*     Versão  Autor    Data         Observações
+*     0.5     sf&pp  10/out/2013  início desenvolvimento
+*     1.0     sf&pp  18/out/2013  fim do desenvolvimento
+*     1.1     sf&pp  25/nov/2013  correção de pequenos erros
+*     2.0     sf&pp  29/nov/2013  Implementação do DEBUG no código
+*
+***************************************************************************/
+
+#include   <stdio.h>
+#include   <string.h>
+#include   <memory.h>
+#include   <malloc.h>
+#include   <assert.h>
+#include   "lista.h"
+
+#define GRAFO_OWN
+#include "GRAFO.H"
+#undef GRAFO_OWN
+
+#ifdef _DEBUG
+   #include "CESPDIN.H"
+   #include "CONTA.H"
+   #include "GENERICO.H"
+   #include "structLista.def"
+   #include "IdTiposEspaco.def"
+#endif
+
+/***********************************************************************
+*
+*  $TC Tipo de dados: GRF Descritor da informacao encapsulada no vertice
+*
+***********************************************************************/
+
+   typedef struct GRF_tagValor {
+
+         void * pValor ;
+               /* Ponteiro para uma informacao generica */
+
+         LIS_tppLista pListaAresta ;
+               /* Ponteiro para uma lista de arestas */
+
+         GRF_tppGrafo pGrafo ;
+               /* Ponteiro para o grafo que a informacao esta contida */
+
+        #ifdef _DEBUG
+
+           int tpEncapsulado ;
+              /* Armazena um identificador para o tipo de informação encapsulada */
+
+        #endif
+
+   } GRF_tpValor ;
+   
+ /*****  Dados encapsulados no módulo  *****/
+
+      #ifdef _DEBUG
+
+      static char EspacoLixo[ 256 ] =
+             "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" ;
+            /* Espaço de dados lixo usado ao testar */
+
+      #endif
+
+/***********************************************************************
+*
+*  $TC Tipo de dados: GRF Descritor da cabeça de grafo
+*
+***********************************************************************/
+
+   typedef struct GRF_tagGrafo {
+
+         LIS_tppLista pListaVert ;
+               /* Ponteiro para a cabeca da lista de vertices */
+
+         LIS_tppLista pVertCorr ;
+               /* Ponteiro para a cabeca do vertice corrente */
+
+        #ifdef _DEBUG
+
+           int QtdVertices ;
+              /* Armazena a quantidade de vertices */
+
+           int tpEncapsulado ;
+              /* Armazena um identificador para o tipo de informação encapsulada */
+
+        #endif
+
+         void ( * ExcluirValor ) ( void * pValor ) ;
+               /* Ponteiro para a função de destruição do valor contido em um vertice */
+
+         int ( * ComparaValor ) ( void * pValorCorr , void * pValorBuscado ) ;
+               /* Ponteiro para a função de comparacao do valor encapsulado em um vertice com
+               o que esta sendo buscado pelo cliente */
+
+   } GRF_tpGrafo ;
+
+/***** Protótipos das funções encapuladas no módulo *****/
+
+   static void GRF_destruirArestaInt( LIS_tppLista pVerticeA , LIS_tppLista pVerticeB ) ;
+
+   static GRF_tpCondRet GRF_criarArestaInt( LIS_tppLista pVerticeA , LIS_tppLista pVerticeB ) ;
+
+   static void GRF_excluirLista ( void * pValor ) ;
+
+   static GRF_tpValor * GRF_criarValor ( void * parmValor , GRF_tppGrafo parmGrafo ) ;
+
+   static void GRF_excluirValor ( void * parmValor ) ;
+
+   static void GRF_excluirNada ( void * parmValor ) ;
+
+   /* usado para comparar ponteiros de vertices (listas) */
+   static int GRF_comparaValoresSimples( void * pValorCorr , void * pValorBuscado ) ;
+
+   /* usado para comparar ponteiros de vertices (listas) com o 
+   identificador do vertice, que foi passado por parametro */
+   static int GRF_comparaVerticeValor( void * pVerticeParm , void * pValorParm ) ;
+
+   static GRF_tpCondRet GRF_VerificarTodosVertices( GRF_tppGrafo pCabecaParm ) ;
+
+   static GRF_tpCondRet GRF_VerificarVertice( LIS_tppLista pVerticeParm ) ;
+
+   static GRF_tpCondRet GRF_VerificarAresta( LIS_tppLista pVerticeParm ) ;
+
+/*****  Código das funções exportadas pelo módulo  *****/
+
+/***************************************************************************
+*
+*  Função: GRF  &Criar grafo
+*
+****************************************************************************/
+
+   GRF_tpCondRet GRF_criarGrafo ( GRF_tppGrafo * parmGrafo ,  
+                                  void   ( * ExcluirValor ) ( void * pDado ) ,
+                                  int ( * ComparaValor ) ( void * pValorCorr , void * pValorBuscado ) )
+   {
+      GRF_tpGrafo * pGrafo = NULL ;
+
+      
+      /* teste de parametros de entrada */
+      if ( parmGrafo == NULL )
+      {
+         return GRF_CondRetParamInvalido ;
+      } /* if */
+
+      /* aloca dinamicamente a cabeca do grafo */
+      pGrafo = ( GRF_tpGrafo * ) malloc( sizeof( GRF_tpGrafo )) ;
+      if ( pGrafo == NULL )
+      {
+         return GRF_CondRetFaltouMemoria ;
+      } /* if */
+
+      /* criacao da lista de vertices */
+      pGrafo->pListaVert = LIS_CriarLista( GRF_excluirLista ) ;
+      if( pGrafo->pListaVert == NULL )
+      {
+         return GRF_CondRetFaltouMemoria ;
+      } /* if */
+
+      /* nao existe vertice corrente */
+      pGrafo->pVertCorr = NULL ;
+
+      /* registrando ponteiros para funcoes auxiliares */
+      pGrafo->ExcluirValor = ExcluirValor ;
+      pGrafo->ComparaValor = ComparaValor ;
+
+      /* caso esse ponteiro ja aponte para um grafo, destrua-o */
+      if( *parmGrafo != NULL )
+      {
+         GRF_destruirGrafo( *parmGrafo ) ;
+      }
+
+      #ifdef _DEBUG
+         CED_DefinirTipoEspaco( pGrafo , GRF_TipoEspacoCabeca ) ;
+         pGrafo->QtdVertices = 0;
+      #endif
+
+      /* ponteiro passa a apontar para novo grafo */
+      *parmGrafo = pGrafo ;
+
+      /* funcao executou corretamente */
+      return GRF_CondRetOK ;
+
+   } /* Fim função: GRF  &Criar grafo */
+
+/***************************************************************************
+*
+*  Função: GRF  &Ir vertice
+*
+****************************************************************************/
+
+   GRF_tpCondRet GRF_irVertice ( GRF_tppGrafo parmGrafo , void * parmVertice )
+   {
+
+      GRF_tpValor * valorVertice = NULL ;
+      LIS_tpCondRet retornoObtido = LIS_CondRetOK ;
+
+      /* teste de parametros de entrada */
+      if( parmGrafo == NULL )
+      {
+         return GRF_CondRetGrafoNaoExiste ;
+      } /* if */
+      if( parmVertice == NULL )
+      {
+         return GRF_CondRetParamInvalido ;
+      } /* if */
+
+      /* verificacao da existencia de um vertice corrente */
+      if( parmGrafo->pVertCorr == NULL )
+      {
+         return GRF_CondRetVerticeCorrNaoExiste ;
+      } /* if */
+
+      /* pega a struct GRF_info contida no vertice corrente */
+      valorVertice = ( GRF_tpValor * ) LIS_ObterValor( parmGrafo->pVertCorr ) ;
+
+      /* procura vertice na lista de arestas */
+      IrInicioLista( valorVertice->pListaAresta ) ;
+      retornoObtido = LIS_ProcurarValor( valorVertice->pListaAresta , 
+                                         parmVertice ,
+                                         GRF_comparaVerticeValor ) ;
+
+      /* caso nao encontre, nao ha como ir para o vertice requisitado */
+      if( retornoObtido != LIS_CondRetOK )
+      {
+         return GRF_CondRetArestaNaoExiste ;
+      } /* if */
+
+      /* caso contrario, pega o ponteiro do vertice (lista) e diz que eh o corrente */
+      parmGrafo->pVertCorr = ( LIS_tppLista ) LIS_ObterValor( valorVertice->pListaAresta ) ;
+
+      /* funcao executou corretamente */
+      return GRF_CondRetOK ;
+
+   } /* Fim função: GRF  &Ir vertice */
+
+/***************************************************************************
+*
+*  Função: GRF  &Criar vertice
+*
+****************************************************************************/
+
+   GRF_tpCondRet GRF_criarVertice ( GRF_tppGrafo parmGrafo , void * parmValor )
+   {
+
+      LIS_tppLista listaVertice = NULL ;
+      GRF_tpValor * valorVertice = NULL ;
+      LIS_tpCondRet LIS_retornoObtido = LIS_CondRetOK ;
+
+      /* teste dos parametros de entrada */
+      if( parmGrafo == NULL )
+      {
+         return GRF_CondRetGrafoNaoExiste ;
+      } /* if */
+      if( parmValor == NULL )
+      {
+         return GRF_CondRetParamInvalido ;
+      } /* if */
+
+      /* criando lista referente ao vertice */
+      listaVertice = LIS_CriarLista( GRF_excluirValor ) ;
+      if( listaVertice == NULL )
+      {
+         return GRF_CondRetFaltouMemoria ;
+      } /* if */
+
+      /* cria estrutura GRF_info, que contem a informacao 
+      a ser armazenada e a lista de arestas */
+      valorVertice = GRF_criarValor( parmValor , parmGrafo ) ;
+      if( valorVertice == NULL )
+      {
+         LIS_DestruirLista( listaVertice ) ;
+
+         return GRF_CondRetFaltouMemoria ;
+      } /* if */
+
+      /* insere elemento na lista vertice, no caso a estrutura criada */
+      LIS_retornoObtido = LIS_InserirElementoApos( listaVertice , valorVertice ) ;
+      if( LIS_retornoObtido == LIS_CondRetFaltouMemoria )
+      {
+         LIS_DestruirLista( listaVertice ) ;
+
+         return GRF_CondRetFaltouMemoria ;
+      } /* if */
+
+      /* criar elemento na lista de vertices */
+      IrFinalLista( parmGrafo->pListaVert ) ;
+      LIS_retornoObtido = LIS_InserirElementoApos( parmGrafo->pListaVert , listaVertice ) ;
+      if( LIS_retornoObtido == LIS_CondRetFaltouMemoria )
+      {
+         LIS_DestruirLista( listaVertice ) ;
+
+         return GRF_CondRetFaltouMemoria ;
+      } /* if */
+
+      /* marca vertice como corrente */
+      parmGrafo->pVertCorr = listaVertice ;
+
+      #ifdef _DEBUG
+         parmGrafo->QtdVertices++;
+      #endif
+
+      /* funcao executou corretamente */
+      return GRF_CondRetOK ;
+
+   } /* Fim função: GRF  &Criar vertice */
+
+/***************************************************************************
+*
+*  Função: GRF  &Destruir vertice corrente
+*
+****************************************************************************/
+
+   void GRF_destruirVerticeCorr ( GRF_tppGrafo parmGrafo )
+   {
+
+      LIS_tpCondRet retornoObtido = LIS_CondRetOK ;
+
+      
+      /* deve-se procurar pelo vertice corrente na lista de vertices */
+      IrInicioLista( parmGrafo->pListaVert ) ;
+      retornoObtido = LIS_ProcurarValor( parmGrafo->pListaVert , 
+                                         parmGrafo->pVertCorr , 
+                                         GRF_comparaValoresSimples ) ;
+
+      /* se encontrar (deve ser sempre verdade), deve mandar excluir o
+      seu elemento na lista de vertices. Isso provocara um encadeamento
+      de exclusoes. Verificar funcao de exclusao que eh passada por parametro
+      para lista de vertices. */
+      if( retornoObtido == LIS_CondRetOK )
+      {
+         LIS_ExcluirElemento( parmGrafo->pListaVert ) ;
+
+         /* marca o primeiro vertice da lista de vertices como corrente */
+         IrInicioLista( parmGrafo->pListaVert ) ;
+         parmGrafo->pVertCorr = ( LIS_tppLista ) LIS_ObterValor( parmGrafo->pListaVert ) ;
+
+      } /* if */
+
+      #ifdef _DEBUG
+         parmGrafo->QtdVertices--;
+      #endif
+
+   } /* Fim função: GRF  &Destruir vertice corrente */
+
+/***************************************************************************
+*
+*  Função: GRF  &Destruir aresta
+*
+****************************************************************************/
+
+   void GRF_destruirAresta ( GRF_tppGrafo parmGrafo, void * parmVertice )
+   {
+
+      LIS_tppLista pVertCorr = NULL ;
+      LIS_tppLista pVertBuscado = NULL ;
+      LIS_tpCondRet retornoObtido = LIS_CondRetOK ;
+      
+      /* verifica parametros recebidos */
+      if( parmGrafo == NULL )
+      {
+         return ;
+      } /* if */
+      if( parmVertice == NULL )
+      {
+         return ;
+      } /* if */
+
+      /* verifica existencia do vertice corrente */
+      if( parmGrafo->pVertCorr == NULL )
+      {
+         return ;
+      } /* if */
+
+      /*** abaixo eh feito a procura dos ponteiros dos vertices ***/
+
+      /* salva ponteiro para lista que representa o vertice corrente */
+      pVertCorr = parmGrafo->pVertCorr ;
+
+      /* varre a lista de arestas atras do vertice procurado */
+      IrInicioLista( parmGrafo->pListaVert ) ;
+      retornoObtido = LIS_ProcurarValor( parmGrafo->pListaVert , 
+                                         parmVertice , 
+                                         GRF_comparaVerticeValor ) ;
+      if( retornoObtido != LIS_CondRetOK )
+      {
+         return ;
+      } /* if */
+
+      /* salva ponteiro para o vertice procurado e exclui aresta para ele */
+      pVertBuscado = ( LIS_tppLista ) LIS_ObterValor( parmGrafo->pListaVert ) ;
+
+      /*** abaixo eh feita destruicao das arestas entre esses vertices ***/
+
+      /* exclui a aresta que sai do vertice corrente para o apontado */
+      GRF_destruirArestaInt( pVertCorr , pVertBuscado ) ;
+
+      /* exclui aresta que sai do vertice apontado para o corrente */
+      GRF_destruirArestaInt( pVertBuscado , pVertCorr ) ;
+
+   } /* Fim função: GRF  &Destruir aresta */
+
+/***************************************************************************
+*
+*  Função: GRF  &Criar aresta
+*
+****************************************************************************/
+
+   GRF_tpCondRet GRF_criarAresta ( GRF_tppGrafo parmGrafo , void * parmVertice )
+   {
+
+      GRF_tpCondRet GRF_retornoObtido = GRF_CondRetOK ;
+      LIS_tpCondRet LIS_retornoObtido = LIS_CondRetOK ;
+      LIS_tppLista pVertCorr = NULL ;
+      LIS_tppLista pVertBuscado = NULL ;
+
+
+      /* teste de parametros recebidos */
+      if( parmGrafo == NULL )
+      {
+         return GRF_CondRetGrafoNaoExiste ;
+      } /* if */
+      if( parmGrafo == NULL )
+      {
+         return GRF_CondRetParamInvalido ;
+      } /* if */
+
+      /* teste de existencia do vertice corrente */
+      if( parmGrafo->pVertCorr == NULL )
+      {
+         return GRF_CondRetVerticeCorrNaoExiste ;
+      } /* if */
+
+      /* salva ponteiro da lista vertice corrente */
+      pVertCorr = parmGrafo->pVertCorr ;
+
+      /* procura vertice a ser apontado na lista de vertices */
+      IrInicioLista( parmGrafo->pListaVert ) ;
+      LIS_retornoObtido = LIS_ProcurarValor( parmGrafo->pListaVert , 
+                                         parmVertice , 
+                                         GRF_comparaVerticeValor ) ;
+      if( LIS_retornoObtido != LIS_CondRetOK )
+      {
+         return GRF_CondRetNaoAchou ;
+      } /* if */
+
+      /* pega o ponteiro da lista do vertice a ser apontado pela aresta */
+      pVertBuscado = ( LIS_tppLista ) LIS_ObterValor( parmGrafo->pListaVert ) ;
+
+      /*** abaixo inicia-se as ligacoes de arestas, nos dois sentidos ***/
+
+      /* insere aresta do vertice corrente para o vertice buscado */
+      GRF_retornoObtido = GRF_criarArestaInt( pVertCorr , pVertBuscado ) ;
+      if( GRF_retornoObtido != GRF_CondRetOK )
+      {
+         return GRF_retornoObtido ;
+      } /* if */
+
+      /* insere aresta do vertice corrente para o vertice buscado */
+      GRF_retornoObtido = GRF_criarArestaInt( pVertBuscado , pVertCorr ) ;
+      if( GRF_retornoObtido != GRF_CondRetOK )
+      {
+         return GRF_retornoObtido ;
+      } /* if */
+
+      return GRF_CondRetOK ;
+
+   } /* Fim função: GRF  &Criar aresta */
+
+/***************************************************************************
+*
+*  Função: GRF  &Destruir grafo
+*
+****************************************************************************/
+
+   void GRF_destruirGrafo ( GRF_tppGrafo parmGrafo )
+   {
+
+      if( parmGrafo != NULL )
+      {
+         /* destroi lista de vertices. Ira acontecer um encadeamento
+         de exclusoes. Verificar funcoes de exclusao passadas para as listas */
+         LIS_DestruirLista( parmGrafo->pListaVert ) ;
+          
+         /* destroi cabeca do grafo */
+         free( parmGrafo ) ;
+      }
+
+   } /* Fim função: GRF  &Destruir grafo */
+
+/***************************************************************************
+*
+*  Função: GRF  &Obter valor corrente
+*
+****************************************************************************/
+
+   GRF_tpCondRet GRF_obterCorr ( GRF_tppGrafo parmGrafo , void ** ppValor )
+   {
+      GRF_tpValor * pVertValor = NULL ;
+
+      *ppValor = NULL ;
+
+      /* verifica parametros de entrada */
+      if( parmGrafo == NULL )
+      {
+         return GRF_CondRetGrafoNaoExiste ;
+      } /* if */
+      if( ppValor == NULL )
+      {
+         return GRF_CondRetParamInvalido ;
+      } /* if */
+
+      /* verifica existencia do vertice corrente */
+      if( parmGrafo->pVertCorr == NULL )
+      {
+         return GRF_CondRetVerticeCorrNaoExiste ;
+      } /* if */
+
+      /* pega estrutura GRF_info armazenada no vertice corrente */
+      pVertValor = ( GRF_tpValor * ) LIS_ObterValor( parmGrafo->pVertCorr ) ;
+
+      /* associa informacao armazenada na estrurura com o ponteiro passado */
+      *ppValor = pVertValor->pValor ;
+
+      /* funcao executou corretamente */
+      return GRF_CondRetOK ;
+
+   } /* Fim função: GRF  &Obter valor corrente */
+
+#ifdef _DEBUG
+
+/***************************************************************************
+*
+*  Função: GRF  &Verificar grafo
+*
+****************************************************************************/
+
+   GRF_tpCondRet GRF_VerificarGrafo( GRF_tppGrafo pGrafoParm )
+   {
+      LIS_tppLista pLista = NULL ;
+
+      /* Verifica o tipo do espaço */
+
+         if ( pGrafoParm == NULL )
+         {
+            CNT_CONTAR( "CabecaGrafoInvalida" ) ;
+            TST_NotificarFalha( "Tentou verificar cabeça inexistente." ) ;
+            return GRF_CondRetErroEstrutura ;
+         } /* if */
+
+         if ( ! CED_VerificarEspaco( pGrafoParm , NULL ))
+         {
+            CNT_CONTAR( "ErroEspacoGrafo" ) ;
+            TST_NotificarFalha( "Controle do espaço acusou erro." ) ;
+            return GRF_CondRetErroEstrutura ;
+         } /* if */
+
+         if ( TST_CompararInt( GRF_TipoEspacoCabeca ,
+              CED_ObterTipoEspaco( pGrafoParm ) ,
+              "Tipo do espaço de dados não é cabeça de árvore." ) != TST_CondRetOK )
+         {
+            CNT_CONTAR( "ErroTipoCabeca" ) ;
+            return GRF_CondRetErroEstrutura ;
+         } /* if */
+
+         if ( pGrafoParm->pListaVert == NULL )
+         {
+            CNT_CONTAR( "ListaVerticeNaoExiste" ) ;
+            TST_NotificarFalha( "Lista de vertice não existe." ) ;
+            return GRF_CondRetErroEstrutura ;
+         } /* if */
+
+      /* Verifica vertice corrente do grafo */
+
+         pLista = ( LIS_tppLista ) LIS_ObterValor( pGrafoParm->pListaVert ) ;
+         if ( pLista == NULL )
+         {
+            if ( TST_CompararPonteiro( NULL , pGrafoParm->pVertCorr ,
+                 "Grafo vazio tem vértice corrente não NULL." ) != TST_CondRetOK )
+            {
+               CNT_CONTAR( "GrafoVazioTemCorrenteNaoNull" ) ;
+               return GRF_CondRetErroEstrutura ;
+            } /* if */
+         } /* if */
+
+         if ( pGrafoParm->pVertCorr == NULL )
+         {
+            if ( TST_CompararPonteiro( NULL , pLista ,
+                 "Grafo sem vértice corrente tem lista de vértices não vazia." ) != TST_CondRetOK )
+            {
+               CNT_CONTAR( "GrafoSemVerticeCorrenteTemListaNaoVazia" ) ;
+               return GRF_CondRetErroEstrutura ;
+            } /* if */
+         } /* if */
+
+      return GRF_VerificarTodosVertices( pGrafoParm ) ;
+
+   } /* Fim função: GRF  &Verificar grafo */
+
+#endif
+
+#ifdef _DEBUG
+
+/***************************************************************************
+*
+*  Função: GRF  &Verificar quantidade de vertices
+*
+****************************************************************************/
+
+   GRF_tpCondRet GRF_VerificarTodosVertices( GRF_tppGrafo pCabecaParm )
+   {
+
+      LIS_tppLista pVertice = NULL ;
+      int cntVertices = 0;
+
+      IrInicioLista( pCabecaParm->pListaVert ) ;
+      while( ( pVertice = LIS_ObterValor( pCabecaParm->pListaVert ) ) != NULL )
+      {
+         cntVertices++ ;
+
+         if( GRF_VerificarVertice( pVertice ) != GRF_CondRetOK )
+         {
+            return GRF_CondRetErroEstrutura ;
+         } /* if */
+
+         if( LIS_AvancarElementoCorrente( pCabecaParm->pListaVert , 1 ) != LIS_CondRetOK )
+         {
+            break ;
+         } /* if */
+      } /* while */
+
+      if ( TST_CompararInt( cntVertices , pCabecaParm->QtdVertices ,
+           "Quantidade de vertices não é a mesma que está registrada." ) != TST_CondRetOK )
+      {
+         CNT_CONTAR( "QuantidadeVerticesInvalida" ) ;
+         return GRF_CondRetErroEstrutura ;
+      } /* if */
+
+      return GRF_CondRetOK ;
+
+   } /* Fim função: GRF  &Verificar quantidade de vertices */
+   
+#endif
+   
+#ifdef _DEBUG
+
+/***************************************************************************
+*
+*  Função: GRF  &Verificar vertice
+*
+****************************************************************************/
+
+   GRF_tpCondRet GRF_VerificarVertice( LIS_tppLista pVerticeParm )
+   {
+
+      GRF_tpValor * pValor = NULL ;
+
+      if( pVerticeParm == NULL )
+      {
+         TST_NotificarFalha( "Tentou verificar vertice inexistente." ) ;
+         CNT_CONTAR( "VerticeInexistente" ) ;
+         return GRF_CondRetErroEstrutura ;
+      } /* if */
+
+      if ( ! CED_VerificarEspaco( pVerticeParm , NULL ))
+      {
+         CNT_CONTAR( "ErroEspacoInfo" ) ;
+         TST_NotificarFalha( "Controle do espaço do vertice acusou erro." ) ;
+         return GRF_CondRetErroEstrutura ;
+      } /* if */
+
+      pValor = ( GRF_tpValor * ) LIS_ObterValor( pVerticeParm ) ;
+      if( pValor == NULL )
+      {
+         CNT_CONTAR( "ValorVerticeInvalido" ) ;
+         TST_NotificarFalha( "Estrutura 'valor' invalida." ) ;
+         return GRF_CondRetErroEstrutura ;
+      } /* if */
+
+      if ( TST_CompararInt( GRF_TipoEspacoInfo ,
+           CED_ObterTipoEspaco( pValor ) ,
+           "Tipo do espaço de dados não é estrutura de informação do grafo." ) != TST_CondRetOK )
+      {
+         CNT_CONTAR( "TipoInfoVerticeInvalido" ) ;
+         return GRF_CondRetErroEstrutura ;
+      } /* if */
+
+      if( pValor->pGrafo == NULL )
+      {
+         CNT_CONTAR( "GrafoApontadoVerticeNulo" ) ;
+         TST_NotificarFalha( "Ponteiro para cabeça do grafo inválido." ) ;
+         return GRF_CondRetErroEstrutura ;
+      } /* if */
+
+      /* verifica se o tipo armazenado eh realmente oq deveria ser armazenado */
+      if ( TST_CompararInt( pValor->tpEncapsulado , pValor->pGrafo->tpEncapsulado ,
+           "Tipo encapsulado não corresponde ao que deveria ser." ) != TST_CondRetOK )
+      {
+         CNT_CONTAR( "TipoEncapsuladoInvalido" ) ;
+         return GRF_CondRetErroEstrutura ;
+      } /* if */
+
+      IrInicioLista( pValor->pGrafo->pListaVert ) ;
+      if( LIS_ProcurarValor( pValor->pGrafo->pListaVert , pVerticeParm , 
+          GRF_comparaValoresSimples ) != LIS_CondRetOK )
+      {
+         CNT_CONTAR( "VerticeNaoFazParteGrafoApontado" ) ;
+         TST_NotificarFalha( "Vertice não faz parte do grafo apontado." ) ;
+         return GRF_CondRetErroEstrutura ;
+      } /* if */
+
+      return GRF_VerificarAresta( pVerticeParm ) ;
+
+   } /* Fim função: GRF  &Verificar vertice */
+   
+#endif
+
+#ifdef _DEBUG
+
+/***************************************************************************
+*
+*  Função: GRF  &Verificar aresta
+*
+****************************************************************************/
+
+   GRF_tpCondRet GRF_VerificarAresta( LIS_tppLista pVerticeParm )
+   {
+
+      GRF_tpValor * pValor = NULL ;
+      LIS_tppLista pVertice = NULL ;
+      GRF_tppGrafo pGrafo = NULL ;
+
+      pValor = ( GRF_tpValor * ) LIS_ObterValor( pVerticeParm ) ;
+      pGrafo = pValor->pGrafo ;
+
+      IrInicioLista( pValor->pListaAresta ) ;
+      pVertice = ( LIS_tppLista ) LIS_ObterValor( pValor->pListaAresta ) ;
+      while( pVertice != NULL )
+      {
+         GRF_tpValor * pValorInt = NULL ;
+
+         /* procura na lista de vertices */
+         IrInicioLista( pGrafo->pListaVert ) ;
+         if( LIS_ProcurarValor( pGrafo->pListaVert , pVertice , 
+             GRF_comparaValoresSimples ) != LIS_CondRetOK )
+         {
+            CNT_CONTAR( "VerticeApontadoArestaNaoFazParteGrafo" ) ;
+            TST_NotificarFalha( "Vertice apontado pela aresta não faz parte do grafo." ) ;
+            return GRF_CondRetErroEstrutura ;
+         } /* if */
+
+         /* pega valor do vertice encontrado */
+         pValorInt = ( GRF_tpValor * )LIS_ObterValor( pGrafo->pListaVert ) ;
+
+         /* verifica se existe a aresta de volta */
+         IrInicioLista( pValorInt->pListaAresta ) ;
+         if( LIS_ProcurarValor( pValorInt->pListaAresta , pVerticeParm , 
+             GRF_comparaValoresSimples ) != LIS_CondRetOK )
+         {
+            CNT_CONTAR( "ArestaVaiMasNaoVolta" ) ;
+            TST_NotificarFalha( "Aresta inconsistente. Existe ida mas não existe volta." ) ;
+            return GRF_CondRetErroEstrutura ;
+         } /* if */
+
+         /* anda para a proxima aresta */
+         if( LIS_AvancarElementoCorrente( pValor->pListaAresta , 1 ) != LIS_CondRetOK )
+         {
+            break;
+         }
+         pVertice = ( LIS_tppLista ) LIS_ObterValor( pValor->pListaAresta ) ;
+
+      } /* while */
+
+      CNT_CONTAR( "VerificaoOK" ) ;
+      return GRF_CondRetOK ;
+
+   } /* Fim função: GRF  &Verificar aresta */
+   
+#endif
+
+#ifdef _DEBUG
+/***************************************************************************
+*
+*  Função: GRF  &Deturpar Grafo
+*  ****/
+
+   void GRF_Deturpar( void * pGrafoParm ,
+                      GRF_tpModosDeturpacao ModoDeturpar )
+   {
+
+      GRF_tpGrafo * parmGrafo = NULL ;
+
+      if ( pGrafoParm == NULL )
+      {
+         return ;
+      } /* if */
+
+      parmGrafo = ( GRF_tppGrafo )( pGrafoParm ) ;
+
+      switch ( ModoDeturpar ) {
+
+      /* Elimina o elemento corrente da lista */
+
+         case DeturpaEliminaCorr :
+         {
+            LIS_tpCondRet LIS_retornoObtido = LIS_CondRetOK;
+            
+            if ( parmGrafo -> pVertCorr == NULL )
+            {
+               break ;
+            }
+            
+            LIS_retornoObtido = LIS_ExcluirElemento( parmGrafo -> pVertCorr ) ;
+
+            break ;
+
+         } /* fim ativa: Elimina o elemento corrente da lista */
+
+      /* Atribui NULL ao elemento da lista Vértice que armazena o vértice corrente */
+
+         case DeturpaVerticeNulo :
+         {
+            IrInicioLista( parmGrafo->pListaVert ) ;
+            if( LIS_ProcurarValor( parmGrafo->pListaVert , parmGrafo->pVertCorr , 
+                GRF_comparaValoresSimples ) == LIS_CondRetOK )
+            {
+               parmGrafo->pListaVert->pElemCorr = NULL ;
+            } /* if */
+            
+            break ;
+
+         } /* fim ativa: Atribui NULL ao elemento da lista Vértice que armazena o vértice corrente */
+
+      /* Atribui NULL ao primeiro elemento da lista Arestas do vértice corrente */
+
+         case DeturpaArestaNulo :
+         {
+            GRF_tpValor * pValor = NULL ;
+        
+            pValor = ( GRF_tpValor * )LIS_ObterValor( parmGrafo->pVertCorr ) ;
+
+            if( pValor == NULL || pValor->pListaAresta == NULL || 
+                pValor->pListaAresta->pOrigemLista == NULL )
+            {
+               break ;
+            }
+
+            pValor->pListaAresta->pOrigemLista->pValor = NULL ;
+
+            break ;
+
+         } /* fim ativa: Atribui NULL ao primeiro elemento da lista Arestas do vértice corrente */
+
+      /* Atribui NULL a um elemento N da lista Arestas do vértice corrente */
+
+         case DeturpaArestaQualquerNulo :
+         {
+           
+            GRF_tpValor * pValor = NULL ;
+        
+            pValor = ( GRF_tpValor * )LIS_ObterValor( parmGrafo->pVertCorr ) ;
+
+            if( pValor == NULL || pValor->pListaAresta == NULL || 
+                pValor->pListaAresta->pElemCorr == NULL )
+            {
+               break ;
+            }
+
+            pValor->pListaAresta->pElemCorr->pValor = NULL ;
+            
+            break ;
+
+         } /* fim ativa: Atribui NULL a um elemento N da lista Arestas do vértice corrente */
+
+      /* Atribui lixo ao ponteiro para o vértice corrente armazenado na cabeça do grafo */
+
+         case DeturpaVerticeCorrenteLixo :
+         {
+
+            parmGrafo->pVertCorr = ( LIS_tppLista ) EspacoLixo ;
+
+            break ;
+
+         } /* fim ativa: Atribui lixo ao ponteiro para o vértice corrente armazenado na cabeça do grafo */
+
+      /* Atribui NULL ao ponteiro da lista Vértices. */
+
+         case DeturparListaVertices :
+         {
+            
+            parmGrafo->pListaVert = NULL ;
+
+            break ;
+
+         } /* fim ativa: Atribui NULL ao ponteiro da lista Vértices. */   
+         
+         
+      /* Tipo do espaço de cabeça != */
+
+         case DeturparTipoEspaco :
+         {
+            
+            CED_DefinirTipoEspaco( parmGrafo , CED_ID_TIPO_VALOR_NULO ) ;
+            CED_DefinirTipoEspaco( parmGrafo , CED_ID_TIPO_ILEGAL ) ;
+
+            break ;
+
+         } /* fim ativa: Tipo do espaço de cabeça != */   
+       
+      /* Passar a cabeça desalocada */
+
+         case DeturparCabecaDesalocada :
+         {
+            free ( parmGrafo ) ;
+
+            break ;
+
+         } /* fim ativa: Passar a cabeça desalocada */   
+         
+      } /* fim seleciona: Raiz de GRF  &Deturpar grafo */
+
+   } /* Fim função: GRF  &Deturpar grafo */
+
+#endif
+   
+
+/*****  Código das funções encapsuladas pelo módulo  *****/
+
+/***************************************************************************
+*
+*  Função: GRF  &Destruir Aresta, interno ao modulo
+*
+****************************************************************************/
+
+   void GRF_destruirArestaInt( LIS_tppLista pVerticeA , LIS_tppLista pVerticeB )
+   {
+      GRF_tpValor * pVertValor = NULL ;
+      LIS_tpCondRet retornoObtido = LIS_CondRetOK ;
+
+      /* pega a estrutura GRF_info armazenada no vertice buscado */
+      pVertValor = ( GRF_tpValor * ) LIS_ObterValor( pVerticeA ) ;
+
+      /* varre lista de arestas do vertice buscado atras do vertice corrente */
+      IrInicioLista( pVertValor->pListaAresta ) ;
+      retornoObtido = LIS_ProcurarValor( pVertValor->pListaAresta , 
+                                         pVerticeB , 
+                                         GRF_comparaValoresSimples ) ;
+      if( retornoObtido != LIS_CondRetOK )
+      {
+         return ;
+      } /* if */
+
+      /* se encontrar (deve sempre ser verdade), deve-se excluir essa aresta */
+      LIS_ExcluirElemento( pVertValor->pListaAresta ) ;
+
+   } /* Fim função: GRF  &Criar Aresta, interno ao modulo */
+
+
+/***************************************************************************
+*
+*  Função: GRF  &Criar Aresta, interno ao modulo
+*
+****************************************************************************/
+
+   GRF_tpCondRet GRF_criarArestaInt( LIS_tppLista pVerticeA , LIS_tppLista pVerticeB )
+   {
+      GRF_tpValor * pVertValor = NULL ;
+      LIS_tpCondRet retornoObtido = LIS_CondRetOK ;
+
+      /* pega valor armazenado no vertice corrente */
+      pVertValor = ( GRF_tpValor * ) LIS_ObterValor( pVerticeA ) ;
+
+      /* verifica se a aresta ja existe */
+      IrInicioLista( pVertValor->pListaAresta ) ;
+      retornoObtido = LIS_ProcurarValor( pVertValor->pListaAresta , 
+                                         pVerticeB , 
+                                         GRF_comparaValoresSimples ) ;
+      if( retornoObtido == LIS_CondRetOK )
+      {
+         return GRF_CondRetArestaJaExiste ;
+      } /* if */
+
+      /* caso ainda nao exista, insere nova aresta */
+      retornoObtido = LIS_InserirElementoApos( pVertValor->pListaAresta , pVerticeB ) ;
+      if( retornoObtido == LIS_CondRetFaltouMemoria )
+      {
+         return GRF_CondRetFaltouMemoria ;
+      } /* if */
+
+      /* funcao executou corretamente */
+      return GRF_CondRetOK ;
+
+   } /* Fim função: GRF  &Criar Aresta, interno ao modulo */
+
+/***************************************************************************
+*
+*  Função: GRF  &Excluir lista
+*
+****************************************************************************/
+
+   void GRF_excluirLista ( void * pValor )
+   {
+
+      LIS_DestruirLista( ( LIS_tppLista ) pValor ) ;
+
+   } /* Fim função: GRF  &Excluir nada */
+
+/***************************************************************************
+*
+*  Função: GRF  &Criar valor encapsulado no vertice
+*
+****************************************************************************/
+
+   GRF_tpValor * GRF_criarValor ( void * parmValor , GRF_tppGrafo parmGrafo )
+   {
+      GRF_tpValor * valorVertice = NULL ;
+
+      /* aloca estrutura que eh armazenada no vertice */
+      valorVertice = ( GRF_tpValor * ) malloc( sizeof( GRF_tpValor ) ) ;
+      if( valorVertice == NULL )
+      {
+         return NULL ;
+      } /* if */
+
+      /* preenchendo informacoes armazenadas no vertice */
+      valorVertice->pValor = parmValor ;
+      valorVertice->pGrafo = parmGrafo ;
+
+      /* cria lista de arestas  */
+      valorVertice->pListaAresta = LIS_CriarLista( GRF_excluirNada ) ;
+      if( valorVertice->pListaAresta == NULL )
+      {
+         free( valorVertice ) ;
+         return NULL ;
+      } /* if */
+
+      #ifdef _DEBUG
+         CED_DefinirTipoEspaco( valorVertice , GRF_TipoEspacoInfo ) ;
+      #endif
+
+      /* retorna ponteiro para a estrutura criada */
+      return valorVertice ;
+
+   } /* Fim função: GRF  &Criar valor encapsulado no vertice */
+
+/***************************************************************************
+*
+*  Função: GRF  &Excluir valor encapsulado no vertice
+*
+****************************************************************************/
+
+   void GRF_excluirValor ( void * parmValor )
+   {
+
+      GRF_tpValor * pValor = ( GRF_tpValor * ) parmValor ;
+
+      pValor->pGrafo->ExcluirValor( pValor->pValor ) ;
+
+      /* abaixo exclui-se a lista de arestas, caso exista */
+      if( pValor->pListaAresta  != NULL )
+      {
+         LIS_tppLista pVertCorr = pValor->pGrafo->pVertCorr ;
+         LIS_tppLista pVertBuscado = NULL ;
+
+         /* enquanto existirem arestas */
+         IrInicioLista( pValor->pListaAresta ) ;
+         pVertBuscado = ( LIS_tppLista ) LIS_ObterValor( pValor->pListaAresta ) ;
+         while( pVertBuscado != NULL )
+         {
+            /* exclui arestas nos dois sentidos */
+            GRF_destruirArestaInt( pVertCorr , pVertBuscado ) ;
+            GRF_destruirArestaInt( pVertBuscado , pVertCorr ) ;
+
+            /* pega proximo vertice apontado pelo vertice corrente */
+            pVertBuscado = ( LIS_tppLista ) LIS_ObterValor( pValor->pListaAresta ) ;
+         }
+
+         /* antes de destrur a lista deve-se acabar com a referencia de todas as arestas */
+         LIS_DestruirLista( pValor->pListaAresta ) ;
+      }
+
+      free( pValor ) ;
+
+   } /* Fim função: GRF  &Excluir valor encapsulado no vertice */
+
+/***************************************************************************
+*
+*  Função: GRF  &Excluir Nada
+*
+****************************************************************************/
+
+   void GRF_excluirNada ( void * parmValor )
+   {
+
+      return ;
+
+   } /* Fim função: GRF  &Excluir nada */
+
+/***************************************************************************
+*
+*  Função: GRF  &Compara valores simples
+*
+****************************************************************************/
+
+   int GRF_comparaValoresSimples( void * pValorCorr , void * pValorBuscado )
+   {
+
+      return (( long int ) pValorCorr ) - (( long int ) pValorBuscado ) ;
+
+   } /* Fim função: GRF  &Compara valores simples */
+
+/***************************************************************************
+*
+*  Função: GRF  &Compara vertice com valor
+*
+****************************************************************************/
+
+   int GRF_comparaVerticeValor( void * pVerticeParm , void * pValorParm )
+   {
+
+      LIS_tppLista pVertice = ( LIS_tppLista ) pVerticeParm ;
+      GRF_tpValor * pValorVert = ( GRF_tpValor * ) LIS_ObterValor( pVertice ) ;
+
+      return pValorVert->pGrafo->ComparaValor( pValorVert->pValor , pValorParm ) ;
+
+   } /* Fim função: GRF  &Compara valores simples */
+
+/********** Fim do módulo de implementação: GRF  Grafo **********/
+

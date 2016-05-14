@@ -1,0 +1,51 @@
+Data: 10/04/13
+
+Horas Trabalhadas: 
+		-Início: 18:30h
+		-Fim: 03:17h
+
+Tipo de Tarefa: 
+
+	Especificar funções:
+		-Criação da função void InsOrde (LIS_tppLista pLista, char * sIni, char * sNome);
+		-Criação da função void printLis (LIS_tppLista pLista)
+		-Criação da função ptoString * prchStr (char * sIniciais, char * sNomeComp)
+
+	Revisar especificações:
+		-Funções revisadas:
+			void ( * ExcluirValor ) ( ptoString * pValor ) - Substituição do valor "void" e as devidas mudanças necessárias
+			LIS_tppLista LIS_CriarLista ( void ( * ExcluirValor ) ( ptoString * pDado ) ) - Substituição do valor "void" e as devidas mudanças necessárias
+			LIS_tpCondRet LIS_InserirElementoAntes( LIS_tppLista pLista , ptoString * pValor ) - Substituição do valor "void" e as devidas mudanças necessárias
+			LIS_tpCondRet LIS_InserirElementoApos( LIS_tppLista pLista , ptoString * pValor ) - Substituição do valor "void" e as devidas mudanças necessárias
+			ptoString * LIS_ObterValor( LIS_tppLista pLista ) - Substituição do valor "void" e as devidas mudanças necessárias
+			LIS_tpCondRet LIS_ProcurarValor( LIS_tppLista pLista , ptoString * pValor ) - Substituição do valor "void" e as devidas mudanças necessárias
+			tpElemLista * CriarElemento( LIS_tppLista pLista , ptoString * pValor  ) - Substituição do valor "void" e as devidas mudanças necessárias
+			void LiberarElemento( LIS_tppLista   pLista , tpElemLista  * pElem   ) - Adesão do comando "free"
+			
+
+	Projetar:
+		-Criação da struct e seu devido typedef
+				[ 
+			typedef struct ptoParaStrings {	
+			char * sIni;
+			/* Ponteiro para string com as iniciais */
+			char * sNome;
+			/* Ponteiro para string com o nome completo */
+			} ptoString ;
+				]
+		-Projeto de funções implementadas (antes citadas) utilizando as funções já existentes.
+
+	Revisar projetos:
+		-Revisão do lista.c e lista.h
+
+	Codificar modulos:
+		-Adição de funções no lista.c e lista.h
+
+	Revisar codigo do modulos:
+		-Revisão das funções no lista.c para que fosse possível fazer as devidas mudanças, bem como no lista.h
+
+	Redigir script de teste.	
+	Revisar script de teste.
+
+	Realizar os testes:
+		-Realização de testes através do compilar do Visual Studio, tendo sucesso.

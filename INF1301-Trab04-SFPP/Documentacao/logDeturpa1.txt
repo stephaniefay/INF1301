@@ -1,0 +1,1023 @@
+
+!!! Inicio dos testes
+!!!      Construto sob teste: ..\Produtos\DEBUG\Trab04-1.exe
+!!!      Script de teste:     ..\Scripts\TesteDeturpaGrafo1.script
+
+!!!    0  Linha:     1  // Script:    TesteGrafo.script 
+!!!    0  Linha:     2  // Autor:     Stephanie Fay, Pedro Paulo 
+!!!    0  Linha:     3  // Data:      29/nov/2013 
+!!!    0  Linha:     4  // PropÛsito: Script para testar a construÁ„o de grafos de estruturas. 
+!!!    0  Linha:     5  // 
+    7  == Iniciar contadores de passagem
+cc>    1  Linha:     9   N„o abriu o arquivo "Grafo.count"
+>>>    2  Linha:     9  N˙mero de erros de leitura errado. Deveria ser: 0  …: 1
+>>>    3  Linha:    10  N„o È comando recuperar:  =iniciarcontagem
+   13  == Inicializar Grafos
+   24  == Declarar as condicoes de retorno
+   35  == Inicializar valores
+   45  == Criar grafos
+   55  == Criar vÈrtices no grafo e obter seus valores
+!!!    3  Linha:    74  // InÌcio dos testes 
+   76  == Elimina o elemento corrente da lista
+>>>    4  Linha:    79  Estrutura 'valor' invalida. 
+<<<    3  Linha:    80  Falha esperada foi recuperada. 
+   82  == Destruir o grafo
+   87  == Atribui NULL ao elemento da lista VÈrtice que armazena o vÈrtice corrente
+>>>    4  Linha:    90  Grafo vazio tem vÈrtice corrente n„o NULL. Deveria ser: 00000000  …: 001FDA62
+<<<    3  Linha:    91  Falha esperada foi recuperada. 
+>>>    4  Linha:    92  N˙mero de falhas esperadas errado. Deveria ser: 2  …: 3
+   94  == Destruir o grafo
+   97  == Atribui NULL ao primeiro elemento da lista Arestas do vÈrtice corrente
+>>>    5  Linha:   102  N˙mero de falhas esperadas errado. Deveria ser: 1  …: 4
+  104  == Destruir o grafo
+  108  ==  Atribui NULL a um elemento N da lista Arestas do vÈrtice corrente
+  114  == Destruir a grafo
+
+!!!  Espaco de dados, id:   111  pValor: 004B6772  hexa: 72 67 4B 00  E' origem lista  Id suc:   110
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  9A 48 4B 00 42 64 4B 00 00 00 00 00               öHK.BdK.....
+
+
+!!!  Espaco de dados, id:   110  pValor: 004B6662  hexa: 62 66 4B 00  Id ant:   111  Id suc:   109
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  52 65 4B 00 00 00 00 00 00 00 00 00               ReK.........
+
+
+!!!  Espaco de dados, id:   109  pValor: 004B49BA  hexa: BA 49 4B 00  Id ant:   110  Id suc:   108
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+    010  B0 2F 3C 01                                       ∞/<.
+
+
+!!!  Espaco de dados, id:   108  pValor: 004B6552  hexa: 52 65 4B 00  Id ant:   109  Id suc:   107
+     Id tipo valor: 2  Tamanho: 16  Ativo  Linha onde alocou: 1030  Arquivo: c1121598\desktop\trab04\grafo.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  8A 34 4B 00 BA 49 4B 00 22 CF 1F 00 7C 7C 7C 7C   ä4K.∫IK."œ..||||
+
+
+!!!  Espaco de dados, id:   107  pValor: 004B489A  hexa: 9A 48 4B 00  Id ant:   108  Id suc:   106
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  62 66 4B 00 62 66 4B 00 62 66 4B 00 01 00 00 00   bfK.bfK.bfK.....
+    010  90 2E 3C 01                                       ê.<.
+
+
+!!!  Espaco de dados, id:   106  pValor: 004B348A  hexa: 8A 34 4B 00  Id ant:   107  Id suc:   105
+     Tipo indefinido  Tamanho: 298  Ativo  Linha onde alocou: 204  Arquivo: 121598\desktop\trab04\testgrf.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  4D 72 2E 20 42 75 72 6E 73 00 7C 7C 7C 7C 7C 7C   Mr. Burns.||||||
+    010  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    020  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    030  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    040  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    050  7C 38 37 36 35 34 33 32 31 00 7C 7C 7C 7C 7C 7C   |87654321.||||||
+    060  7C 52 75 61 20 64 6F 20 5A E9 2C 20 31 32 33 2C   |Rua do ZÈ, 123,
+    070  20 53 70 72 69 6E 67 66 69 65 6C 64 00 7C 7C 7C    Springfield.|||
+    080  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    090  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0A0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0B0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0C0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0D0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0E0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0F0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    100  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    110  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    120  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C                     ||||||||||
+
+
+!!!  Espaco de dados, id:   105  pValor: 004B6442  hexa: 42 64 4B 00  Id ant:   106  Id suc:   104
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  5A 46 4B 00 12 61 4B 00 72 67 4B 00               ZFK..aK.rgK.
+
+
+!!!  Espaco de dados, id:   104  pValor: 004B6332  hexa: 32 63 4B 00  Id ant:   105  Id suc:   103
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  22 62 4B 00 00 00 00 00 00 00 00 00               "bK.........
+
+
+!!!  Espaco de dados, id:   103  pValor: 004B477A  hexa: 7A 47 4B 00  Id ant:   104  Id suc:   102
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+    010  B0 2F 3C 01                                       ∞/<.
+
+
+!!!  Espaco de dados, id:   102  pValor: 004B6222  hexa: 22 62 4B 00  Id ant:   103  Id suc:   101
+     Id tipo valor: 2  Tamanho: 16  Ativo  Linha onde alocou: 1030  Arquivo: c1121598\desktop\trab04\grafo.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  3A 31 4B 00 7A 47 4B 00 22 CF 1F 00 7C 7C 7C 7C   :1K.zGK."œ..||||
+
+
+!!!  Espaco de dados, id:   101  pValor: 004B465A  hexa: 5A 46 4B 00  Id ant:   102  Id suc:   100
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  32 63 4B 00 32 63 4B 00 32 63 4B 00 01 00 00 00   2cK.2cK.2cK.....
+    010  90 2E 3C 01                                       ê.<.
+
+
+!!!  Espaco de dados, id:   100  pValor: 004B313A  hexa: 3A 31 4B 00  Id ant:   101  Id suc:    99
+     Tipo indefinido  Tamanho: 298  Ativo  Linha onde alocou: 204  Arquivo: 121598\desktop\trab04\testgrf.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  4D 72 2E 20 42 75 72 6E 73 00 7C 7C 7C 7C 7C 7C   Mr. Burns.||||||
+    010  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    020  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    030  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    040  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    050  7C 38 37 36 35 34 33 32 31 00 7C 7C 7C 7C 7C 7C   |87654321.||||||
+    060  7C 52 75 61 20 64 6F 20 5A E9 2C 20 31 32 33 2C   |Rua do ZÈ, 123,
+    070  20 53 70 72 69 6E 67 66 69 65 6C 64 00 7C 7C 7C    Springfield.|||
+    080  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    090  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0A0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0B0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0C0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0D0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0E0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0F0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    100  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    110  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    120  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C                     ||||||||||
+
+
+!!!  Espaco de dados, id:    99  pValor: 004B6112  hexa: 12 61 4B 00  Id ant:   100  Id suc:    98
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  1A 44 4B 00 00 00 00 00 42 64 4B 00               .DK.....BdK.
+
+
+!!!  Espaco de dados, id:    98  pValor: 004B6002  hexa: 02 60 4B 00  Id ant:    99  Id suc:    97
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  F2 5E 4B 00 00 00 00 00 00 00 00 00               Ú^K.........
+
+
+!!!  Espaco de dados, id:    97  pValor: 004B453A  hexa: 3A 45 4B 00  Id ant:    98  Id suc:    96
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+    010  B0 2F 3C 01                                       ∞/<.
+
+
+!!!  Espaco de dados, id:    96  pValor: 004B5EF2  hexa: F2 5E 4B 00  Id ant:    97  Id suc:    95
+     Id tipo valor: 2  Tamanho: 16  Ativo  Linha onde alocou: 1030  Arquivo: c1121598\desktop\trab04\grafo.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  EA 2D 4B 00 3A 45 4B 00 22 CF 1F 00 7C 7C 7C 7C   Í-K.:EK."œ..||||
+
+
+!!!  Espaco de dados, id:    95  pValor: 004B441A  hexa: 1A 44 4B 00  Id ant:    96  Id suc:    94
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  02 60 4B 00 02 60 4B 00 02 60 4B 00 01 00 00 00   .`K..`K..`K.....
+    010  90 2E 3C 01                                       ê.<.
+
+
+!!!  Espaco de dados, id:    94  pValor: 004B2DEA  hexa: EA 2D 4B 00  Id ant:    95  Id suc:    93
+     Tipo indefinido  Tamanho: 298  Ativo  Linha onde alocou: 204  Arquivo: 121598\desktop\trab04\testgrf.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  4D 72 2E 20 42 75 72 6E 73 00 7C 7C 7C 7C 7C 7C   Mr. Burns.||||||
+    010  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    020  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    030  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    040  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    050  7C 38 37 36 35 34 33 32 31 00 7C 7C 7C 7C 7C 7C   |87654321.||||||
+    060  7C 52 75 61 20 64 6F 20 5A E9 2C 20 31 32 33 2C   |Rua do ZÈ, 123,
+    070  20 53 70 72 69 6E 67 66 69 65 6C 64 00 7C 7C 7C    Springfield.|||
+    080  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    090  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0A0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0B0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0C0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0D0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0E0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0F0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    100  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    110  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    120  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C                     ||||||||||
+
+
+!!!  Espaco de dados, id:    93  pValor: 004B5DE2  hexa: E2 5D 4B 00  Id ant:    94  Id suc:    92
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  DA 41 4B 00 00 00 00 00 00 00 00 00               ⁄AK.........
+
+
+!!!  Espaco de dados, id:    92  pValor: 004B0F72  hexa: 72 0F 4B 00  Id ant:    93  Id suc:    91
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  62 0E 4B 00 00 00 00 00 00 00 00 00               b.K.........
+
+
+!!!  Espaco de dados, id:    91  pValor: 004B42FA  hexa: FA 42 4B 00  Id ant:    92  Id suc:    90
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+    010  B0 2F 3C 01                                       ∞/<.
+
+
+!!!  Espaco de dados, id:    90  pValor: 004B0E62  hexa: 62 0E 4B 00  Id ant:    91  Id suc:    89
+     Id tipo valor: 2  Tamanho: 16  Ativo  Linha onde alocou: 1030  Arquivo: c1121598\desktop\trab04\grafo.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  9A 2A 4B 00 FA 42 4B 00 E2 CC 1F 00 7C 7C 7C 7C   ö*K.˙BK.‚Ã..||||
+
+
+!!!  Espaco de dados, id:    89  pValor: 004B41DA  hexa: DA 41 4B 00  Id ant:    90  Id suc:    88
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  72 0F 4B 00 72 0F 4B 00 72 0F 4B 00 01 00 00 00   r.K.r.K.r.K.....
+    010  90 2E 3C 01                                       ê.<.
+
+
+!!!  Espaco de dados, id:    88  pValor: 004B2A9A  hexa: 9A 2A 4B 00  Id ant:    89  Id suc:    87
+     Tipo indefinido  Tamanho: 298  Ativo  Linha onde alocou: 204  Arquivo: 121598\desktop\trab04\testgrf.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  42 61 72 74 00 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   Bart.|||||||||||
+    010  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    020  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    030  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    040  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    050  7C 38 37 36 35 34 33 32 31 00 7C 7C 7C 7C 7C 7C   |87654321.||||||
+    060  7C 52 75 61 20 64 6F 20 5A E9 2C 20 31 32 33 2C   |Rua do ZÈ, 123,
+    070  20 53 70 72 69 6E 67 66 69 65 6C 64 00 7C 7C 7C    Springfield.|||
+    080  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    090  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0A0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0B0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0C0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0D0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0E0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0F0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    100  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    110  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    120  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C                     ||||||||||
+
+
+!!!  Espaco de dados, id:    87  pValor: 004B0D52  hexa: 52 0D 4B 00  Id ant:    88  Id suc:    86
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  9A 3F 4B 00 22 0A 4B 00 00 00 00 00               ö?K.".K.....
+
+
+!!!  Espaco de dados, id:    86  pValor: 004B0C42  hexa: 42 0C 4B 00  Id ant:    87  Id suc:    85
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  32 0B 4B 00 00 00 00 00 00 00 00 00               2.K.........
+
+
+!!!  Espaco de dados, id:    85  pValor: 004B40BA  hexa: BA 40 4B 00  Id ant:    86  Id suc:    84
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+    010  B0 2F 3C 01                                       ∞/<.
+
+
+!!!  Espaco de dados, id:    84  pValor: 004B0B32  hexa: 32 0B 4B 00  Id ant:    85  Id suc:    83
+     Id tipo valor: 2  Tamanho: 16  Ativo  Linha onde alocou: 1030  Arquivo: c1121598\desktop\trab04\grafo.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  4A 27 4B 00 BA 40 4B 00 A2 CA 1F 00 7C 7C 7C 7C   J'K.∫@K.¢ ..||||
+
+
+!!!  Espaco de dados, id:    83  pValor: 004B3F9A  hexa: 9A 3F 4B 00  Id ant:    84  Id suc:    82
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  42 0C 4B 00 42 0C 4B 00 42 0C 4B 00 01 00 00 00   B.K.B.K.B.K.....
+    010  90 2E 3C 01                                       ê.<.
+
+
+!!!  Espaco de dados, id:    82  pValor: 004B274A  hexa: 4A 27 4B 00  Id ant:    83  Id suc:    81
+     Tipo indefinido  Tamanho: 298  Ativo  Linha onde alocou: 204  Arquivo: 121598\desktop\trab04\testgrf.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  4D 61 72 67 65 00 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   Marge.||||||||||
+    010  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    020  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    030  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    040  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    050  7C 38 37 36 35 34 33 32 31 00 7C 7C 7C 7C 7C 7C   |87654321.||||||
+    060  7C 52 75 61 20 64 6F 20 5A E9 2C 20 31 32 33 2C   |Rua do ZÈ, 123,
+    070  20 53 70 72 69 6E 67 66 69 65 6C 64 00 7C 7C 7C    Springfield.|||
+    080  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    090  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0A0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0B0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0C0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0D0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0E0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0F0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    100  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    110  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    120  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C                     ||||||||||
+
+
+!!!  Espaco de dados, id:    81  pValor: 004B0A22  hexa: 22 0A 4B 00  Id ant:    82  Id suc:    80
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  5A 3D 4B 00 F2 06 4B 00 52 0D 4B 00               Z=K.Ú.K.R.K.
+
+
+!!!  Espaco de dados, id:    80  pValor: 004B0912  hexa: 12 09 4B 00  Id ant:    81  Id suc:    79
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  02 08 4B 00 00 00 00 00 00 00 00 00               ..K.........
+
+
+!!!  Espaco de dados, id:    79  pValor: 004B3E7A  hexa: 7A 3E 4B 00  Id ant:    80  Id suc:    78
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+    010  B0 2F 3C 01                                       ∞/<.
+
+
+!!!  Espaco de dados, id:    78  pValor: 004B0802  hexa: 02 08 4B 00  Id ant:    79  Id suc:    77
+     Id tipo valor: 2  Tamanho: 16  Ativo  Linha onde alocou: 1030  Arquivo: c1121598\desktop\trab04\grafo.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  FA 23 4B 00 7A 3E 4B 00 A2 CA 1F 00 7C 7C 7C 7C   ˙#K.z>K.¢ ..||||
+
+
+!!!  Espaco de dados, id:    77  pValor: 004B3D5A  hexa: 5A 3D 4B 00  Id ant:    78  Id suc:    76
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  12 09 4B 00 12 09 4B 00 12 09 4B 00 01 00 00 00   ..K...K...K.....
+    010  90 2E 3C 01                                       ê.<.
+
+
+!!!  Espaco de dados, id:    76  pValor: 004B23FA  hexa: FA 23 4B 00  Id ant:    77  Id suc:    75
+     Tipo indefinido  Tamanho: 298  Ativo  Linha onde alocou: 204  Arquivo: 121598\desktop\trab04\testgrf.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  4D 61 72 67 65 00 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   Marge.||||||||||
+    010  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    020  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    030  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    040  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    050  7C 38 37 36 35 34 33 32 31 00 7C 7C 7C 7C 7C 7C   |87654321.||||||
+    060  7C 52 75 61 20 64 6F 20 5A E9 2C 20 31 32 33 2C   |Rua do ZÈ, 123,
+    070  20 53 70 72 69 6E 67 66 69 65 6C 64 00 7C 7C 7C    Springfield.|||
+    080  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    090  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0A0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0B0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0C0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0D0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0E0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0F0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    100  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    110  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    120  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C                     ||||||||||
+
+
+!!!  Espaco de dados, id:    75  pValor: 004B06F2  hexa: F2 06 4B 00  Id ant:    76  Id suc:    74
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  A2 E5 1F 00 00 00 00 00 22 0A 4B 00               ¢Â......".K.
+
+
+!!!  Espaco de dados, id:    74  pValor: 004B05E2  hexa: E2 05 4B 00  Id ant:    75  Id suc:    73
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  D2 04 4B 00 00 00 00 00 00 00 00 00               “.K.........
+
+
+!!!  Espaco de dados, id:    73  pValor: 001FE6C2  hexa: C2 E6 1F 00  Id ant:    74  Id suc:    72
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+    010  B0 2F 3C 01                                       ∞/<.
+
+
+!!!  Espaco de dados, id:    72  pValor: 004B04D2  hexa: D2 04 4B 00  Id ant:    73  Id suc:    71
+     Id tipo valor: 2  Tamanho: 16  Ativo  Linha onde alocou: 1030  Arquivo: c1121598\desktop\trab04\grafo.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  AA 20 4B 00 C2 E6 1F 00 A2 CA 1F 00 7C 7C 7C 7C   ™ K.¬Ê..¢ ..||||
+
+
+!!!  Espaco de dados, id:    71  pValor: 001FE5A2  hexa: A2 E5 1F 00  Id ant:    72  Id suc:    70
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  E2 05 4B 00 E2 05 4B 00 E2 05 4B 00 01 00 00 00   ‚.K.‚.K.‚.K.....
+    010  90 2E 3C 01                                       ê.<.
+
+
+!!!  Espaco de dados, id:    70  pValor: 004B20AA  hexa: AA 20 4B 00  Id ant:    71  Id suc:    15
+     Tipo indefinido  Tamanho: 298  Ativo  Linha onde alocou: 204  Arquivo: 121598\desktop\trab04\testgrf.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  4D 61 72 67 65 00 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   Marge.||||||||||
+    010  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    020  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    030  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    040  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    050  7C 38 37 36 35 34 33 32 31 00 7C 7C 7C 7C 7C 7C   |87654321.||||||
+    060  7C 52 75 61 20 64 6F 20 5A E9 2C 20 31 32 33 2C   |Rua do ZÈ, 123,
+    070  20 53 70 72 69 6E 67 66 69 65 6C 64 00 7C 7C 7C    Springfield.|||
+    080  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    090  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0A0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0B0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0C0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0D0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0E0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0F0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    100  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    110  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    120  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C                     ||||||||||
+
+
+!!!  Espaco de dados, id:    15  pValor: 001FD042  hexa: 42 D0 1F 00  Id ant:    70  Id suc:    14
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  12 61 4B 00 72 67 4B 00 72 67 4B 00 03 00 00 00   .aK.rgK.rgK.....
+    010  60 2D 3C 01                                       `-<.
+
+
+!!!  Espaco de dados, id:    14  pValor: 001FCF22  hexa: 22 CF 1F 00  Id ant:    15  Id suc:    13
+     Id tipo valor: 1  Tamanho: 24  Ativo  Linha onde alocou: 158  Arquivo: c1121598\desktop\trab04\grafo.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  42 D0 1F 00 9A 48 4B 00 03 00 00 00 7C 7C 7C 7C   B–..öHK.....||||
+    010  00 45 3C 01 50 45 3C 01                           .E<.PE<.
+
+
+!!!  Espaco de dados, id:    13  pValor: 001FCE02  hexa: 02 CE 1F 00  Id ant:    14  Id suc:    12
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  E2 5D 4B 00 E2 5D 4B 00 E2 5D 4B 00 01 00 00 00   ‚]K.‚]K.‚]K.....
+    010  60 2D 3C 01                                       `-<.
+
+
+!!!  Espaco de dados, id:    12  pValor: 001FCCE2  hexa: E2 CC 1F 00  Id ant:    13  Id suc:    11
+     Id tipo valor: 1  Tamanho: 24  Ativo  Linha onde alocou: 158  Arquivo: c1121598\desktop\trab04\grafo.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  02 CE 1F 00 DA 41 4B 00 01 00 00 00 7C 7C 7C 7C   .Œ..⁄AK.....||||
+    010  00 45 3C 01 50 45 3C 01                           .E<.PE<.
+
+
+!!!  Espaco de dados, id:    11  pValor: 001FCBC2  hexa: C2 CB 1F 00  Id ant:    12  Id suc:    10
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  F2 06 4B 00 52 0D 4B 00 52 0D 4B 00 03 00 00 00   Ú.K.R.K.R.K.....
+    010  60 2D 3C 01                                       `-<.
+
+
+!!!  Espaco de dados, id:    10  pValor: 001FCAA2  hexa: A2 CA 1F 00  Id ant:    11  Id suc:     9
+     Id tipo valor: 1  Tamanho: 24  Ativo  Linha onde alocou: 158  Arquivo: c1121598\desktop\trab04\grafo.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  C2 CB 1F 00 9A 3F 4B 00 03 00 00 00 7C 7C 7C 7C   ¬À..ö?K.....||||
+    010  00 45 3C 01 50 45 3C 01                           .E<.PE<.
+
+
+!!!  Espaco de dados, id:     9  pValor: 001FC982  hexa: 82 C9 1F 00  Id ant:    10  Id suc:     8
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+    010  60 2D 3C 01                                       `-<.
+
+
+!!!  Espaco de dados, id:     8  pValor: 001FC862  hexa: 62 C8 1F 00  Id ant:     9  E' final lista
+     Id tipo valor: 1  Tamanho: 24  Ativo  Linha onde alocou: 158  Arquivo: c1121598\desktop\trab04\grafo.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  82 C9 1F 00 00 00 00 00 00 00 00 00 7C 7C 7C 7C   Ç…..........||||
+    010  00 45 3C 01 50 45 3C 01                           .E<.PE<.
+
+  118  == Atribui lixo ao ponteiro para o vÈrtice corrente armazenado na cabeÁa do grafo
+>>>    6  Linha:   121  Grafo vazio tem vÈrtice corrente n„o NULL. Deveria ser: 00000000  …: 013D3000
+<<<    5  Linha:   122  Falha esperada foi recuperada. 
+  124  == Destruir a grafo
+
+!!!  Espaco de dados, id:   111  pValor: 004B6772  hexa: 72 67 4B 00  E' origem lista  Id suc:   110
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  9A 48 4B 00 42 64 4B 00 00 00 00 00               öHK.BdK.....
+
+
+!!!  Espaco de dados, id:   110  pValor: 004B6662  hexa: 62 66 4B 00  Id ant:   111  Id suc:   109
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  52 65 4B 00 00 00 00 00 00 00 00 00               ReK.........
+
+
+!!!  Espaco de dados, id:   109  pValor: 004B49BA  hexa: BA 49 4B 00  Id ant:   110  Id suc:   108
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+    010  B0 2F 3C 01                                       ∞/<.
+
+
+!!!  Espaco de dados, id:   108  pValor: 004B6552  hexa: 52 65 4B 00  Id ant:   109  Id suc:   107
+     Id tipo valor: 2  Tamanho: 16  Ativo  Linha onde alocou: 1030  Arquivo: c1121598\desktop\trab04\grafo.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  8A 34 4B 00 BA 49 4B 00 22 CF 1F 00 7C 7C 7C 7C   ä4K.∫IK."œ..||||
+
+
+!!!  Espaco de dados, id:   107  pValor: 004B489A  hexa: 9A 48 4B 00  Id ant:   108  Id suc:   106
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  62 66 4B 00 62 66 4B 00 62 66 4B 00 01 00 00 00   bfK.bfK.bfK.....
+    010  90 2E 3C 01                                       ê.<.
+
+
+!!!  Espaco de dados, id:   106  pValor: 004B348A  hexa: 8A 34 4B 00  Id ant:   107  Id suc:   105
+     Tipo indefinido  Tamanho: 298  Ativo  Linha onde alocou: 204  Arquivo: 121598\desktop\trab04\testgrf.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  4D 72 2E 20 42 75 72 6E 73 00 7C 7C 7C 7C 7C 7C   Mr. Burns.||||||
+    010  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    020  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    030  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    040  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    050  7C 38 37 36 35 34 33 32 31 00 7C 7C 7C 7C 7C 7C   |87654321.||||||
+    060  7C 52 75 61 20 64 6F 20 5A E9 2C 20 31 32 33 2C   |Rua do ZÈ, 123,
+    070  20 53 70 72 69 6E 67 66 69 65 6C 64 00 7C 7C 7C    Springfield.|||
+    080  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    090  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0A0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0B0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0C0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0D0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0E0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0F0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    100  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    110  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    120  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C                     ||||||||||
+
+
+!!!  Espaco de dados, id:   105  pValor: 004B6442  hexa: 42 64 4B 00  Id ant:   106  Id suc:   104
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  5A 46 4B 00 12 61 4B 00 72 67 4B 00               ZFK..aK.rgK.
+
+
+!!!  Espaco de dados, id:   104  pValor: 004B6332  hexa: 32 63 4B 00  Id ant:   105  Id suc:   103
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  22 62 4B 00 00 00 00 00 00 00 00 00               "bK.........
+
+
+!!!  Espaco de dados, id:   103  pValor: 004B477A  hexa: 7A 47 4B 00  Id ant:   104  Id suc:   102
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+    010  B0 2F 3C 01                                       ∞/<.
+
+
+!!!  Espaco de dados, id:   102  pValor: 004B6222  hexa: 22 62 4B 00  Id ant:   103  Id suc:   101
+     Id tipo valor: 2  Tamanho: 16  Ativo  Linha onde alocou: 1030  Arquivo: c1121598\desktop\trab04\grafo.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  3A 31 4B 00 7A 47 4B 00 22 CF 1F 00 7C 7C 7C 7C   :1K.zGK."œ..||||
+
+
+!!!  Espaco de dados, id:   101  pValor: 004B465A  hexa: 5A 46 4B 00  Id ant:   102  Id suc:   100
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  32 63 4B 00 32 63 4B 00 32 63 4B 00 01 00 00 00   2cK.2cK.2cK.....
+    010  90 2E 3C 01                                       ê.<.
+
+
+!!!  Espaco de dados, id:   100  pValor: 004B313A  hexa: 3A 31 4B 00  Id ant:   101  Id suc:    99
+     Tipo indefinido  Tamanho: 298  Ativo  Linha onde alocou: 204  Arquivo: 121598\desktop\trab04\testgrf.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  4D 72 2E 20 42 75 72 6E 73 00 7C 7C 7C 7C 7C 7C   Mr. Burns.||||||
+    010  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    020  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    030  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    040  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    050  7C 38 37 36 35 34 33 32 31 00 7C 7C 7C 7C 7C 7C   |87654321.||||||
+    060  7C 52 75 61 20 64 6F 20 5A E9 2C 20 31 32 33 2C   |Rua do ZÈ, 123,
+    070  20 53 70 72 69 6E 67 66 69 65 6C 64 00 7C 7C 7C    Springfield.|||
+    080  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    090  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0A0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0B0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0C0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0D0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0E0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0F0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    100  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    110  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    120  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C                     ||||||||||
+
+
+!!!  Espaco de dados, id:    99  pValor: 004B6112  hexa: 12 61 4B 00  Id ant:   100  Id suc:    98
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  1A 44 4B 00 00 00 00 00 42 64 4B 00               .DK.....BdK.
+
+
+!!!  Espaco de dados, id:    98  pValor: 004B6002  hexa: 02 60 4B 00  Id ant:    99  Id suc:    97
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  F2 5E 4B 00 00 00 00 00 00 00 00 00               Ú^K.........
+
+
+!!!  Espaco de dados, id:    97  pValor: 004B453A  hexa: 3A 45 4B 00  Id ant:    98  Id suc:    96
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+    010  B0 2F 3C 01                                       ∞/<.
+
+
+!!!  Espaco de dados, id:    96  pValor: 004B5EF2  hexa: F2 5E 4B 00  Id ant:    97  Id suc:    95
+     Id tipo valor: 2  Tamanho: 16  Ativo  Linha onde alocou: 1030  Arquivo: c1121598\desktop\trab04\grafo.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  EA 2D 4B 00 3A 45 4B 00 22 CF 1F 00 7C 7C 7C 7C   Í-K.:EK."œ..||||
+
+
+!!!  Espaco de dados, id:    95  pValor: 004B441A  hexa: 1A 44 4B 00  Id ant:    96  Id suc:    94
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  02 60 4B 00 02 60 4B 00 02 60 4B 00 01 00 00 00   .`K..`K..`K.....
+    010  90 2E 3C 01                                       ê.<.
+
+
+!!!  Espaco de dados, id:    94  pValor: 004B2DEA  hexa: EA 2D 4B 00  Id ant:    95  Id suc:    93
+     Tipo indefinido  Tamanho: 298  Ativo  Linha onde alocou: 204  Arquivo: 121598\desktop\trab04\testgrf.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  4D 72 2E 20 42 75 72 6E 73 00 7C 7C 7C 7C 7C 7C   Mr. Burns.||||||
+    010  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    020  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    030  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    040  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    050  7C 38 37 36 35 34 33 32 31 00 7C 7C 7C 7C 7C 7C   |87654321.||||||
+    060  7C 52 75 61 20 64 6F 20 5A E9 2C 20 31 32 33 2C   |Rua do ZÈ, 123,
+    070  20 53 70 72 69 6E 67 66 69 65 6C 64 00 7C 7C 7C    Springfield.|||
+    080  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    090  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0A0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0B0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0C0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0D0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0E0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0F0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    100  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    110  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    120  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C                     ||||||||||
+
+
+!!!  Espaco de dados, id:    93  pValor: 004B5DE2  hexa: E2 5D 4B 00  Id ant:    94  Id suc:    92
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  DA 41 4B 00 00 00 00 00 00 00 00 00               ⁄AK.........
+
+
+!!!  Espaco de dados, id:    92  pValor: 004B0F72  hexa: 72 0F 4B 00  Id ant:    93  Id suc:    91
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  62 0E 4B 00 00 00 00 00 00 00 00 00               b.K.........
+
+
+!!!  Espaco de dados, id:    91  pValor: 004B42FA  hexa: FA 42 4B 00  Id ant:    92  Id suc:    90
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+    010  B0 2F 3C 01                                       ∞/<.
+
+
+!!!  Espaco de dados, id:    90  pValor: 004B0E62  hexa: 62 0E 4B 00  Id ant:    91  Id suc:    89
+     Id tipo valor: 2  Tamanho: 16  Ativo  Linha onde alocou: 1030  Arquivo: c1121598\desktop\trab04\grafo.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  9A 2A 4B 00 FA 42 4B 00 E2 CC 1F 00 7C 7C 7C 7C   ö*K.˙BK.‚Ã..||||
+
+
+!!!  Espaco de dados, id:    89  pValor: 004B41DA  hexa: DA 41 4B 00  Id ant:    90  Id suc:    88
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  72 0F 4B 00 72 0F 4B 00 72 0F 4B 00 01 00 00 00   r.K.r.K.r.K.....
+    010  90 2E 3C 01                                       ê.<.
+
+
+!!!  Espaco de dados, id:    88  pValor: 004B2A9A  hexa: 9A 2A 4B 00  Id ant:    89  Id suc:    87
+     Tipo indefinido  Tamanho: 298  Ativo  Linha onde alocou: 204  Arquivo: 121598\desktop\trab04\testgrf.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  42 61 72 74 00 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   Bart.|||||||||||
+    010  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    020  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    030  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    040  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    050  7C 38 37 36 35 34 33 32 31 00 7C 7C 7C 7C 7C 7C   |87654321.||||||
+    060  7C 52 75 61 20 64 6F 20 5A E9 2C 20 31 32 33 2C   |Rua do ZÈ, 123,
+    070  20 53 70 72 69 6E 67 66 69 65 6C 64 00 7C 7C 7C    Springfield.|||
+    080  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    090  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0A0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0B0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0C0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0D0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0E0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0F0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    100  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    110  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    120  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C                     ||||||||||
+
+
+!!!  Espaco de dados, id:    87  pValor: 004B0D52  hexa: 52 0D 4B 00  Id ant:    88  Id suc:    86
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  9A 3F 4B 00 22 0A 4B 00 00 00 00 00               ö?K.".K.....
+
+
+!!!  Espaco de dados, id:    86  pValor: 004B0C42  hexa: 42 0C 4B 00  Id ant:    87  Id suc:    85
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  32 0B 4B 00 00 00 00 00 00 00 00 00               2.K.........
+
+
+!!!  Espaco de dados, id:    85  pValor: 004B40BA  hexa: BA 40 4B 00  Id ant:    86  Id suc:    84
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+    010  B0 2F 3C 01                                       ∞/<.
+
+
+!!!  Espaco de dados, id:    84  pValor: 004B0B32  hexa: 32 0B 4B 00  Id ant:    85  Id suc:    83
+     Id tipo valor: 2  Tamanho: 16  Ativo  Linha onde alocou: 1030  Arquivo: c1121598\desktop\trab04\grafo.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  4A 27 4B 00 BA 40 4B 00 A2 CA 1F 00 7C 7C 7C 7C   J'K.∫@K.¢ ..||||
+
+
+!!!  Espaco de dados, id:    83  pValor: 004B3F9A  hexa: 9A 3F 4B 00  Id ant:    84  Id suc:    82
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  42 0C 4B 00 42 0C 4B 00 42 0C 4B 00 01 00 00 00   B.K.B.K.B.K.....
+    010  90 2E 3C 01                                       ê.<.
+
+
+!!!  Espaco de dados, id:    82  pValor: 004B274A  hexa: 4A 27 4B 00  Id ant:    83  Id suc:    81
+     Tipo indefinido  Tamanho: 298  Ativo  Linha onde alocou: 204  Arquivo: 121598\desktop\trab04\testgrf.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  4D 61 72 67 65 00 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   Marge.||||||||||
+    010  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    020  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    030  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    040  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    050  7C 38 37 36 35 34 33 32 31 00 7C 7C 7C 7C 7C 7C   |87654321.||||||
+    060  7C 52 75 61 20 64 6F 20 5A E9 2C 20 31 32 33 2C   |Rua do ZÈ, 123,
+    070  20 53 70 72 69 6E 67 66 69 65 6C 64 00 7C 7C 7C    Springfield.|||
+    080  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    090  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0A0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0B0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0C0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0D0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0E0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0F0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    100  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    110  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    120  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C                     ||||||||||
+
+
+!!!  Espaco de dados, id:    81  pValor: 004B0A22  hexa: 22 0A 4B 00  Id ant:    82  Id suc:    80
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  5A 3D 4B 00 F2 06 4B 00 52 0D 4B 00               Z=K.Ú.K.R.K.
+
+
+!!!  Espaco de dados, id:    80  pValor: 004B0912  hexa: 12 09 4B 00  Id ant:    81  Id suc:    79
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  02 08 4B 00 00 00 00 00 00 00 00 00               ..K.........
+
+
+!!!  Espaco de dados, id:    79  pValor: 004B3E7A  hexa: 7A 3E 4B 00  Id ant:    80  Id suc:    78
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+    010  B0 2F 3C 01                                       ∞/<.
+
+
+!!!  Espaco de dados, id:    78  pValor: 004B0802  hexa: 02 08 4B 00  Id ant:    79  Id suc:    77
+     Id tipo valor: 2  Tamanho: 16  Ativo  Linha onde alocou: 1030  Arquivo: c1121598\desktop\trab04\grafo.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  FA 23 4B 00 7A 3E 4B 00 A2 CA 1F 00 7C 7C 7C 7C   ˙#K.z>K.¢ ..||||
+
+
+!!!  Espaco de dados, id:    77  pValor: 004B3D5A  hexa: 5A 3D 4B 00  Id ant:    78  Id suc:    76
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  12 09 4B 00 12 09 4B 00 12 09 4B 00 01 00 00 00   ..K...K...K.....
+    010  90 2E 3C 01                                       ê.<.
+
+
+!!!  Espaco de dados, id:    76  pValor: 004B23FA  hexa: FA 23 4B 00  Id ant:    77  Id suc:    75
+     Tipo indefinido  Tamanho: 298  Ativo  Linha onde alocou: 204  Arquivo: 121598\desktop\trab04\testgrf.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  4D 61 72 67 65 00 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   Marge.||||||||||
+    010  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    020  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    030  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    040  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    050  7C 38 37 36 35 34 33 32 31 00 7C 7C 7C 7C 7C 7C   |87654321.||||||
+    060  7C 52 75 61 20 64 6F 20 5A E9 2C 20 31 32 33 2C   |Rua do ZÈ, 123,
+    070  20 53 70 72 69 6E 67 66 69 65 6C 64 00 7C 7C 7C    Springfield.|||
+    080  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    090  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0A0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0B0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0C0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0D0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0E0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0F0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    100  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    110  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    120  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C                     ||||||||||
+
+
+!!!  Espaco de dados, id:    75  pValor: 004B06F2  hexa: F2 06 4B 00  Id ant:    76  Id suc:    74
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  A2 E5 1F 00 00 00 00 00 22 0A 4B 00               ¢Â......".K.
+
+
+!!!  Espaco de dados, id:    74  pValor: 004B05E2  hexa: E2 05 4B 00  Id ant:    75  Id suc:    73
+     Tipo indefinido  Tamanho: 12  Ativo  Linha onde alocou: 532  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  D2 04 4B 00 00 00 00 00 00 00 00 00               “.K.........
+
+
+!!!  Espaco de dados, id:    73  pValor: 001FE6C2  hexa: C2 E6 1F 00  Id ant:    74  Id suc:    72
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+    010  B0 2F 3C 01                                       ∞/<.
+
+
+!!!  Espaco de dados, id:    72  pValor: 004B04D2  hexa: D2 04 4B 00  Id ant:    73  Id suc:    71
+     Id tipo valor: 2  Tamanho: 16  Ativo  Linha onde alocou: 1030  Arquivo: c1121598\desktop\trab04\grafo.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  AA 20 4B 00 C2 E6 1F 00 A2 CA 1F 00 7C 7C 7C 7C   ™ K.¬Ê..¢ ..||||
+
+
+!!!  Espaco de dados, id:    71  pValor: 001FE5A2  hexa: A2 E5 1F 00  Id ant:    72  Id suc:    70
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  E2 05 4B 00 E2 05 4B 00 E2 05 4B 00 01 00 00 00   ‚.K.‚.K.‚.K.....
+    010  90 2E 3C 01                                       ê.<.
+
+
+!!!  Espaco de dados, id:    70  pValor: 004B20AA  hexa: AA 20 4B 00  Id ant:    71  Id suc:    15
+     Tipo indefinido  Tamanho: 298  Ativo  Linha onde alocou: 204  Arquivo: 121598\desktop\trab04\testgrf.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  4D 61 72 67 65 00 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   Marge.||||||||||
+    010  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    020  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    030  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    040  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    050  7C 38 37 36 35 34 33 32 31 00 7C 7C 7C 7C 7C 7C   |87654321.||||||
+    060  7C 52 75 61 20 64 6F 20 5A E9 2C 20 31 32 33 2C   |Rua do ZÈ, 123,
+    070  20 53 70 72 69 6E 67 66 69 65 6C 64 00 7C 7C 7C    Springfield.|||
+    080  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    090  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0A0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0B0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0C0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0D0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0E0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    0F0  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    100  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    110  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C 7C   ||||||||||||||||
+    120  7C 7C 7C 7C 7C 7C 7C 7C 7C 7C                     ||||||||||
+
+
+!!!  Espaco de dados, id:    15  pValor: 001FD042  hexa: 42 D0 1F 00  Id ant:    70  Id suc:    14
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  12 61 4B 00 72 67 4B 00 72 67 4B 00 03 00 00 00   .aK.rgK.rgK.....
+    010  60 2D 3C 01                                       `-<.
+
+
+!!!  Espaco de dados, id:    14  pValor: 001FCF22  hexa: 22 CF 1F 00  Id ant:    15  Id suc:    13
+     Id tipo valor: 1  Tamanho: 24  Ativo  Linha onde alocou: 158  Arquivo: c1121598\desktop\trab04\grafo.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  42 D0 1F 00 9A 48 4B 00 03 00 00 00 7C 7C 7C 7C   B–..öHK.....||||
+    010  00 45 3C 01 50 45 3C 01                           .E<.PE<.
+
+
+!!!  Espaco de dados, id:    13  pValor: 001FCE02  hexa: 02 CE 1F 00  Id ant:    14  Id suc:    12
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  E2 5D 4B 00 E2 5D 4B 00 E2 5D 4B 00 01 00 00 00   ‚]K.‚]K.‚]K.....
+    010  60 2D 3C 01                                       `-<.
+
+
+!!!  Espaco de dados, id:    12  pValor: 001FCCE2  hexa: E2 CC 1F 00  Id ant:    13  Id suc:    11
+     Id tipo valor: 1  Tamanho: 24  Ativo  Linha onde alocou: 158  Arquivo: c1121598\desktop\trab04\grafo.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  02 CE 1F 00 DA 41 4B 00 01 00 00 00 7C 7C 7C 7C   .Œ..⁄AK.....||||
+    010  00 45 3C 01 50 45 3C 01                           .E<.PE<.
+
+
+!!!  Espaco de dados, id:    11  pValor: 001FCBC2  hexa: C2 CB 1F 00  Id ant:    12  Id suc:    10
+     Tipo indefinido  Tamanho: 20  Ativo  Linha onde alocou: 107  Arquivo: c1121598\desktop\trab04\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  F2 06 4B 00 52 0D 4B 00 52 0D 4B 00 03 00 00 00   Ú.K.R.K.R.K.....
+    010  60 2D 3C 01                                       `-<.
+
+
+!!!  Espaco de dados, id:    10  pValor: 001FCAA2  hexa: A2 CA 1F 00  Id ant:    11  E' final lista
+     Id tipo valor: 1  Tamanho: 24  Ativo  Linha onde alocou: 158  Arquivo: c1121598\desktop\trab04\grafo.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  C2 CB 1F 00 9A 3F 4B 00 03 00 00 00 7C 7C 7C 7C   ¬À..ö?K.....||||
+    010  00 45 3C 01 50 45 3C 01                           .E<.PE<.
+
+  128  == Atribui NULL ao ponteiro da lista VÈrtices
+>>>    6  Linha:   131  Lista de vertice n„o existe. 
+<<<    5  Linha:   132  Falha esperada foi recuperada. 
+>>>    6  Linha:   133  N˙mero de falhas esperadas errado. Deveria ser: 1  …: 5
+  136  == Destruir a grafo

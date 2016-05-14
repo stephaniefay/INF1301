@@ -1,0 +1,6 @@
+TRAB1.exe
+	- Cria uma lista encadeada onde no qual se cadastra nomes e suas respesctivas iniciais.
+		<Inicial><NomeCompleto>
+	- Insere na lista nomes e iniciais em ordem alfabetica.
+	- Mostra todos os nomes e iniciais na lista.
+	- Esse programa conta com varias funções que ajudam na alteração e modificações da lista, que já se encontravam no arcabouco.

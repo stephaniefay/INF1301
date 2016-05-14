@@ -1,0 +1,427 @@
+/***************************************************************************
+*  $MCI Módulo de implementação: Módulo de teste específico
+*
+*  Arquivo gerado:              TESTGRF.C
+*  Letras identificadoras:      TGRF
+*
+*  Projeto: Disciplina INF 1301
+*  Gestor:  DI/PUC-Rio
+*  Autores: sf - Stephanie Fay 
+*           pp - Pedro Paulo
+*
+*  $HA Histórico de evolução:
+*     Versão  Autor    Data     Observações
+*       1.00   sf    3/out/2013 Início do desenvolvimento
+*       2.00   pp   18/out/2013 Versão final sujeita a revisões pela equipe
+*       3.00   pp   25/nov/2013 Versão revisada.
+*       4.00   sf   29/nov/2013 Versão final.
+*
+*  $ED Descrição do módulo 
+*     Este modulo contém as funções específicas para o teste do
+*     módulo grafo. Ilustra como redigir um interpretador de comandos
+*     de teste específicos utilizando o arcabouço de teste para C.
+*
+*  $EIU Interface com o usuário pessoa
+*     Comandos de teste específicos para testar o módulo grafo:
+*
+*   "=grfcriargrafo"       <inxGrafo> 
+*              - Cria o grafo vazio ( Cabeça de grafo )
+*
+*   "=grfcriarvertice"     <inxGrafo> <String-Nome> <String-Endereco> <String-Telefone> <RetornoEsperado>
+*              - Cria um vertice do grafo
+*
+*   "=grfcriararesta"      <inxGrafo> <String-Nome> <RetornoEsperado>
+*              - Cria uma aresta ligando dois vertices
+*
+*   "=grfirvertice"        <inxGrafo> <String-Nome> <RetornoEsperado>
+*              - Caso exista aresta entre o vertice corrente e o indicado
+*                por parametro, este passa a ser o corrente.
+*
+*   "=grfobtervalor"       <inxGrafo> <String-Nome> <RetornoEsperado>
+*              - Obtem valor do no corrente do grafo
+*
+*   "=grfdestruirvertice"  <inxGrafo>   
+*              - Destroi o vertice corrente
+*
+*   "=grfdestruiraresta"   <inxGrafo> <String-Nome>
+*              - Destroi uma aresta que liga o vertice corrente com o vertice identificado pelo parametro
+*
+*   "=grfdestruirgrafo"    <inxGrafo>
+*              - Destroi o grafo com indice passado por parametro
+*
+***************************************************************************/
+
+#include    <string.h>
+#include    <stdio.h>
+#include    <stdlib.h>
+
+#include    "TST_ESPC.H"
+
+#include    "generico.h"
+#include    "lerparm.h"
+
+#include    "grafo.h"
+#include    "lista.h"
+
+#ifdef _DEBUG
+   #include "CESPDIN.H"
+#endif
+
+/* Tabela dos nomes dos comandos de teste específicos */
+
+#define     GRF_CRIAR_GRAFO_CMD     "=grfcriargrafo"
+#define     GRF_CRIAR_VERTICE_CMD   "=grfcriarvertice"
+#define     GRF_CRIAR_ARESTA_CMD    "=grfcriararesta"
+#define     GRF_IR_VERTICE_CMD      "=grfirvertice"
+#define     GRF_OBTER_VAL_CMD       "=grfobtervalor"
+#define     GRF_DESTROI_VERTICE_CMD "=grfdestruirvertice"
+#define     GRF_DESTROI_ARESTA_CMD  "=grfdestruiraresta"
+#define     GRF_DESTROI_GRAFO_CMD   "=grfdestruirgrafo"
+
+/* os comandos a seguir somente operam em modo _DEBUG */
+
+#define     GRF_DETURPAR_CMD      "=grfdeturpar"
+#define     GRF_VER_GRAFO_CMD     "=grfverificargrafo"
+#define     GRF_VER_MEMORIA_CMD   "=grfverificarmemoria"
+
+#define TRUE  1
+#define FALSE 0
+
+#define VAZIO     0
+#define NAO_VAZIO 1
+
+/* se modificado, deve-se modificar tambem a inicializacao do vtGrafo */
+#define DIM_VT   10
+
+
+/***** Estruturas de teste encapuladas no módulo *****/
+
+#define DIM_NOME 80
+#define DIM_TEL 15
+#define DIM_END 200
+
+typedef struct
+{
+   char nome [ DIM_NOME + 1 ] ;
+   char telefone [ DIM_TEL + 1 ] ;
+   char endereco [ DIM_END + 1 ] ;
+} 
+TST_info ;
+
+
+GRF_tppGrafo   vtGrafo[ DIM_VT ] = { NULL , NULL , NULL , NULL , NULL , 
+                                     NULL , NULL , NULL , NULL , NULL } ;
+
+
+/*****  Cabecalho das funções encapsuladas pelo módulo  *****/
+
+   static void TST_excluirInfo ( void * ) ;
+
+   static int TST_comparaValor ( void * pValorCorr , void * pValorBuscado ) ;
+
+
+/*****  Código das funções exportadas pelo módulo  *****/
+
+
+/***********************************************************************
+*
+*  $FC Função: TGRF Efetuar operações de teste específicas para grafo
+*
+*  $ED Descrição da função
+*     Efetua os diversos comandos de teste específicos para o módulo
+*     grafo sendo testado.
+*
+*  $EP Parâmetros
+*     $P ComandoTeste - String contendo o comando
+*
+*  $FV Valor retornado
+*     Ver TST_tpCondRet definido em TST_ESPC.H
+*
+***********************************************************************/
+
+   TST_tpCondRet TST_EfetuarComando( char * ComandoTeste )
+   {
+
+      GRF_tpCondRet CondRetObtido   = GRF_CondRetOK ;
+      GRF_tpCondRet CondRetEsperada = GRF_CondRetFaltouMemoria ;
+                                      /* inicializa para qualquer coisa */
+
+      int  NumLidos = -1 ;
+      int  inxGrafo = -1 ;
+
+      char nomeTmp [ DIM_NOME + 1 ] ;
+      char telefoneTmp [ DIM_TEL + 1 ] ;
+      char enderecoTmp [ DIM_END + 1 ] ;
+
+      TST_info * TST_Conteudo = 0 ;
+      void * TST_infoCorr = 0 ;
+      
+      #ifdef _DEBUG
+         int  IntEsperado   = -1 ;
+      #endif
+
+      /* Testar CriarGrafo */
+
+         if ( strcmp( ComandoTeste , GRF_CRIAR_GRAFO_CMD ) == 0 )
+         {
+
+            NumLidos = LER_LerParametros( "i" , &inxGrafo ) ;
+
+            if ( ( NumLidos != 1 )
+              || ( inxGrafo < 0 ) || ( inxGrafo >= DIM_VT ))
+            {
+               return TST_CondRetParm ;
+            } /* if */
+
+            CondRetObtido = GRF_criarGrafo( &vtGrafo[ inxGrafo ] , TST_excluirInfo , TST_comparaValor ) ;
+
+            if( CondRetObtido == GRF_CondRetFaltouMemoria )
+            {
+               return TST_CondRetMemoria ;
+            } /* if */
+            if( CondRetObtido != GRF_CondRetOK )
+            {
+               return TST_CondRetNaoExecutou ;
+            } /* if */
+
+            return TST_CondRetOK ;
+         } /* fim ativa: Testar CriarGrafo */
+
+      /* Testar CriarVertice */
+
+         else if ( strcmp( ComandoTeste , GRF_CRIAR_VERTICE_CMD ) == 0 )
+         {
+
+            NumLidos = LER_LerParametros( "isssi" , &inxGrafo , nomeTmp , enderecoTmp , 
+                                                    telefoneTmp , &CondRetEsperada ) ;
+
+            if ( ( NumLidos != 5 )
+              || ( inxGrafo < 0 ) || ( inxGrafo >= DIM_VT ))
+            {
+               return TST_CondRetParm ;
+            } /* if */
+
+            TST_Conteudo = ( TST_info * ) malloc ( sizeof ( TST_info ) ) ;
+            if( TST_Conteudo == NULL )
+            {
+               return TST_CondRetMemoria ;
+            } /* if */
+
+            strcpy ( TST_Conteudo->endereco , enderecoTmp ) ;
+            strcpy ( TST_Conteudo->nome , nomeTmp ) ;
+            strcpy ( TST_Conteudo->telefone , telefoneTmp ) ;
+
+            CondRetObtido = GRF_criarVertice( vtGrafo[ inxGrafo ] , TST_Conteudo ) ;
+
+            return TST_CompararInt( CondRetObtido , CondRetEsperada ,
+                     "Condicao de retorno errada ao criar vertice." ) ;
+
+         } /* fim ativa: Testar CriarVertice */
+
+      /* Testar CriarAresta */
+
+         else if ( strcmp( ComandoTeste , GRF_CRIAR_ARESTA_CMD ) == 0 )
+         {
+            NumLidos = LER_LerParametros( "isi" , &inxGrafo , nomeTmp , &CondRetEsperada ) ;
+
+            if ( ( NumLidos != 3 )
+              || ( inxGrafo < 0 ) || ( inxGrafo >= DIM_VT ))
+            {
+               return TST_CondRetParm ;
+            } /* if */
+
+            CondRetObtido = GRF_criarAresta( vtGrafo[ inxGrafo ] , nomeTmp ) ;
+
+            return TST_CompararInt( CondRetObtido , CondRetEsperada ,
+                     "Condicao de retorno errada ao criar aresta." ) ;
+
+         } /* fim ativa: Testar CriarAresta */
+
+      /* Testar IrVertice */
+
+         else if ( strcmp( ComandoTeste , GRF_IR_VERTICE_CMD ) == 0 )
+         {
+            NumLidos = LER_LerParametros( "isi" , &inxGrafo , nomeTmp , &CondRetEsperada ) ;
+
+            if ( ( NumLidos != 3 )
+              || ( inxGrafo < 0 ) || ( inxGrafo >= DIM_VT ))
+            {
+               return TST_CondRetParm ;
+            } /* if */
+
+            CondRetObtido =  GRF_irVertice ( vtGrafo[ inxGrafo ] , nomeTmp ) ;  
+
+            return TST_CompararInt( CondRetObtido , CondRetEsperada ,
+                     "Condicao de retorno errada ao ir para o vertice." ) ;
+
+         } /* fim ativa: Testar IrVertice */
+
+      /* Testar ObterVal */
+
+         else if ( strcmp( ComandoTeste , GRF_OBTER_VAL_CMD ) == 0 )
+         {
+            NumLidos = LER_LerParametros( "isi" , &inxGrafo , nomeTmp , &CondRetEsperada ) ;
+
+            if ( ( NumLidos != 3 )
+              || ( inxGrafo < 0 ) || ( inxGrafo >= DIM_VT ))
+            {
+               return TST_CondRetParm ;
+            } /* if */
+
+            TST_infoCorr = NULL ;
+            CondRetObtido = GRF_obterCorr ( vtGrafo[ inxGrafo ] , &TST_infoCorr ) ;
+            TST_Conteudo = ( TST_info * ) TST_infoCorr ;
+
+            if( CondRetObtido == GRF_CondRetOK )
+            {
+               if( TST_comparaValor( TST_Conteudo , nomeTmp ) != 0 )
+               {
+                  CondRetObtido = GRF_CondRetNaoAchou ;
+               } /* if */
+            } /* if */
+
+            return TST_CompararInt( CondRetObtido , CondRetEsperada ,
+                     "Condicao de retorno errada ao obter valor do vertice corrente." ) ;
+
+         } /* fim ativa: Testar ObterVal */
+
+     /* Testar DestroiVertice */
+
+         else if ( strcmp( ComandoTeste , GRF_DESTROI_VERTICE_CMD ) == 0 )
+         {
+            NumLidos = LER_LerParametros( "i" , &inxGrafo ) ;
+
+            if ( ( NumLidos != 1 )
+              || ( inxGrafo < 0 ) || ( inxGrafo >= DIM_VT ))
+            {
+               return TST_CondRetParm ;
+            } /* if */
+
+            GRF_destruirVerticeCorr ( vtGrafo[ inxGrafo ] ) ; 
+
+            return TST_CondRetOK ;
+
+         } /* fim ativa: DestroiVertice */
+
+      /* Testar DestroiAresta */
+
+         else if ( strcmp( ComandoTeste , GRF_DESTROI_ARESTA_CMD ) == 0 )
+         {
+            NumLidos = LER_LerParametros( "is" , &inxGrafo , nomeTmp ) ;
+
+            if ( ( NumLidos != 2 )
+              || ( inxGrafo < 0 ) || ( inxGrafo >= DIM_VT ))
+            {
+               return TST_CondRetParm ;
+            } /* if */
+
+            GRF_destruirAresta( vtGrafo[ inxGrafo ] , nomeTmp ) ;
+
+            return TST_CondRetOK ;
+
+         } /* fim ativa: DestroiAresta */
+
+      /* Testar DestroiGrafo */
+
+         else if ( strcmp( ComandoTeste , GRF_DESTROI_GRAFO_CMD ) == 0 )
+         {
+            NumLidos = LER_LerParametros( "i" , &inxGrafo ) ;
+
+            if ( ( NumLidos != 1 )
+              || ( inxGrafo < 0 ) || ( inxGrafo >= DIM_VT ))
+            {
+               return TST_CondRetParm ;
+            } /* if */
+
+            GRF_destruirGrafo ( vtGrafo[ inxGrafo ] ) ; 
+
+            vtGrafo[ inxGrafo ] = NULL ;
+
+            return TST_CondRetOK ;
+
+         } /* fim ativa: DestroiGrafo */
+         
+       /* Testar VerificarGrafo */
+      #ifdef _DEBUG
+         else if ( strcmp( ComandoTeste , GRF_VER_GRAFO_CMD ) == 0 )
+         {
+            NumLidos = LER_LerParametros( "i" , &inxGrafo ) ;
+
+            if ( ( NumLidos != 1 )
+              || ( inxGrafo < 0 ) || ( inxGrafo >= DIM_VT ))
+            {
+               return TST_CondRetParm ;
+            } /* if */
+
+            CondRetObtido = GRF_VerificarGrafo ( vtGrafo[ inxGrafo ] ) ; 
+            if( CondRetObtido != GRF_CondRetOK ) return TST_CondRetErro ;
+
+            return TST_CondRetOK ;
+
+         } /* fim ativa: VerificarGrafo */
+       #endif  
+      /* Testar VerificarMemoria */
+      #ifdef _DEBUG
+         else if ( strcmp( ComandoTeste , GRF_VER_MEMORIA_CMD ) == 0 )
+         {
+            CED_ExibirTodosEspacos( CED_ExibirTodos ) ;        
+            return TST_CondRetOK ;
+
+         } /* fim ativa: VerificarMemoria */
+       #endif  
+      /* Testar Deturpar */
+      #ifdef _DEBUG
+         else if ( strcmp( ComandoTeste , GRF_DETURPAR_CMD ) == 0 )
+         {
+            NumLidos = LER_LerParametros( "ii" , &inxGrafo, &IntEsperado ) ;
+
+            if ( ( NumLidos != 2 )
+              || ( inxGrafo < 0 ) || ( inxGrafo >= DIM_VT ))
+            {
+               return TST_CondRetParm ;
+            } /* if */
+
+            GRF_Deturpar ( vtGrafo[ inxGrafo ], IntEsperado ) ; 
+
+            return TST_CondRetOK ;
+
+         } /* fim ativa: Deturpar */
+       #endif
+      return TST_CondRetNaoConhec ;
+
+   } /* Fim função: TGRF Efetuar operações de teste específicas para grafo */
+
+
+/*****  Código das funções encapsuladas pelo módulo  *****/
+
+/***********************************************************************
+*
+*  $FC Função: TST -Excluir informacao
+*
+***********************************************************************/
+
+
+   void TST_excluirInfo ( void * parmInfo )
+   {
+
+      free( ( TST_info * ) parmInfo ) ;
+
+   } /* Fim função: TST -Excluir informacao */
+
+   
+/***********************************************************************
+*
+*  $FC Função: TST -Compara Valor
+*
+***********************************************************************/
+
+   int TST_comparaValor ( void * pValorCorr , void * pValorBuscado )
+   {
+      TST_info * pInfo = ( TST_info * ) pValorCorr ;
+      /* Compara os nomesDasPessoas dos vertices */
+      if( pInfo == NULL ) return 1 ;
+      return strcmp( pInfo->nome , ( char * ) pValorBuscado ) ;
+
+   } /* Fim função: TST -Compara Valor */
+
+/********** Fim do módulo de implementação: Módulo de teste específico **********/

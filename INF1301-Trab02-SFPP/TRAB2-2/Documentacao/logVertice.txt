@@ -1,0 +1,26 @@
+
+!!! Inicio dos testes
+!!!      Construto sob teste: ..\Produto\TRAB2-2.exe
+!!!      Script de teste:     ..\Script\TesteVertice.script
+
+!!!    0  Linha:     1  // Script:    Testeverfo.script 
+!!!    0  Linha:     2  // Autor:     sf - Stehanie Fay 
+!!!    0  Linha:     3  //	      pp - Pedro Paulo 
+!!!    0  Linha:     4  // Data:      18/out/2013 
+!!!    0  Linha:     5  // Propósito: Script para testar a construção de vertices. 
+!!!    0  Linha:     6  // 
+    9  == Inicializar valores
+!!!    0  Linha:    28  // Inicio dos testes 
+   30  ==Criar o vertices
+   38  ==Destruir Vertices
+!!!    0  Linha:    46  //fim 
+
+!!! Número de linhas lidas:          46
+!!! Número de casos de teste:         3
+!!! Número comandos corretos:        24
+!!! Número de falhas encontradas:     0
+
+!!! Não foram encontrados problemas
+
+
+!!! Numero de espacos ainda alocados: 0

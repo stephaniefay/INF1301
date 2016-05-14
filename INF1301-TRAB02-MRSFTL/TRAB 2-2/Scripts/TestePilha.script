@@ -1,0 +1,64 @@
+// Script:    TestePilha.script
+// Autor:     Thiago Lages de Alencar
+// Data:      14/05/13
+// Propósito: Testar o módulo pilha genérica
+//
+
+== Inicializar valores
+=declararparm   pilha0  int 0
+=declararparm   pilha1  int 1
+=declararparm   pilha2  int 2
+
+=declararparm   str0    string  "lolpkhg"
+=declararparm   str1    string  "iuiopff"
+=declararparm   str2    string  "xxx"
+=declararparm   str3    string  "xpto"
+=declararparm   str4    string  " sf"
+=declararparm   str5    string  ""
+
+=declararparm   OK             int  0
+=declararparm   ListaVazia     int  1
+=declararparm   FimLista       int  2
+=declararparm   NaoAchou       int  3
+=declararparm   FaltouMemoria  int  4
+
+=declararparm   pNULL          int  0
+=declararparm   pNaoNULL       int  1
+
+== Criar a pilha 0
+=criarpilha      pilha0 
+
+== Verificar ObterValor relativo a pilhavazia
+=obtervalorelem  pilha0   "???"     pNULL
+
+== Inserir elemento em lista vazia
+=inselemapos    pilha0   str0   OK
+
+== Inserir elemento após primeiro
+=inselemapos     pilha0   str1   OK
+
+== Excluir elemento
+=obtervalorelem  pilha0   str1   pNaoNULL
+
+== Excluir elemento único 
+=obtervalorelem  pilha0   str1   pNaoNULL
+
+== Ver se a lista ficou vazia
+=obtervalorelem  pilha0   "???"  pNULL
+
+== Destruir a lista
+=destruirlista   pilha0
+
+== Criar uma lista com seis elementos
+=criarpilha      pilha2 
+=inselemapos     pilha2   str0   OK
+=inselemapos     pilha2   str1   OK
+=inselemapos     pilha2   str2   OK
+=inselemapos     pilha2   str3   OK
+=inselemapos     pilha2   str4   OK
+=inselemapos     pilha2   str5   OK
+
+== Destruir a pilha
+=destruirpilha   pilha2
+
+// fim

@@ -1,0 +1,117 @@
+	PLH_tpCondRet PLH_Insere (PLH_tppPilha plh, char pValor)
+
+//AE¹> Uma pilha válida
+//AE²> Um valor (char) válido para inserir
+//AS > Retorno de um int correspondente à situação (tpCondRet)
+
+	tpElemPilha * pElem = (tpElemPilha *)malloc(sizeof(tpElemPilha));
+
+AS > Conseguir mallocar o espaço de memória necessário
+
+//AI1 = AS
+
+	if (pElem == NULL)
+	return PLH_CondRetFaltouMemoria;
+	
+1 > Condição verdadeira
+	Se a condição é verdadeira, AI1 não corresponde ao esperado e o bloco de comando é executado, correspondendo a AS (PLH_CondRetFaltouMemoria)
+2 > Condição falsa
+	Se a condição é falsa, AI1 corresponde ao esperado, significando que o malloc funcionou e, portanto, não é executado o bloco de comando
+
+//AI2 = AI1
+
+
+//AE > Elemento da pilha mallocado (AI2)
+//AS > A função espera devolver 0 (tpCondRetOk)
+
+	pElem->valor = (char*)pValor;
+
+//AI3 > AE > Elemento Válido
+	AS > Valor inserido no elemento
+
+	pElem->prox = plh->topo;
+
+//AI4 > AE > Elemento Válido
+	AS > Topo da pilha armazenado no pElem->prox
+
+	plh->topo = pElem;
+
+//AI5 > AE > Elemento válido
+	AS > Reposicionamento do topo com o que pElem armazena
+
+	plh->tam++;
+
+//AI6 > AE > Elemento válido
+	AS > Acrécimo no int tam, referente ao tamanho da pilha
+
+	return PLH_CondRetOk;
+//E portanto vale a AS.
+
+
+
+
+
+
+
+	PLH_tpCondRet PLH_Libera (PLH_tppPilha plh)
+
+//AE > Pilha válida
+//AS > Retorno de um int correspondente à situação (tpCondRet) 
+
+	tpElemPilha *p, *q;
+
+//AI1 > AS > Ter criado duas variáveis (Ela é válida como AE da AI2)
+
+	q = plh->topo;
+
+//AI2 > AS > Uma das variáveis ser preenchida com o endereço do topo da pilha (p)
+
+	while (q!=NULL)
+
+//AE > AI2
+//AS > (q) ser null
+//AINV > (q != NULL)
+
+1 > Antes do incício da repetição
+	Pela AE (q) contém o topo de uma pilha, e tão logo não é null, logo vale a AINV
+2 > Caso da primeira repetição não ocorrer
+	(q) ser NULL ou possuir apenas um elemento significa que ele não executará a primeira repetição. Vale a AS
+3 > Primeira repetição
+	Para que a primeira repetição ocorra, (q) deve ser não-null, para poder ser liberado. Em seguida, (q) é reposicionado para o próximo, vale a AINV
+4 > Demais repetições
+	As demais repetições terão o padrão de liberar o elemento em (q) e reposicioná-lo, valendo a AINV
+5 > Finalização da repetição
+	A repetição finaliza quando não tiver mais elementos para liberar (q==NULL) e portanto a AS é válida
+6 > Se a cada ciclo um elemento da pilha é liberado e a pilha tem um número finito de elementos, a repetição terminará depois de um número finito de ciclos
+
+// Interior da repetição;
+
+	p=q->prox;
+
+//AI3 > AE > (q) não ser NULL
+	AS > (p) possuir o próximo elemento de (q)
+
+	free(q->valor);
+
+//AI4 > AE > q->valor ser válido
+	AS > desfazer (liberar) o malloc de q->valor
+
+	free(q);
+
+//AI5 > AE > (q) ser válido
+	AS > desfazer (liberar) o malloc de (q), valendo a AS
+
+	q=p;
+
+// Fim da repetição
+
+//AI6 > AS > (q) ser null
+
+	plh->tam=0;
+
+//AI7 > AE = AI6 > AS
+	AS > variável tam ser 0
+
+	return PLH_CondRetOk;
+//E portanto vale a AS.
+

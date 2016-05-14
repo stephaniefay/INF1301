@@ -1,0 +1,26 @@
+
+!!! Inicio dos testes
+!!!      Construto sob teste: ..\Produto\TRAB2-3.exe
+!!!      Script de teste:     ..\Script\TesteGrafo.script
+
+!!!    0  Linha:     1  // Script:    TesteGrafo.script 
+!!!    0  Linha:     2  // Autor:     sf - Stehanie Fay 
+!!!    0  Linha:     3  //	      pp - Pedro Paulo 
+!!!    0  Linha:     4  // Data:      18/out/2013 
+!!!    0  Linha:     5  // Propósito: Script para testar a construção de grafos. 
+!!!    0  Linha:     6  // 
+    9  == Inicializar valores
+!!!    0  Linha:    32  // Inicio dos testes 
+   34  ==Criar o grafo 0
+>>>    1  Linha:    35  Comando não conhecido:  =criargrafo    gra0
+!!!    1  Linha:    39  //fim 
+
+!!! Número de linhas lidas:          39
+!!! Número de casos de teste:         2
+!!! Número comandos corretos:        19
+!!! Número de falhas encontradas:     1
+
+!!! Foram encontrados problemas
+
+
+!!! Numero de espacos ainda alocados: 0

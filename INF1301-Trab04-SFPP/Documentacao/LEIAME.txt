@@ -1,0 +1,45 @@
+|--------------------|
+|     Introdução     |
+|--------------------|
+
+	. Maximize a janela do bloco de notas para a melhor leitura.
+	. Antes do inicio dos testes, retire o .txt das extensões dos arquivos contidos dentro da pasta
+		. \..\Produtos\DEBUG
+		. \..\Produtos\RELEASE
+		. \..\Fontes
+		. \..\Objetos
+		. \..\Scripts
+		. \..\Batches
+	qual foram adicionados para manter a integridade dos arquivos quando compactados e enviados por email.
+
+
+|---------------------------|
+|     Sobre os batches      |
+|---------------------------|
+
+	. Para a execução dos .bat, dê dois cliques nos arquivos disponíveis, sendo as opções
+		->TesteControleEspacoGrafo - Executa o teste de controle de espaço alocado pelo grafo
+		->TesteDeturpaGrafo1 	   - Executa testes deturpando o grafo até certo ponto onde ocorre um erro
+		->TesteDeturpaGrafo2	   - Executa testes deturpando o grafo até certo ponto onde ocorre outro erro
+		->TesteGrafo	           - Executa o script normal, sem a tentativa da deturpação/uso do DEBUG
+	o arquivo irá gerar um .log para leitura dentro da pasta \..\Documentacao, com o nome respectivo. Os batches 
+	usam o executável com o DEBUG ligado, exceto pelo TestaScriptRELEASE.bat
+
+
+|------------------------------|
+|     Sobre os executáveis     |
+|------------------------------|
+
+	. Existem dois executáveis, em respectivas pastas, onde um está com a instrumentação ligada 
+(\..\Produtos\DEBUG\Trab04-1.exe) e outro com ela desligada (\..\Produtos\RELEASE\Trab04-2.exe), para execução
+dê dois cliques sobre o executável escolhido.
+
+
+|-----------------------------------|
+|     Referencia de Documentação    |
+|-----------------------------------|
+
+	.Referente aos arquivos:
+		Leia-Me      : Arquivo atual, com informações sobre as pastas e executáveis;
+		Relatorio-id : Relatório de afazeres de alunos, composta de suas ações, nome, matrícula e id no trabalho;
+		Modelo Físico: Modelo físico contendo a estrutura (em preto) e a instrumentação (em vermelho), assim como AE e AS;

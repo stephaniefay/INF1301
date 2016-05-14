@@ -1,0 +1,10 @@
+
+MATRIZ.exe
+
+	Descrição:
+	Gerado usando MATRIZ.c e MATRIZ.h, o proposito é
+	a criação e manipulação de matrizes genericas.
+	Esse programa precisa do LISTA.c, LISTA.h, PILHA.c
+	e PILHA.h para que sejá produzido com sucesso.
+	Cada coordenada dessa matriz é um nó de Lista e aponta
+	para uma pilha a qual armazena valores genéricos.

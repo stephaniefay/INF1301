@@ -1,0 +1,25 @@
+////////////////////////////////////////////////
+//
+// Arquivo de declaração de contadores
+// Conta módulo Grafo marcado
+//
+///////////////////////////////////////////////
+    
+    CabecaGrafoInvalida
+    ErroEspacoGrafo
+    ListaVerticeNaoExiste
+    ListaVerticeCorrenteNulo
+    GrafoVazioTemCorrenteNaoNull
+    GrafoSemVerticeCorrenteTemListaNaoVazia
+    QuantidadeVerticesInvalida
+    VerticeInexistente
+    ValorVerticeInvalido
+    ErroEspacoInfo
+    TipoInfoVerticeInvalido
+    GrafoApontadoVerticeNulo
+    TipoEncapsuladoInvalido
+    VerticeNaoFazParteGrafoApontado
+    VerticeApontadoArestaNaoFazParteGrafo
+    ArestaVaiMasNaoVolta
+    VerificaoOK
+

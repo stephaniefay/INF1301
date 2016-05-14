@@ -1,0 +1,13 @@
+Script de Teste Manual
+
+Para testar o jogo de Mahjong desenvolvido, siga corretamente os passos descritos abaixo:
+	- Extraia todos os arquivos contidos no arquivo .zip para a pasta de sua preferência.
+	- Entre na pasta TRAB03, em seguida, entre no diretório Produto.
+	- Dê um clique-duplo no arquivo TRAB03-1.EXE.
+	- A tela de jogo se abrirá, exibindo uma mensagem requisitando as coordenadas de seu movimento.
+	- Peças livres são indicadas pela coloração azul enquanto peças bloqueadas são indicadas pela coloração vermelha.
+	- Escreva as coordenadas relativas a uma peça para escolhê-la. A mesma deve estar "livre", ou seja, não há peças adjacentes em pelo menos uma de suas laterais.
+	- Escreva as coordenadas relativas a uma peça "livre" de caracter idêntico a peça selecionada anteriormente.
+	- Caso duas peças adequadas tenham sido selecionadas, ambas serão retiradas do jogo, liberando peças previamente bloqueadas, caso contrário uma mensagem de erro será exibida.
+	- Prossiga, juntando as peças remanescentes até eliminar todas as peças do tabuleiro.
+	- O jogo terminará quando todas as peças forem retiradas do tabuleiro ou nenhum movimento puder ser realizado.

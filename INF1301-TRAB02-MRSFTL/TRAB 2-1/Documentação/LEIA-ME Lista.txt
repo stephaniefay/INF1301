@@ -1,0 +1,6 @@
+
+LISTA.exe
+
+	Descrição:
+	Gerado usando LISTA.c e LISTA.h, o qual o proposito
+	é criar e manipular listas genericas.

@@ -1,0 +1,1 @@
+..\Produtos\DEBUG\Trab04-1.exe /s..\Scripts\TesteDeturpaGrafo2.script /l..\Documentacao\logDeturpa2.txt

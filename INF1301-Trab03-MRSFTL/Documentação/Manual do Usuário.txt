@@ -1,0 +1,33 @@
+Mahjong
+
+Manual de usuário
+
+Mahjong é um jogo de paciência no qual utilizam-se peças no lugar de cartas.
+
+Para começar um jogo
+
+ - Vá até a pasta TRAB03
+ - Dê um clique-duplo em TRAB3-1.EXE
+ - O tabuleiro será exibido
+ - Escreva as coordenadas relativas a duas peças a serem retiradas
+ - As coordenadas baseiam-se em um plano cartesiano, logo, X referencia colunas e Y referencia linhas.
+ OBS.: As coordenadas relativas variam de 0 até 4.
+
+--------------------
+
+Preparação e Regras
+
+Objetivo:
+
+ - Retirar todas as peças do tabuleiro.
+
+O tabuleiro:
+
+ - Cada jogo possui, inicialmente, 100 peças distribuidas em um paralelepípedo.
+ - Existem vários tipos de peças as quais são associadas a um caracter específico.
+
+Como jogar:
+
+ - Para remover uma peça, a mesma deve estar livre. Uma peça é considerada livre caso não exista uma peça
+adjacente em pelo menos uma de suas duas laterais.
+ - É necessário combinar duas peças idênticas, ou seja, associadas ao mesmo caracter, para retirá-las. 

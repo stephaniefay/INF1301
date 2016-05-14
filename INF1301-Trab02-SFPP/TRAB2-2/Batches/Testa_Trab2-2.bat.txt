@@ -1,0 +1,1 @@
+..\Produto\TRAB2-2.exe /s..\Script\TesteVertice.script /l..\Documentacao\logVertice.txt

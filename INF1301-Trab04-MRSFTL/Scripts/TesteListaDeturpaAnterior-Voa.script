@@ -1,0 +1,69 @@
+// Script:    TesteListaDeturpaAnterior-Voa.script
+// Autor:     Marcos Rubio, Stephanie Fay e Thiago Lages de Alencar
+// Data:      01/jul/2013
+// Propósito: Testar lista genérica duplamente encadeada auto-verificavel 
+// utilizando deturpacao e possivelmente causando programa a voar
+//
+
+== Inicializar valores
+=declararparm   lista0  int 0
+
+=declararparm   str0    string  "fefrft"
+=declararparm   str1    string  "jukilo"
+=declararparm   str2    string  "xpto"
+=declararparm   str3    string  "www"
+
+=declararparm   OK             int  0
+=declararparm   Erro           int  1
+=declararparm   ListaVazia     int  1
+=declararparm   FimLista       int  2
+=declararparm   NaoAchou       int  3
+=declararparm   FaltouMemoria  int  4
+
+
+=declararparm   DeturparEliminaCorrenteLista  int 1
+=declararparm   DeturparElemProximo           int 2
+=declararparm   DeturparElemAnterior          int 3
+=declararparm   DeturparProximoInvalido       int 4
+=declararparm   DeturparAnteriorInvalido      int 5
+=declararparm   DeturparValorElem             int 6
+=declararparm   DeturparEstruturaCorrente     int 7
+=declararparm   DeturparElemCorrente          int 8
+=declararparm   DeturparRefCorrente           int 9
+=declararparm   DeturparInicioLista           int 10
+
+=declararparm   pNULL          int  0
+=declararparm   pNaoNULL       int  1
+
+=declararparm   contador  string  	"ContadorAnterior.cont"
+=declararparm   defcontador  string  	"Contador.def"
+
+== Iniciar Contador
+=inicializarcontadores contador
+=iniciarcontagem
+=lercontadores	defcontador
+
+==Verifica a memoria antes das alocacoes
+//Nao deve ter nenhum espaco alocado
+=verificarmemoria
+
+== Criar a lista 0
+=criarlista      lista0 
+=inselemapos    lista0   str0   OK
+=inselemapos    lista0   str1   OK
+=inselemapos   lista0   str2   OK
+=inselemapos    lista0   str3   OK
+
+// Este erro podera fazer o programa voar
+=deturparlista   lista0   DeturparAnteriorInvalido  OK
+=verificarlista	 lista0		OK
+
+==Verifica a memoria depois da liberacao
+//Devera ter espacos ainda alocados
+=verificarmemoria
+
+== Terminar testes
+=pararcontagem
+=terminarcontadores
+
+// fim

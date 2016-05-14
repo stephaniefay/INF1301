@@ -1,0 +1,71 @@
+Datas: 
+	24/06/13
+	25/06/13
+	30/06/13
+	01/06/13
+	02/06/13
+
+----------------------------------------------------------
+
+Horas Trabalhadas:
+
+	24/06/13
+		-Início: 19:00h
+		-Fim:    20:30h
+
+Tipos de Tarefa: 
+
+	Estudar
+	Projetar
+	Revisar código do módulo
+
+----------------------------------------------------------
+
+Horas Trabalhadas:
+
+	25/06/13
+		-Início: 18:00h
+		-Fim:    22:00h
+
+Tipo de Tarefa:
+
+	Especificar os módulos
+	Especificar as funções
+	revisar projetos
+	codificar módulo
+	Estudar
+
+----------------------------------------------------------
+
+Horas Trabalhadas:
+
+	30/06/13
+		-Início: 18:00h
+		-Fim: 	 22:00h
+
+Tipo de Tarefa:
+
+	Codificar módulo
+	Revisar especificações
+	Redigir script de teste
+
+----------------------------------------------------------
+
+Horas Trabalhadas:
+
+	01/06/13
+		-Início: 19:00h
+	02/06/13
+		-Fim:    02:30h
+
+Tipo de Tarefa:
+
+	Revisar especificações
+	Revisar projetos
+	Revisar código do módulo
+	Redigir script de teste
+	Revisar script de teste
+	Realizar os testes
+	Diagnosticar e corrigir os problemas encontrados
+
+-----------------------------------------------------------

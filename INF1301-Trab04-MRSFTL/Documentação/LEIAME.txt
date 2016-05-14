@@ -1,0 +1,33 @@
+
+LEIAME - Trabalho 04
+
+
+Índice
+ - Objetivo do executável
+ - Testes
+ - Conteudo do arquivo .ZIP
+
+
+ - Objetivo do executável
+
+	O executável tem como objetivo criar uma lista duplamente encadeada autoverificável e deturpar o módulo controlodamente a fim de testá-lo.
+
+
+ - Testes
+
+	Scripts: TesteLista.script, TesteListaDeturpa.script, TesteListaDeturpaAnterior-Voa.script, TesteListaDeturpaEstrutura-Voa.script, TesteListaDeturpaProximo-Voa.script, TesteListaSemInstrum.script. 
+
+	Os testes são coordenados por scripts listados acima. Cada script é responsável por um teste específico afim de testar completamente o programa.
+
+
+ - Conteudo do arquivo .ZIP
+
+	O arquivo .zip contém 4 pastas:
+  
+  	
+  	- Batches      : Arquivos .bat responsáveis por executar os testes diretamente e gerar os .log.
+	- Documentação : relatórios dos integrantes do grupo, modelo, exemplo e assertivas.
+  	- Fontes       : Arquivos fonte utilizados, sendo estes .c, .h e .def.
+  	- Objetos      : biblioteca.lib
+  	- Produtos     : Programas executáveis (com e sem instrumentação ligada), arquivos .cont e .log. 
+  	- Scripts      : Scripts de teste desenvolvidos.

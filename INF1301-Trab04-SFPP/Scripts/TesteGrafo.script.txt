@@ -1,0 +1,164 @@
+// Script:    TesteGrafo.script
+// Autor:     Stephanie Fay, Pedro Paulo
+// Data:      18/out/2013
+// Propósito: Script para testar a construção de grafos de estruturas.
+//
+
+
+== Inicializar Grafos
+=declararparm  grf0     int 0
+=declararparm  grf1     int 1
+=declararparm  grf2     int 2
+=declararparm  grf3     int 3
+=declararparm  grf4     int 4
+=declararparm  grf5     int 5
+=declararparm  grf6     int 6
+=declararparm  grf7     int 7
+=declararparm  grf8     int 8
+=declararparm  grf9     int 9
+
+
+== Declarar as condicoes de retorno
+=declararparm  OK          int 0
+=declararparm  NaoAchou    int 1 
+=declararparm  Memoria     int 2
+=declararparm  NaoGrafo    int 3
+=declararparm  NaoExiste   int 4
+=declararparm  NaoAresta   int 5
+=declararparm  IsAresta    int 6
+=declararparm  ParmInval   int 7
+
+
+== Inicializar valores
+=declararparm  NomeA    string   "Ana"
+=declararparm  NomeB    string   "Jose"
+=declararparm  NomeC    string   "Anildo"
+=declararparm  NomeD    string   "Josefa"
+
+
+// Início dos testes
+
+== Verificar recuperar de ObterValor relativo ao grafo inexistente
+=grfobtervalor    grf0  NomeA    OK
+=recuperar
+
+==Criar o grafo 0
+=grfcriargrafo    grf0
+
+== Verificar ObterValor relativo ao grafo vazio
+=grfobtervalor    grf0  NomeA    NaoExiste
+
+== Criar vértices no grafo e obter seus valores
+=grfcriarvertice  grf0  NomeA    EndA     TelA     OK
+=grfobtervalor    grf0  NomeA    OK
+=grfcriarvertice  grf0  NomeB    EndB     TelB     OK
+=grfobtervalor    grf0  NomeA    OK
+=recuperar
+=grfobtervalor    grf0  NomeB    OK
+=grfcriarvertice  grf0  NomeC    EndA     TelA     OK
+=grfobtervalor    grf0  NomeC    OK
+
+== Criar aresta no grafo
+=grfcriararesta   grf0  NomeA    OK
+
+== Percorrer grafo
+=grfirvertice     grf0  NomeA    OK
+=grfirvertice     grf0  NomeC    OK
+=grfirvertice     grf0  NomeB    NaoAresta
+
+== Criar novo vertice e ligar a outro já existentes e percorrer o grafo
+=grfcriarvertice  grf0  NomeD    EndB     TelB     OK
+=grfobtervalor    grf0  NomeD    OK
+=grfcriararesta   grf0  NomeB    OK
+=grfirvertice     grf0  NomeB    OK
+
+== Deletar aresta, criar outra relação e passear no grafo
+=grfdestruiraresta   grf0  NomeD
+=grfirvertice     grf0  NomeD    NaoAresta
+=grfcriararesta   grf0  NomeC    OK
+=grfirvertice     grf0  NomeC    OK
+=grfcriararesta   grf0  NomeD    OK
+=grfirvertice     grf0  NomeD    OK
+=grfirvertice     grf0  NomeC    OK
+
+== Deletar vértice e checar se vértice corrente é o primeiro que foi inserido
+=grfdestruirvertice  grf0  OK
+=grfobtervalor    grf0  NomeA    OK
+
+== Checa se o vértice e suas arestas foram destruidos
+=grfirvertice     grf0  NomeC    NaoAresta
+
+== Tenta criar a mesma aresta duas vezes
+=grfcriararesta   grf0  NomeD    OK
+=grfirvertice     grf0  NomeD    OK
+=grfcriararesta   grf0  NomeA    IsAresta
+
+== Deleta o primeiro vértice inserido no grafo
+=grfirvertice     grf0  NomeA    OK
+=grfdestruirvertice  grf0  OK
+=grfobtervalor    grf0  NomeB    OK
+
+== Destrói o grafo
+=grfdestruirgrafo grf0
+=grfobtervalor    grf0  NomeA    NaoGrafo
+
+== Cria 10 grafos
+=grfcriargrafo    grf0
+=grfcriargrafo    grf1
+=grfcriargrafo    grf2
+=grfcriargrafo    grf3
+=grfcriargrafo    grf4
+=grfcriargrafo    grf5
+=grfcriargrafo    grf6
+=grfcriargrafo    grf7
+=grfcriargrafo    grf8
+=grfcriargrafo    grf9
+
+== Criar um vértice em cada grafo
+=grfcriarvertice  grf0  NomeA    EndB     TelB     OK
+=grfcriarvertice  grf1  NomeB    EndB     TelB     OK
+=grfcriarvertice  grf2  NomeC    EndB     TelB     OK
+=grfcriarvertice  grf3  NomeD    EndB     TelB     OK
+=grfcriarvertice  grf4  NomeA    EndB     TelB     OK
+=grfcriarvertice  grf5  NomeB    EndB     TelB     OK
+=grfcriarvertice  grf6  NomeC    EndB     TelB     OK
+=grfcriarvertice  grf7  NomeD    EndB     TelB     OK
+=grfcriarvertice  grf8  NomeA    EndB     TelB     OK
+=grfcriarvertice  grf9  NomeB    EndB     TelB     OK
+
+== Checando se os vértices foram criados corretamente
+=grfobtervalor   grf0  NomeA    OK
+=grfobtervalor   grf1  NomeB    OK
+=grfobtervalor   grf2  NomeC    OK
+=grfobtervalor   grf3  NomeD    OK
+=grfobtervalor   grf4  NomeA    OK
+=grfobtervalor   grf5  NomeB    OK
+=grfobtervalor   grf6  NomeC    OK
+=grfobtervalor   grf7  NomeD    OK
+=grfobtervalor   grf8  NomeA    OK
+=grfobtervalor   grf9  NomeB    OK
+
+== Destruindo todos os grafos
+=grfdestruirgrafo grf0
+=grfobtervalor    grf0  NomeA    NaoGrafo
+=grfdestruirgrafo grf1
+=grfobtervalor    grf1  NomeB    NaoGrafo
+=grfdestruirgrafo grf2
+=grfobtervalor    grf2  NomeC    NaoGrafo
+=grfdestruirgrafo grf3
+=grfobtervalor    grf3  NomeD    NaoGrafo
+=grfdestruirgrafo grf4
+=grfobtervalor    grf4  NomeA    NaoGrafo
+=grfdestruirgrafo grf5
+=grfobtervalor    grf5  NomeB    NaoGrafo
+=grfdestruirgrafo grf6
+=grfobtervalor    grf6  NomeC    NaoGrafo
+=grfdestruirgrafo grf7
+=grfobtervalor    grf7  NomeD    NaoGrafo
+=grfdestruirgrafo grf8
+=grfobtervalor    grf8  NomeA    NaoGrafo
+=grfdestruirgrafo grf9
+=grfobtervalor    grf9  NomeB    NaoGrafo
+
+
+//fim

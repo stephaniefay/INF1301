@@ -1,0 +1,21 @@
+#if ! defined( TIPOS_LISTA_ )
+#define TIPOS_LISTA_
+/***************************************************************************
+*
+*  $MCD Arquivo de definição: TiposEspacosLista.def
+*
+*  Autores: tla
+*
+*  $ED Descrição do arquivo
+*     Servirá para declarar os tipos de espaço que serão usados no módulo lista
+*	  duplamente encadeada. Contém uma seqüência de declaradores a serem 
+*     incluídos em um enum. Cada declarador corresponde a um dos tipos de espaço de dados.
+*
+***************************************************************************/
+
+      LIS_TipoEspacoLista, 
+      LIS_TipoEspacoElemento,
+
+/********** Fim do arquivo de definição: TiposEspacosLista.def  **********/
+
+#endif

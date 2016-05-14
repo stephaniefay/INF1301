@@ -1,0 +1,94 @@
+
+!!! Inicio dos testes
+!!!      Construto sob teste: ..\Produtos\DEBUG\Trab04-1.exe
+!!!      Script de teste:     ..\Scripts\TesteGrafo.script
+
+!!!    0  Linha:     1  // Script:    TesteGrafo.script 
+!!!    0  Linha:     2  // Autor:     Stephanie Fay, Pedro Paulo 
+!!!    0  Linha:     3  // Data:      18/out/2013 
+!!!    0  Linha:     4  // Propósito: Script para testar a construção de grafos de estruturas. 
+!!!    0  Linha:     5  // 
+    8  == Inicializar Grafos
+   21  == Declarar as condicoes de retorno
+   32  == Inicializar valores
+!!!    0  Linha:    39  // Início dos testes 
+   41  == Verificar recuperar de ObterValor relativo ao grafo inexistente
+>>>    1  Linha:    42  Condicao de retorno errada ao obter valor do vertice corrente. Deveria ser: 3  É: 0
+<<<    0  Linha:    43  Falha esperada foi recuperada. 
+   45  ==Criar o grafo 0
+   48  == Verificar ObterValor relativo ao grafo vazio
+   51  == Criar vértices no grafo e obter seus valores
+ll>    1  Linha:    52  Parâmetro não está definido:  EndA
+>>>    2  Linha:    52  Erro nos parâmetros do comando:  =grfcriarvertice  grf0  NomeA    EndA     TelA     OK
+>>>    3  Linha:    54  Comando de teste ignorado:  =grfcriarvertice  grf0  NomeB    EndB     TelB     OK
+>>>    4  Linha:    55  Comando de teste ignorado:  =grfobtervalor    grf0  NomeA    OK
+>>>    5  Linha:    56  Comando de teste ignorado:  =recuperar
+>>>    6  Linha:    57  Comando de teste ignorado:  =grfobtervalor    grf0  NomeB    OK
+>>>    7  Linha:    58  Comando de teste ignorado:  =grfcriarvertice  grf0  NomeC    EndA     TelA     OK
+>>>    8  Linha:    59  Comando de teste ignorado:  =grfobtervalor    grf0  NomeC    OK
+   61  == Criar aresta no grafo
+>>>    9  Linha:    62  Condicao de retorno errada ao criar aresta. Deveria ser: 4  É: 0
+   64  == Percorrer grafo
+>>>   10  Linha:    65  Condicao de retorno errada ao ir para o vertice. Deveria ser: 4  É: 0
+>>>   11  Linha:    66  Não é comando recuperar:  =grfirvertice     grf0  NomeC    OK
+>>>   12  Linha:    67  Comando de teste ignorado:  =grfirvertice     grf0  NomeB    NaoAresta
+   69  == Criar novo vertice e ligar a outro já existentes e percorrer o grafo
+ll>   13  Linha:    70  Parâmetro não está definido:  EndB
+>>>   14  Linha:    70  Erro nos parâmetros do comando:  =grfcriarvertice  grf0  NomeD    EndB     TelB     OK
+>>>   15  Linha:    72  Comando de teste ignorado:  =grfcriararesta   grf0  NomeB    OK
+>>>   16  Linha:    73  Comando de teste ignorado:  =grfirvertice     grf0  NomeB    OK
+   75  == Deletar aresta, criar outra relação e passear no grafo
+>>>   17  Linha:    77  Condicao de retorno errada ao ir para o vertice. Deveria ser: 4  É: 5
+>>>   18  Linha:    78  Não é comando recuperar:  =grfcriararesta   grf0  NomeC    OK
+>>>   19  Linha:    79  Comando de teste ignorado:  =grfirvertice     grf0  NomeC    OK
+>>>   20  Linha:    80  Comando de teste ignorado:  =grfcriararesta   grf0  NomeD    OK
+>>>   21  Linha:    81  Comando de teste ignorado:  =grfirvertice     grf0  NomeD    OK
+>>>   22  Linha:    82  Comando de teste ignorado:  =grfirvertice     grf0  NomeC    OK
+   84  == Deletar vértice e checar se vértice corrente é o primeiro que foi inserido
+>>>   23  Linha:    86  Condicao de retorno errada ao obter valor do vertice corrente. Deveria ser: 4  É: 0
+   88  == Checa se o vértice e suas arestas foram destruidos
+>>>   24  Linha:    89  Condicao de retorno errada ao ir para o vertice. Deveria ser: 4  É: 5
+   91  == Tenta criar a mesma aresta duas vezes
+>>>   25  Linha:    92  Condicao de retorno errada ao criar aresta. Deveria ser: 4  É: 0
+>>>   26  Linha:    93  Não é comando recuperar:  =grfirvertice     grf0  NomeD    OK
+>>>   27  Linha:    94  Comando de teste ignorado:  =grfcriararesta   grf0  NomeA    IsAresta
+   96  == Deleta o primeiro vértice inserido no grafo
+>>>   28  Linha:    97  Condicao de retorno errada ao ir para o vertice. Deveria ser: 4  É: 0
+>>>   29  Linha:    98  Não é comando recuperar:  =grfdestruirvertice  grf0  OK
+>>>   30  Linha:    99  Comando de teste ignorado:  =grfobtervalor    grf0  NomeB    OK
+  101  == Destrói o grafo
+  105  == Cria 10 grafos
+  117  == Criar um vértice em cada grafo
+ll>   31  Linha:   118  Parâmetro não está definido:  EndB
+>>>   32  Linha:   118  Erro nos parâmetros do comando:  =grfcriarvertice  grf0  NomeA    EndB     TelB     OK
+>>>   33  Linha:   120  Comando de teste ignorado:  =grfcriarvertice  grf2  NomeC    EndB     TelB     OK
+>>>   34  Linha:   121  Comando de teste ignorado:  =grfcriarvertice  grf3  NomeD    EndB     TelB     OK
+>>>   35  Linha:   122  Comando de teste ignorado:  =grfcriarvertice  grf4  NomeA    EndB     TelB     OK
+>>>   36  Linha:   123  Comando de teste ignorado:  =grfcriarvertice  grf5  NomeB    EndB     TelB     OK
+>>>   37  Linha:   124  Comando de teste ignorado:  =grfcriarvertice  grf6  NomeC    EndB     TelB     OK
+>>>   38  Linha:   125  Comando de teste ignorado:  =grfcriarvertice  grf7  NomeD    EndB     TelB     OK
+>>>   39  Linha:   126  Comando de teste ignorado:  =grfcriarvertice  grf8  NomeA    EndB     TelB     OK
+>>>   40  Linha:   127  Comando de teste ignorado:  =grfcriarvertice  grf9  NomeB    EndB     TelB     OK
+  129  == Checando se os vértices foram criados corretamente
+>>>   41  Linha:   130  Condicao de retorno errada ao obter valor do vertice corrente. Deveria ser: 4  É: 0
+>>>   42  Linha:   131  Não é comando recuperar:  =grfobtervalor   grf1  NomeB    OK
+>>>   43  Linha:   132  Comando de teste ignorado:  =grfobtervalor   grf2  NomeC    OK
+>>>   44  Linha:   133  Comando de teste ignorado:  =grfobtervalor   grf3  NomeD    OK
+>>>   45  Linha:   134  Comando de teste ignorado:  =grfobtervalor   grf4  NomeA    OK
+>>>   46  Linha:   135  Comando de teste ignorado:  =grfobtervalor   grf5  NomeB    OK
+>>>   47  Linha:   136  Comando de teste ignorado:  =grfobtervalor   grf6  NomeC    OK
+>>>   48  Linha:   137  Comando de teste ignorado:  =grfobtervalor   grf7  NomeD    OK
+>>>   49  Linha:   138  Comando de teste ignorado:  =grfobtervalor   grf8  NomeA    OK
+>>>   50  Linha:   139  Comando de teste ignorado:  =grfobtervalor   grf9  NomeB    OK
+  141  == Destruindo todos os grafos
+!!!   50  Linha:   164  //fim 
+
+!!! Número de linhas lidas:         164
+!!! Número de casos de teste:        20
+!!! Número comandos corretos:        58
+!!! Número de falhas encontradas:    50
+
+!!! Foram encontrados problemas
+
+
+!!! Numero de espacos ainda alocados: 0

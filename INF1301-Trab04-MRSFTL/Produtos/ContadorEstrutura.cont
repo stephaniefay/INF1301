@@ -1,0 +1,31 @@
+//////////////////////////////////////////////////////////////////////
+// Contadores acumulados, gerado: 2013/07/01-22:33:44
+//////////////////////////////////////////////////////////////////////
+
+LIS_AvancarElementoCorrente\=0
+LIS_CriarLista\=1
+LIS_DestruirLista\=0
+LIS_DeturparAnteriorInvalido\=0
+LIS_DeturparElemAnterior\=0
+LIS_DeturparElemCorrente\=0
+LIS_DeturparElemProximo\=0
+LIS_DeturparEliminaCorrenteLista\=0
+LIS_DeturparEstruturaCorrente\=1
+LIS_DeturparInicioLista\=0
+LIS_DeturparLista\=1
+LIS_DeturparProximoInvalido\=0
+LIS_DeturparRefCorrente\=0
+LIS_DeturparValorElem\=0
+LIS_EsvaziarLista\=0
+LIS_ExcluirElemento\=0
+LIS_InserirElementoAntes\=0
+LIS_InserirElementoApos\=4
+LIS_IrFinalLista\=1
+LIS_IrInicioLista\=6
+LIS_ObterValor\=0
+LIS_VerificaElem\=4
+LIS_VerificaLista\=1
+
+//////////////////////////////////////////////////////////////////////
+// Fim arquivo de contadores acumulados
+//////////////////////////////////////////////////////////////////////
